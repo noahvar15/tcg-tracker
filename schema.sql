@@ -48,6 +48,114 @@ create table mtg_card
     border VARCHAR(50)
 );
 
+create table pokemon_card(
+    pokID varchar(100) primary key,
+    name varchar(100),
+    level varchar(100),
+    hp varchar(100),
+    evolves_from varchar(100),
+    evolves_to varchar(100),
+    converted_energy_cost int,
+    set hash,
+    number varchar(6),
+    variant varchar(100),
+    artist varchar(100),
+    rarity varchar(100),
+    flavor_text varchar(100),
+    regulation_mark varchar(100),
+)
+
+create table pokemon_subtypes(
+    pokID varchar(100),
+    subtypes varchar(100),
+    primary key(pokID, subtype),
+    foreign key(pokID) references pokemon_card(pokID)
+)
+
+create table pokemon_types(
+    pokID varchar(100),
+    types varchar(100),
+    primary key(pokID, type),
+    foreign key(pokID) references pokemon_card(pokID)
+)
+
+create table pokemon_rules(
+    pokID varchar(100),
+    rules varchar(500),
+    primary key(pokID, rules),
+    foreign key(pokID) references pokemon_card(pokID)
+)
+
+create table pokemon_ability(
+    pokeID varchar(100),
+    ability_name varchar(100),
+    ability_text varchar(1000),
+    ability_type varchar(100),
+    primary key(pokID, ability_name),
+)
+
+create table pokemon_cost(
+    attack_name varchar(100),
+    cost varchar(100),
+    primary key(attack_name, cost)
+    foreign key(attack_name) references pokemon_attacks(attack_name)
+)
+
+create table pokemon_attacks(
+    pokID varchar(100),
+    attack_name varchar(100),
+    damage varchar(100),
+    attack_text varchar(1000),
+    converted_energy_cost int,
+    primary key(pokID, attack_name),
+    foreign key(pokID) references pokemon_card(pokID)
+)
+
+create table pokemon_weakness(
+    pokID varchar(100),
+    weak_type varchar(100),
+    weak_value varchar(100),
+    primary key(pokID, type),
+    foreign key(pokID) references pokemon_card(pokID)
+)
+
+create table pokemon_resistance(
+    pokID varchar(100),
+    resist_type varchar(100),
+    resist_value varchar(100),
+    primary key(pokID, type),
+    foreign key(pokID) references pokemon_card(pokID)
+)
+
+create table pokemon_retreat_cost(
+    pokID varchar(100),
+    cost varchar(100),
+    primary key(pokID, cost),
+    foreign key(pokID) references pokemon_card(pokID)
+)
+
+create table pokemon_pokedex_number(
+    pokID varchar(100),
+    pokedex_number int,
+    primary key(pokID, pokedex_number),
+    foreign key(pokID) references pokemon_card(pokID)
+)
+
+create table pokemon_legalities(
+    standard varchar(100),
+    expanded varchar(100),
+    unlimited varchar(100),
+    primary key(pokID, format),
+    foreign key(pokID) references pokemon_card(pokID)
+)
+
+create table pokemon_images(
+    pokID varchar(100),
+    small_img varchar(200),
+    large_img varchar(200),
+    primary key(pokID),
+    foreign key(pokID) references pokemon_card(pokID)
+)
 create table mtg_colors
 (
     mtgID INT,
