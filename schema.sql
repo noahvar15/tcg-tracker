@@ -28,7 +28,7 @@ create table if not exists collection
 
 create table if not exists mtg_card
 (
-    mtgID INT PRIMARY KEY,
+    mtgID varchar(100) PRIMARY KEY,
     name VARCHAR(100),
     layout VARCHAR(100),
     cmc INT,
@@ -36,24 +36,19 @@ create table if not exists mtg_card
     set_code VARCHAR(100),
     set_name VARCHAR(100),
     card_text VARCHAR(1000),
-    flavor_text VARCHAR(500),
+    flavor_text VARCHAR(200),
     artist VARCHAR(50),
     card_number VARCHAR(20),
     power VARCHAR(2),
     toughness VARCHAR(2),
     loyalty VARCHAR(2),
-    game_format VARCHAR(50),
-    names JSON,
     mana_cost VARCHAR(100),
-    variations JSON,
-    image VARCHAR(200),
-    watermark VARCHAR(50),
-    border VARCHAR(50)
+    image VARCHAR(200)
 );
 
 create table if not exists mtg_collection
 (
-    mtgID INT,
+    mtgID varchar(100),
     collectionID INT,
     PRIMARY KEY (mtgID, collectionID),
     FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE,
@@ -62,59 +57,57 @@ create table if not exists mtg_collection
 
 create table if not exists mtg_color
 (
-    mtgID INT,
+    mtgID varchar(100),
     color VARCHAR(20),
     PRIMARY KEY(mtgID, color),
-    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
+    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
 );
 
 create table if not exists mtg_color_identity
 (
-    mtgID INT,
+    mtgID varchar(100),
     color VARCHAR(20),
     PRIMARY KEY(mtgID, color),
-    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
+    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
 );
 
 create table if not exists mtg_supertype
 (
-    mtgID INT,
+    mtgID varchar(100),
     supertype VARCHAR(50),
     PRIMARY KEY(mtgID, supertype),
-    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
+    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
 );
 
 create table if not exists mtg_type
 (
-    mtgID INT,
+    mtgID varchar(100),
     card_type VARCHAR(50),
     PRIMARY KEY(mtgID, card_type),
-    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
+    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
 );
 
 create table if not exists mtg_subtype
 (
-    mtgID INT,
+    mtgID varchar(100),
     subtype VARCHAR(50),
     PRIMARY KEY(mtgID, subtype),
-    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
+    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
 );
 
 create table if not exists mtg_legality
 (
-    mtgID INT,
+    mtgID varchar(100),
     card_format VARCHAR(50),
     legality VARCHAR(10),
     PRIMARY KEY(mtgID, card_format),
-    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
+    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
 );
 
-create table if not exists mtg_name
-(
-    mtgID INT,
-    card_name VARCHAR(50),
-    PRIMARY KEY(mtgID, card_name),
-    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
+CREATE TABLE variations (
+    mtgID varchar(100),
+    variation_id varchar(100),
+    FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
 );
 
 -- -- -- -- -- -- -- -- -- -- -- -- 
