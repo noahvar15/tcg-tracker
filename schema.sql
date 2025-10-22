@@ -15,12 +15,19 @@ create table user
 create table collection
 (
     uID INT,
-    collectionID INT AUTO_INCREMENT,
+    collectionID INT AUTO_INCREMENT PRIMARY KEY,
     collection_name VARCHAR(100),
     descriptor VARCHAR(250),
     size INT DEFAULT 0,
-    PRIMARY KEY(uID, collectionID),
-    FOREIGN KEY(uID) REFERENCES user(uID) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+create table user_collection
+(
+    uID INT,
+    collectionID INT,
+    PRIMARY KEY (uID, collectionID),
+    FOREIGN KEY (uID) REFERENCES user(uID) ON DELETE CASCADE
+    FOREIGN KEY (collectionID) REFERENCES collection(ID) ON DELETE CASCADE
 );
 
 -------------------------
