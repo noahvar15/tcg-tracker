@@ -237,7 +237,7 @@ CREATE TABLE IF NOT EXISTS pokemon_image (
 
 create table yugioh_cards
 (
-    card_id int primary key,
+    yug_id int primary key,
     name varchar(255) not null,
     type varchar(100),
     frame_type varchar(50),
@@ -257,47 +257,47 @@ create table yugioh_cards
 
 create table yugioh_card_link_markers
 (
-    marker_id int identity(1,1) primary key,
-    card_id int not null,
+    marker_id int AUTO_INCREMENT primary key,
+    yug_id int not null,
     marker_position varchar(50) not null,
-    foreign key (card_id) references yugioh_cards(card_id)
+    foreign key (yug_id) references yugioh_cards(yug_id)
 );
 
 create table yugioh_card_sets
 (
-    set_id int identity(1,1) primary key,
-    card_id int not null,
+    set_id int AUTO_INCREMENT primary key,
+    yug_id int not null,
     set_name varchar(255),
     set_code varchar(50),
     set_rarity varchar(100),
     set_rarity_code varchar(20),
     set_price decimal(10, 2),
-    foreign key (card_id) references yugioh_cards(card_id)
+    foreign key (yug_id) references yugioh_cards(yug_id)
 );
 
 create table yugioh_card_images
 (
-    image_id int identity(1,1) primary key,
-    card_id int not null,
+    image_id int AUTO_INCREMENT primary key,
+    yug_id int not null,
     image_url varchar(500),
     image_url_small varchar(500),
     image_url_cropped varchar(500),
-    foreign key (card_id) references yugioh_cards(card_id)
+    foreign key (yug_id) references yugioh_cards(yug_id)
 );
 
 create table yugioh_card_formats
 (
-    format_id int identity(1,1) primary key,
-    card_id int not null,
+    format_id int AUTO_INCREMENT primary key,
+    yug_id int not null,
     format_name varchar(100),
-    foreign key (card_id) references yugioh_cards(card_id)
+    foreign key (yug_id) references yugioh_cards(yug_id)
 );
 
 create table yugioh_card_archetypes
 (
-    archetype_id int identity(1,1) primary key,
-    card_id int not null,
+    archetype_id int AUTO_INCREMENT primary key,
+    yug_id int not null,
     archetype_name varchar(255),
-    foreign key (card_id) references yugioh_cards(card_id)
+    foreign key (yug_id) references yugioh_cards(yug_id)
 );
 
