@@ -1,7 +1,7 @@
 create schema if not exists tcg_tracker;
 use tcg_tracker;
 
-create table user
+create table if not exists user
 (
     uID INT AUTO_INCREMENT PRIMARY KEY,
     first_name varchar(30),
@@ -12,7 +12,7 @@ create table user
     join_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-create table collection
+create table  if not exists collection
 (
     uID INT,
     collectionID INT AUTO_INCREMENT,
@@ -27,7 +27,7 @@ create table collection
 -----------MTG-----------
 -------------------------
 
-create table mtg_card
+create table if not exists mtg_card
 (
     mtgID INT PRIMARY KEY,
     name VARCHAR(100),
@@ -52,7 +52,7 @@ create table mtg_card
     border VARCHAR(50)
 );
 
-create table mtg_collection
+create table if not exists mtg_collection
 (
     mtgID INT,
     collectionID INT,
@@ -61,7 +61,7 @@ create table mtg_collection
     FOREIGN KEY (collectionID) REFERENCES collection(collectionID) ON DELETE CASCADE
 );
 
-create table mtg_color
+create table if not exists mtg_color
 (
     mtgID INT,
     color VARCHAR(20),
@@ -69,7 +69,7 @@ create table mtg_color
     FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
 );
 
-create table mtg_color_identity
+create table if not exists mtg_color_identity
 (
     mtgID INT,
     color VARCHAR(20),
@@ -77,7 +77,7 @@ create table mtg_color_identity
     FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
 );
 
-create table mtg_supertype
+create table if not exists mtg_supertype
 (
     mtgID INT,
     supertype VARCHAR(50),
@@ -85,7 +85,7 @@ create table mtg_supertype
     FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
 );
 
-create table mtg_type
+create table if not exists mtg_type
 (
     mtgID INT,
     card_type VARCHAR(50),
@@ -93,7 +93,7 @@ create table mtg_type
     FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
 );
 
-create table mtg_subtype
+create table if not exists mtg_subtype
 (
     mtgID INT,
     subtype VARCHAR(50),
@@ -101,7 +101,7 @@ create table mtg_subtype
     FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
 );
 
-create table mtg_legality
+create table if not exists mtg_legality
 (
     mtgID INT,
     format VARCHAR(50),
@@ -110,7 +110,7 @@ create table mtg_legality
     FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
 );
 
-create table mtg_name
+create table if not exists mtg_name
 (
     mtgID INT,
     name VARCHAR(50),
@@ -122,7 +122,7 @@ create table mtg_name
 -----------POK-----------
 -------------------------
 
-create table pokemon_card(
+create table if not exists pokemon_card(
     pokID varchar(100) primary key,
     name varchar(100),
     card_level varchar(100),
@@ -139,7 +139,7 @@ create table pokemon_card(
     regulation_mark varchar(100),
 )
 
-create table pokemon_collection
+create table if not exists pokemon_collection
 (
     pokID varchar(100),
     collectionID int,
@@ -148,28 +148,28 @@ create table pokemon_collection
     FOREIGN KEY (collectionID) REFERENCES collection(collectionID) ON DELETE CASCADE
 );
 
-create table pokemon_subtype(
+create table if not exists pokemon_subtype(
     pokID varchar(100),
     subtype varchar(100),
     primary key(pokID, subtype),
     foreign key(pokID) references pokemon_card(pokID)
 )
 
-create table pokemon_type(
+create table if not exists pokemon_type(
     pokID varchar(100),
     card_type varchar(100),
     primary key(pokID, type),
     foreign key(pokID) references pokemon_card(pokID)
 )
 
-create table pokemon_rules(
+create table if not exists pokemon_rules(
     pokID varchar(100),
     rule varchar(500),
     primary key(pokID, rules),
     foreign key(pokID) references pokemon_card(pokID)
 )
 
-create table pokemon_ability(
+create table if not exists pokemon_ability(
     pokeID varchar(100),
     ability_name varchar(100),
     ability_text varchar(1000),
@@ -177,14 +177,14 @@ create table pokemon_ability(
     primary key(pokID, ability_name),
 )
 
-create table pokemon_cost(
+create table if not exists pokemon_cost(
     attack_name varchar(100),
     cost varchar(100),
     primary key(attack_name, cost)
     foreign key(attack_name) references pokemon_attacks(attack_name)
 )
 
-create table pokemon_attack(
+create table if not exists pokemon_attack(
     pokID varchar(100),
     attack_name varchar(100),
     damage varchar(100),
@@ -194,7 +194,7 @@ create table pokemon_attack(
     foreign key(pokID) references pokemon_card(pokID)
 )
 
-create table pokemon_weakness(
+create table if not exists pokemon_weakness(
     pokID varchar(100),
     weak_type varchar(100),
     weak_value varchar(100),
@@ -202,7 +202,7 @@ create table pokemon_weakness(
     foreign key(pokID) references pokemon_card(pokID)
 )
 
-create table pokemon_resistance(
+create table if not exists pokemon_resistance(
     pokID varchar(100),
     resist_type varchar(100),
     resist_value varchar(100),
@@ -210,21 +210,21 @@ create table pokemon_resistance(
     foreign key(pokID) references pokemon_card(pokID)
 )
 
-create table pokemon_retreat_cost(
+create table if not exists pokemon_retreat_cost(
     pokID varchar(100),
     cost varchar(100),
     primary key(pokID, cost),
     foreign key(pokID) references pokemon_card(pokID)
 )
 
-create table pokemon_pokedex_number(
+create table if not exists pokemon_pokedex_number(
     pokID varchar(100),
     pokedex_number int,
     primary key(pokID, pokedex_number),
     foreign key(pokID) references pokemon_card(pokID)
 )
 
-create table pokemon_legality(
+create table if not exists pokemon_legality(
     standard varchar(100),
     expanded varchar(100),
     unlimited varchar(100),
@@ -232,7 +232,7 @@ create table pokemon_legality(
     foreign key(pokID) references pokemon_card(pokID)
 )
 
-create table pokemon_image(
+create table if not exists pokemon_image(
     pokID varchar(100),
     small_img varchar(200),
     large_img varchar(200),
