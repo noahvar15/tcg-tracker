@@ -23,6 +23,10 @@ create table collection
     FOREIGN KEY(uID) REFERENCES user(uID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+-------------------------
+-----------MTG-----------
+-------------------------
+
 create table mtg_card
 (
     mtgID INT PRIMARY KEY,
@@ -47,6 +51,66 @@ create table mtg_card
     watermark VARCHAR(50),
     border VARCHAR(50)
 );
+create table mtg_colors
+(
+    mtgID INT,
+    color VARCHAR(20),
+    PRIMARY KEY(mtgID, color),
+    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
+);
+
+create table mtg_color_identity
+(
+    mtgID INT,
+    color VARCHAR(20)
+    PRIMARY KEY(mtgID, color),
+    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
+);
+
+create table mtg_supertypes
+(
+    mtgID INT,
+    supertype VARCHAR(50),
+    PRIMARY KEY(mtgID, supertype),
+    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
+);
+
+create table mtg_types
+(
+    mtgID INT,
+    type VARCHAR(50),
+    PRIMARY KEY(mtgID, type),
+    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
+);
+
+create table mtg_subtypes
+(
+    mtgID INT,
+    subtype VARCHAR(50),
+    PRIMARY KEY(mtgID, subtype),
+    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
+);
+
+create table mtg_legality
+(
+    mtgID INT,
+    format VARCHAR(50),
+    legality VARCHAR(10),
+    PRIMARY KEY(mtgID, format),
+    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
+);
+
+create table mtg_names
+(
+    mtgID INT,
+    name VARCHAR(50),
+    PRIMARY KEY(mtgID, name),
+    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
+);
+
+-------------------------
+-----------POK-----------
+-------------------------
 
 create table pokemon_card(
     pokID varchar(100) primary key,
@@ -156,59 +220,7 @@ create table pokemon_images(
     primary key(pokID),
     foreign key(pokID) references pokemon_card(pokID)
 )
-create table mtg_colors
-(
-    mtgID INT,
-    color VARCHAR(20),
-    PRIMARY KEY(mtgID, color),
-    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
-);
 
-create table mtg_color_identity
-(
-    mtgID INT,
-    color VARCHAR(20)
-    PRIMARY KEY(mtgID, color),
-    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
-);
-
-create table mtg_supertypes
-(
-    mtgID INT,
-    supertype VARCHAR(50),
-    PRIMARY KEY(mtgID, supertype),
-    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
-);
-
-create table mtg_types
-(
-    mtgID INT,
-    type VARCHAR(50),
-    PRIMARY KEY(mtgID, type),
-    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
-);
-
-create table mtg_subtypes
-(
-    mtgID INT,
-    subtype VARCHAR(50),
-    PRIMARY KEY(mtgID, subtype),
-    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
-);
-
-create table mtg_legality
-(
-    mtgID INT,
-    format VARCHAR(50),
-    legality VARCHAR(10),
-    PRIMARY KEY(mtgID, format),
-    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
-);
-
-create table mtg_names
-(
-    mtgID INT,
-    name VARCHAR(50),
-    PRIMARY KEY(mtgID, name),
-    FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
-);
+-------------------------
+-----------LOR-----------
+-------------------------
