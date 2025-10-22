@@ -241,10 +241,10 @@ create table yugioh_cards
     name varchar(255) not null,
     type varchar(100),
     frame_type varchar(50),
-    description text,
+    card_desc varchar(1000),
     atk int,
     def int,
-    level int,
+    card_level int,
     race varchar(100),
     attribute varchar(50),
     link_val int,
@@ -301,3 +301,10 @@ create table yugioh_card_archetypes
     foreign key (yug_id) references yugioh_cards(yug_id)
 );
 
+CREATE TABLE IF NOT EXISTS yugioh_collection (
+    yID int,
+    collectionID INT,
+    PRIMARY KEY (yID, collectionID),
+    FOREIGN KEY (yID) REFERENCES yugioh_cards(yug_id) ON DELETE CASCADE,
+    FOREIGN KEY (collectionID) REFERENCES collection(collectionID) ON DELETE CASCADE
+);
