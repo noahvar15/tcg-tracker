@@ -4,10 +4,9 @@ import mysql.connector
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    passwd="root"
+    passwd="root",
+    database="tcg_tracker"
 )
 
 # create cursor
 mycursor = mydb.cursor()
-
-mycursor.execute("create schema tcg_tracker")
