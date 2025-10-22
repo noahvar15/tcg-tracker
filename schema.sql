@@ -12,20 +12,19 @@ create table if not exists user
     join_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-create table  if not exists collection
+create table if not exists collection
 (
     uID INT,
-    collectionID INT AUTO_INCREMENT,
+    collectionID INT AUTO_INCREMENT PRIMARY KEY,
     collection_name VARCHAR(100),
     descriptor VARCHAR(250),
     size INT DEFAULT 0,
-    PRIMARY KEY(uID, collectionID),
     FOREIGN KEY(uID) REFERENCES user(uID) ON DELETE CASCADE
 );
 
--------------------------
------------MTG-----------
--------------------------
+-- -- -- -- -- -- -- -- -- -- -- -- 
+-- -- -- -- -- MTG -- -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- -- 
 
 create table if not exists mtg_card
 (
@@ -36,7 +35,7 @@ create table if not exists mtg_card
     rarity VARCHAR(100),
     set_code VARCHAR(100),
     set_name VARCHAR(100),
-    text VARCHAR(1000),
+    card_text VARCHAR(1000),
     flavor_text VARCHAR(500),
     artist VARCHAR(50),
     card_number VARCHAR(20),
@@ -89,7 +88,7 @@ create table if not exists mtg_type
 (
     mtgID INT,
     card_type VARCHAR(50),
-    PRIMARY KEY(mtgID, type),
+    PRIMARY KEY(mtgID, card_type),
     FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
 );
 
@@ -104,40 +103,52 @@ create table if not exists mtg_subtype
 create table if not exists mtg_legality
 (
     mtgID INT,
-    format VARCHAR(50),
+    card_format VARCHAR(50),
     legality VARCHAR(10),
-    PRIMARY KEY(mtgID, format),
+    PRIMARY KEY(mtgID, card_format),
     FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
 );
 
 create table if not exists mtg_name
 (
     mtgID INT,
-    name VARCHAR(50),
-    PRIMARY KEY(mtgID, name),
+    card_name VARCHAR(50),
+    PRIMARY KEY(mtgID, card_name),
     FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
 );
 
--------------------------
------------POK-----------
--------------------------
+-- -- -- -- -- -- -- -- -- -- -- -- 
+-- -- -- -- -- POK -- -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- -- 
+
+create table if not exists pokemon_set (
+    set_id varchar(20) primary key,
+    name varchar(100),
+    series varchar(100),
+    printed_total int,
+    total int,
+    legality_unlimited varchar(50),
+    legality_standard varchar(50),
+    legality_expanded varchar(50)
+);
 
 create table if not exists pokemon_card(
     pokID varchar(100) primary key,
-    name varchar(100),
+    card_name varchar(100),
     card_level varchar(100),
     hp varchar(100),
     evolves_from varchar(100),
     evolves_to varchar(100),
     converted_energy_cost int,
-    set_code hash,
-    number varchar(6),
+    set_id varchar(20),
+    card_number varchar(6),
     variant varchar(100),
     artist varchar(100),
     rarity varchar(100),
     flavor_text varchar(100),
     regulation_mark varchar(100),
-)
+    foreign key (set_id) references pokemon_set(set_id)
+);
 
 create table if not exists pokemon_collection
 (
@@ -153,36 +164,30 @@ create table if not exists pokemon_subtype(
     subtype varchar(100),
     primary key(pokID, subtype),
     foreign key(pokID) references pokemon_card(pokID)
-)
+);
 
 create table if not exists pokemon_type(
     pokID varchar(100),
     card_type varchar(100),
-    primary key(pokID, type),
+    primary key(pokID, card_type),
     foreign key(pokID) references pokemon_card(pokID)
-)
+);
 
 create table if not exists pokemon_rules(
     pokID varchar(100),
     rule varchar(500),
-    primary key(pokID, rules),
+    primary key(pokID, rule),
     foreign key(pokID) references pokemon_card(pokID)
-)
+);
 
 create table if not exists pokemon_ability(
-    pokeID varchar(100),
+    pokID varchar(100),
     ability_name varchar(100),
     ability_text varchar(1000),
     ability_type varchar(100),
     primary key(pokID, ability_name),
-)
-
-create table if not exists pokemon_cost(
-    attack_name varchar(100),
-    cost varchar(100),
-    primary key(attack_name, cost)
-    foreign key(attack_name) references pokemon_attacks(attack_name)
-)
+    foreign key(pokID) references pokemon_card(pokID)
+);
 
 create table if not exists pokemon_attack(
     pokID varchar(100),
@@ -192,45 +197,53 @@ create table if not exists pokemon_attack(
     converted_energy_cost int,
     primary key(pokID, attack_name),
     foreign key(pokID) references pokemon_card(pokID)
-)
+);
+
+create table if not exists pokemon_cost(
+	pokID varchar(100),
+    attack_name varchar(100),
+    cost varchar(100),
+    primary key(attack_name, cost),
+    foreign key(pokID, attack_name) references pokemon_attack(pokID, attack_name)
+);
 
 create table if not exists pokemon_weakness(
     pokID varchar(100),
     weak_type varchar(100),
     weak_value varchar(100),
-    primary key(pokID, type),
+    primary key(pokID, weak_type),
     foreign key(pokID) references pokemon_card(pokID)
-)
+);
 
 create table if not exists pokemon_resistance(
     pokID varchar(100),
     resist_type varchar(100),
     resist_value varchar(100),
-    primary key(pokID, type),
+    primary key(pokID, resist_type),
     foreign key(pokID) references pokemon_card(pokID)
-)
+);
 
 create table if not exists pokemon_retreat_cost(
     pokID varchar(100),
     cost varchar(100),
     primary key(pokID, cost),
     foreign key(pokID) references pokemon_card(pokID)
-)
+);
 
 create table if not exists pokemon_pokedex_number(
     pokID varchar(100),
     pokedex_number int,
     primary key(pokID, pokedex_number),
     foreign key(pokID) references pokemon_card(pokID)
-)
+);
 
 create table if not exists pokemon_legality(
-    standard varchar(100),
-    expanded varchar(100),
-    unlimited varchar(100),
-    primary key(pokID, format),
+    pokID varchar(100),
+    card_format varchar(100),
+    legality varchar(100),
+    primary key(pokID, card_format),
     foreign key(pokID) references pokemon_card(pokID)
-)
+);
 
 create table if not exists pokemon_image(
     pokID varchar(100),
@@ -238,8 +251,8 @@ create table if not exists pokemon_image(
     large_img varchar(200),
     primary key(pokID),
     foreign key(pokID) references pokemon_card(pokID)
-)
+);
 
--------------------------
------------LOR-----------
--------------------------
+-- -- -- -- -- -- -- -- -- -- -- -- 
+-- -- -- -- -- LOR -- -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- -- 
