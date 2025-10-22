@@ -22,10 +22,52 @@ def insert_data(cursor, sql, values):
 # sql commands
 mtg_card_sql = """
 INSERT INTO mtg_card (
-    mtgID, name, layout, cmc, rarity, set_code, set_name,
+    mtgID, name, layout, cmc, rarity, set_code, set_name, card_type,
     card_text, flavor_text, artist, card_number, power, toughness, loyalty, mana_cost, image
 )
-VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+"""
+
+mtg_color_sql = """
+INSERT INTO mtg_collection (
+    mtgID, color
+)
+VALUES (%s, %s)
+"""
+
+mtg_color_identity_sql = """
+INSERT INTO mtg_collection (
+    mtgID, color
+)
+VALUES (%s, %s)
+"""
+
+mtg_supertype_sql = """
+INSERT INTO mtg_collection (
+    mtgID, supertype
+)
+VALUES (%s, %s)
+"""
+
+mtg_type_sql = """
+INSERT INTO mtg_collection (
+    mtgID, card_type
+)
+VALUES (%s, %s)
+"""
+
+mtg_subtype_sql = """
+INSERT INTO mtg_collection (
+    mtgID, subtype
+)
+VALUES (%s, %s)
+"""
+
+mtg_legality_sql = """
+INSERT INTO mtg_collection (
+    mtgID, card_format, legality
+)
+VALUES (%s, %s, %s)
 """
 
 # more sql commands go below here
@@ -58,6 +100,7 @@ while True:
             card.get('rarity'),
             card.get('set'),
             card.get('setName'),
+            card.get('type'),
             card.get('text'),
             card.get('flavor'),
             card.get('artist'),
@@ -69,6 +112,30 @@ while True:
             card.get('imageUrl'),
         )
         insert_data(mycursor, mtg_card_sql, values)
+
+        if 'colors' in card and card['colors']:
+            for color in card['colors']:
+                insert_data(mycursor, mtg_color_sql, (card.get('id'), color))
+
+        if 'colorIdentity' in card and card['colorIdentity']:
+            for color in card['colorIdentity']:
+                insert_data(mycursor, mtg_color_identity_sql, (card.get('id'), color))
+
+        if 'supertypes' in card and card['supertypes']:
+            for supertype in card['supertypes']:
+                insert_data(mycursor, mtg_supertype_sql, (card.get('id'), supertype))
+
+        if 'types' in card and card['types']:
+            for type in card['types']:
+                insert_data(mycursor, mtg_type_sql, (card.get('id'), type))
+        
+        if 'subtypes' in card and card['subtypes']:
+            for subtype in card['subtypes']:
+                insert_data(mycursor, mtg_subtype_sql, (card.get('id'), subtype))
+
+        if 'legalities' in card and card['legalities']:
+            for legality_entry in card['legalities']:
+                insert_data(mycursor, mtg_legality_sql, (card.get('id'), card.get('format'), card.get('legality')))
 
         # more insertions go below here
 
