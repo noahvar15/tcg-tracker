@@ -20,7 +20,7 @@ create table collection
     descriptor VARCHAR(250),
     size INT DEFAULT 0,
     PRIMARY KEY(uID, collectionID),
-    FOREIGN KEY(uID) REFERENCES user(uID) ON DELETE CASCADE
+    FOREIGN KEY(uID) REFERENCES user(uID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 create table mtg_card
