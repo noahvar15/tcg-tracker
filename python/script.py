@@ -25,46 +25,46 @@ INSERT INTO mtg_card (
     mtgID, name, layout, cmc, rarity, set_code, set_name, card_type,
     card_text, flavor_text, artist, card_number, power, toughness, loyalty, mana_cost, image
 )
-VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
 """
 
 mtg_color_sql = """
-INSERT INTO mtg_collection (
+INSERT INTO mtg_color (
     mtgID, color
 )
 VALUES (%s, %s)
 """
 
 mtg_color_identity_sql = """
-INSERT INTO mtg_collection (
+INSERT INTO mtg_color_identity (
     mtgID, color
 )
 VALUES (%s, %s)
 """
 
 mtg_supertype_sql = """
-INSERT INTO mtg_collection (
+INSERT INTO mtg_supertype (
     mtgID, supertype
 )
 VALUES (%s, %s)
 """
 
 mtg_type_sql = """
-INSERT INTO mtg_collection (
+INSERT INTO mtg_type (
     mtgID, card_type
 )
 VALUES (%s, %s)
 """
 
 mtg_subtype_sql = """
-INSERT INTO mtg_collection (
+INSERT INTO mtg_subtype (
     mtgID, subtype
 )
 VALUES (%s, %s)
 """
 
 mtg_legality_sql = """
-INSERT INTO mtg_collection (
+INSERT INTO mtg_legality (
     mtgID, card_format, legality
 )
 VALUES (%s, %s, %s)
@@ -76,7 +76,8 @@ page = 1
 base_url = "https://api.magicthegathering.io/v1/cards?pageSize=100&page="
 requests_made = 0
 
-while True:
+#while True:
+while page <= 1:
     url = f"{base_url}{page}"
     response = requests.get(url)
     requests_made += 1
@@ -87,7 +88,7 @@ while True:
     
     data = response.json()
     cards = data.get('cards', [])
-    if not card:
+    if not cards:
             print('No more cards. Stopping.')
             break
 
@@ -134,8 +135,8 @@ while True:
                 insert_data(mycursor, mtg_subtype_sql, (card.get('id'), subtype))
 
         if 'legalities' in card and card['legalities']:
-            for legality_entry in card['legalities']:
-                insert_data(mycursor, mtg_legality_sql, (card.get('id'), card.get('format'), card.get('legality')))
+           for legality_entry in card['legalities']:
+               insert_data(mycursor, mtg_legality_sql, (card.get('id'), legality_entry.get('format'), legality_entry.get('legality')))
 
         # more insertions go below here
 

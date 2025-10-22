@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS mtg_card (
     set_name VARCHAR(100),
     card_type VARCHAR(100),
     card_text VARCHAR(1000),
-    flavor_text VARCHAR(200),
+    flavor_text VARCHAR(500),
     artist VARCHAR(50),
     card_number VARCHAR(20),
     power VARCHAR(2),
