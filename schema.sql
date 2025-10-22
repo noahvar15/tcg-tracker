@@ -15,19 +15,12 @@ create table user
 create table collection
 (
     uID INT,
-    collectionID INT AUTO_INCREMENT PRIMARY KEY,
+    collectionID INT AUTO_INCREMENT,
     collection_name VARCHAR(100),
     descriptor VARCHAR(250),
     size INT DEFAULT 0,
-);
-
-create table user_collection
-(
-    uID INT,
-    collectionID INT,
-    PRIMARY KEY (uID, collectionID),
-    FOREIGN KEY (uID) REFERENCES user(uID) ON DELETE CASCADE
-    FOREIGN KEY (collectionID) REFERENCES collection(ID) ON DELETE CASCADE
+    PRIMARY KEY(uID, collectionID),
+    FOREIGN KEY(uID) REFERENCES user(uID) ON DELETE CASCADE
 );
 
 -------------------------
@@ -58,6 +51,16 @@ create table mtg_card
     watermark VARCHAR(50),
     border VARCHAR(50)
 );
+
+create table mtg_collection
+(
+    mtgID INT,
+    collectionID INT,
+    PRIMARY KEY (mtgID, collectionID),
+    FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE,
+    FOREIGN KEY (collectionID) REFERENCES collection(collectionID) ON DELETE CASCADE
+);
+
 create table mtg_colors
 (
     mtgID INT,
@@ -135,6 +138,15 @@ create table pokemon_card(
     flavor_text varchar(100),
     regulation_mark varchar(100),
 )
+
+create table pokemon_collection
+(
+    pokID varchar(100),
+    collectionID int,
+    PRIMARY KEY (pokID, collectionID),
+    FOREIGN KEY (pokID) REFERENCES pokemon_card(pokID),
+    FOREIGN KEY (collectionID) REFERENCES collection(collectionID)
+);
 
 create table pokemon_subtypes(
     pokID varchar(100),
