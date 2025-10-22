@@ -40,7 +40,7 @@ while True:
     requests_made += 1
 
     if response.status_code != 200:
-            print(f"Failed on page {page}: {resonse.status_code}")
+            print(f"Failed on page {page}: {response.status_code}")
             break
     
     data = response.json()
