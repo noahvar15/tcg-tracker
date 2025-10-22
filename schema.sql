@@ -34,7 +34,7 @@ create table mtg_card
     layout VARCHAR(100),
     cmc INT,
     rarity VARCHAR(100),
-    set VARCHAR(100),
+    set_code VARCHAR(100),
     set_name VARCHAR(100),
     text VARCHAR(1000),
     flavor_text VARCHAR(500),
@@ -61,7 +61,7 @@ create table mtg_collection
     FOREIGN KEY (collectionID) REFERENCES collection(collectionID) ON DELETE CASCADE
 );
 
-create table mtg_colors
+create table mtg_color
 (
     mtgID INT,
     color VARCHAR(20),
@@ -72,12 +72,12 @@ create table mtg_colors
 create table mtg_color_identity
 (
     mtgID INT,
-    color VARCHAR(20)
+    color VARCHAR(20),
     PRIMARY KEY(mtgID, color),
     FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
 );
 
-create table mtg_supertypes
+create table mtg_supertype
 (
     mtgID INT,
     supertype VARCHAR(50),
@@ -85,15 +85,15 @@ create table mtg_supertypes
     FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
 );
 
-create table mtg_types
+create table mtg_type
 (
     mtgID INT,
-    type VARCHAR(50),
+    card_type VARCHAR(50),
     PRIMARY KEY(mtgID, type),
     FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
 );
 
-create table mtg_subtypes
+create table mtg_subtype
 (
     mtgID INT,
     subtype VARCHAR(50),
@@ -110,7 +110,7 @@ create table mtg_legality
     FOREIGN KEY(mtgID) REFERENCES mtg_card(mtgID)
 );
 
-create table mtg_names
+create table mtg_name
 (
     mtgID INT,
     name VARCHAR(50),
@@ -125,12 +125,12 @@ create table mtg_names
 create table pokemon_card(
     pokID varchar(100) primary key,
     name varchar(100),
-    level varchar(100),
+    card_level varchar(100),
     hp varchar(100),
     evolves_from varchar(100),
     evolves_to varchar(100),
     converted_energy_cost int,
-    set hash,
+    set_code hash,
     number varchar(6),
     variant varchar(100),
     artist varchar(100),
@@ -144,27 +144,27 @@ create table pokemon_collection
     pokID varchar(100),
     collectionID int,
     PRIMARY KEY (pokID, collectionID),
-    FOREIGN KEY (pokID) REFERENCES pokemon_card(pokID),
-    FOREIGN KEY (collectionID) REFERENCES collection(collectionID)
+    FOREIGN KEY (pokID) REFERENCES pokemon_card(pokID) ON DELETE CASCADE,
+    FOREIGN KEY (collectionID) REFERENCES collection(collectionID) ON DELETE CASCADE
 );
 
-create table pokemon_subtypes(
+create table pokemon_subtype(
     pokID varchar(100),
-    subtypes varchar(100),
+    subtype varchar(100),
     primary key(pokID, subtype),
     foreign key(pokID) references pokemon_card(pokID)
 )
 
-create table pokemon_types(
+create table pokemon_type(
     pokID varchar(100),
-    types varchar(100),
+    card_type varchar(100),
     primary key(pokID, type),
     foreign key(pokID) references pokemon_card(pokID)
 )
 
 create table pokemon_rules(
     pokID varchar(100),
-    rules varchar(500),
+    rule varchar(500),
     primary key(pokID, rules),
     foreign key(pokID) references pokemon_card(pokID)
 )
@@ -184,7 +184,7 @@ create table pokemon_cost(
     foreign key(attack_name) references pokemon_attacks(attack_name)
 )
 
-create table pokemon_attacks(
+create table pokemon_attack(
     pokID varchar(100),
     attack_name varchar(100),
     damage varchar(100),
@@ -224,7 +224,7 @@ create table pokemon_pokedex_number(
     foreign key(pokID) references pokemon_card(pokID)
 )
 
-create table pokemon_legalities(
+create table pokemon_legality(
     standard varchar(100),
     expanded varchar(100),
     unlimited varchar(100),
@@ -232,7 +232,7 @@ create table pokemon_legalities(
     foreign key(pokID) references pokemon_card(pokID)
 )
 
-create table pokemon_images(
+create table pokemon_image(
     pokID varchar(100),
     small_img varchar(200),
     large_img varchar(200),
