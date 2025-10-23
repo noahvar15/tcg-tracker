@@ -1,6 +1,7 @@
 CREATE SCHEMA IF NOT EXISTS tcg_tracker;
 USE tcg_tracker;
 
+
 -- =========================================
 -- USERS & COLLECTIONS
 -- =========================================
@@ -26,6 +27,9 @@ CREATE TABLE IF NOT EXISTS collection (
 -- =========================================
 -- MAGIC: THE GATHERING
 -- =========================================
+-- =========================================
+-- MAGIC: THE GATHERING
+-- =========================================
 CREATE TABLE IF NOT EXISTS mtg_card (
     mtgID VARCHAR(100) PRIMARY KEY,
     name VARCHAR(100),
@@ -39,9 +43,9 @@ CREATE TABLE IF NOT EXISTS mtg_card (
     flavor_text VARCHAR(500),
     artist VARCHAR(50),
     card_number VARCHAR(20),
-    power VARCHAR(2),
-    toughness VARCHAR(2),
-    loyalty VARCHAR(2),
+    power VARCHAR(4),
+    toughness VARCHAR(4),
+    loyalty VARCHAR(3),
     mana_cost VARCHAR(100),
     image VARCHAR(200)
 );
