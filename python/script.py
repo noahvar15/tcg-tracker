@@ -6,7 +6,7 @@ import time
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    passwd="root",
+    passwd="Flores526",
     database="tcg_tracker"
 )
 
@@ -76,8 +76,8 @@ page = 1
 base_url = "https://api.magicthegathering.io/v1/cards?pageSize=100&page="
 requests_made = 0
 
-#while True:
-while page <= 1:
+while True:
+#while page <= 1:
     url = f"{base_url}{page}"
     response = requests.get(url)
     requests_made += 1
@@ -114,6 +114,8 @@ while page <= 1:
         )
         insert_data(mycursor, mtg_card_sql, values)
 
+        mydb.commit()    
+        
         if 'colors' in card and card['colors']:
             for color in card['colors']:
                 insert_data(mycursor, mtg_color_sql, (card.get('id'), color))
