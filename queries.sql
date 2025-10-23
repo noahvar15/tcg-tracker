@@ -1,18 +1,18 @@
-drop table user;
-drop view collection_with_size;
+use tcg_tracker;
+drop view if exists collection_with_size;
 
-CREATE TABLE IF NOT EXISTS user (
-    uID INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(30),
-    middle_initial CHAR(1),
-    last_name VARCHAR(30),
-    email VARCHAR(50) UNIQUE,
-    dob DATE,
-    join_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
--- #1, #3b
+-- show how many pokemon cards in db --
+select * from pokemon_card;
 
+-- show how many magic cards in db --
+select * from mtg_card;
 
+-- show many cards in db --
+select
+(select count(*) from pokemon_card) +
+(select count(*) from mtg_card);
+
+-- INSERTS --
 insert into user (first_name, middle_initial, last_name, email, dob) values
 	("Manny",
     "",
@@ -24,88 +24,91 @@ insert into user (first_name, middle_initial, last_name, email, dob) values
     "Vargas",
     "n_var@email.com",
     "2004-04-23"),
-    ("BetterNoah",
-    "L",
-    "BetterVargas",
-    "better_n_var@email.com",
-    "2004-05-22"),
     ("Josh",
     "M",
     "Perriera",
-    "jp511@email.com",
-    "2004-05-12");
--- #2
+    "jmp511@email.com",
+    "2004-05-11");
+-- CHECK INSERT --
 
 select * from user;
 
--- #5
+-- ALTER THE COLLECTION TABLE --
+
+select descriptor from collection;
 
 alter table collection
 rename column descriptor to c_description;
 
 select c_description from collection;
 
--- #6
+alter table collection
+rename column c_description to descriptor;
 
-insert into collection (uID, collection_name, c_description, size) values(
+-- INSERTS --
+
+insert into collection (uID, collection_name, descriptor) values(
 	1,
-    "Manny's Super Cool Colleccion",
-    "Doesn't get better than this.",
-    100
+    "Manny's Collection",
+    "Doesn't get better than this."
 ),(
 	2,
-    "Noah's Wack Ahh Colleccion",
-    "Doesn't get worse than this.",
-    1
+    "Noah's Collection",
+    "First Collection."
 ),(
 	3,
-    "Demon TCG Colleccion",
-    "It's better than noah's fasho.",
-    5
-),(
-	4,
-    "JP W Book",
-    "Doesn't get better than this.",
-    100
+    "Josh's Collection",
+    "My Collection"
 );
 
--- #7
-insert into mtg_collection values
-("000e097b-ff5f-5a34-b4fc-a1c76e899e4f", 1),
-("002a5e44-81f2-596e-9b3d-bf8a4981df78", 1),
-("007d2f21-f6a3-5f65-9600-c2a5fa35ae36", 1),
-("00886106-45ee-5261-9436-885ba86a155e", 1),
-("00957a2e-4309-52c7-9b8e-9931f7c304e6", 1);
+-- CHECK INSERTION --
+select * from collection;
 
+-- INSERTIONS --
 insert into mtg_collection values
-("00a587d6-64e2-55c5-9a40-fb6401596632", 2),
-("00aded64-a558-5945-8909-6134d1172cc9", 2),
-("007d2f21-f6a3-5f65-9600-c2a5fa35ae36", 2),
-("00b588b6-ce9e-5c09-9ec4-eaefe0f92918", 2),
-("000e097b-ff5f-5a34-b4fc-a1c76e899e4f", 2),
-("00957a2e-4309-52c7-9b8e-9931f7c304e6", 2),
-("00dad494-511c-5202-ae75-f53afe6f6b13", 2);
+("004adf9a-b59a-5d56-9093-df73b9929bb1", 1),
+("009c492a-c0e1-5dba-9caa-68e52d73e556", 1),
+("01603f03-a5ea-53d0-9d9e-14770b97be39", 1),
+("01e48603-fbf2-5178-92d2-3d6c9944f4b5", 1),
+("03067da3-4b66-57de-8181-cfdf12f48a9c", 1);
 
 insert into mtg_collection values
-("00f8f397-9d44-5d5e-ba25-a57a2533e153", 3),
-("00aded64-a558-5945-8909-6134d1172cc9", 3),
-("0109faa4-6e05-5c3f-b2fc-d8d71fa9e42a", 3),
-("010ca5c3-0ec0-5ee7-a012-dfdd964bdee2", 3),
-("011d5341-39b1-5b98-b0fb-43c72aca6b4a", 3),
-("011ed5e4-d86e-5430-84a6-6f7fa5b20586", 3),
-("00dad494-511c-5202-ae75-f53afe6f6b13", 3);
+("004adf9a-b59a-5d56-9093-df73b9929bb1", 2),
+("009c492a-c0e1-5dba-9caa-68e52d73e556", 2),
+("1ad070b0-a4ab-5658-b599-1178c86a379e", 2),
+("1afcbee1-1310-5144-86ea-e7bf0fb34d2b", 2),
+("1e1887ca-10b3-569a-87e7-fbdef5b988dc", 2),
+("21edc41a-e830-58d0-80b5-85eabe32d0d7", 2),
+("25634111-8644-5d96-9e23-3b00c2ea0ed5", 2);
 
 insert into mtg_collection values
-("011ccfdb-3149-52a6-b57e-9720ab1b3d87", 4),
-("0115b361-604d-5e3f-a0e3-0464eeacd4c3", 4),
-("01013cab-be73-532f-b6bf-0f24d0c3792f", 4),
-("01248698-729b-5a69-ba8c-f1686a181abb", 4),
-("0131c33e-6cb8-53f7-911e-a2c82b8fc8b5", 4),
-("011ed5e4-d86e-5430-84a6-6f7fa5b20586", 4),
-("01490ea5-eac1-5be1-b95f-e1af9f2c0f85", 4);
+("29debff3-e25e-5940-b194-3ff4db7ae422", 3),
+("38513fa0-ea83-5642-8ecd-4f0b3daa6768", 3),
+("3c0f2770-7609-5b8f-89c3-0768d92ca7a3", 3),
+("41b6098d-f7d9-5a37-9734-01dff7ce4912", 3),
+("4626c357-a4fc-5941-ad11-6f92a2e8423a", 3),
+("4ed247e0-386b-5166-9c99-875d6f82f681", 3),
+("546eac7c-1424-597d-ac13-bf8558e88fe3", 3);
 
+-- CHECK INSERTION --
 
--- #8
+select * from mtg_collection
+where collectionID = 1;
+
+select * from mtg_collection
+where collectionID = 2;
+
+select * from mtg_collection
+where collectionID = 3;
+
+-- delete user 3 --
+delete from user
+where uID = 3;
+
+-- show that deletions cascaded --
+select * from collection;
+select * from mtg_collection;
+
 -- cards both user 1 and user 2 both have in collection
 SELECT DISTINCT 
     a.mtgID,
@@ -120,7 +123,6 @@ WHERE a.collectionID = 1
 
 
 -- counting most owned cards
-
 select 
     m.name as card_name,
     count(mc.collectionID) as total_owned
@@ -131,7 +133,7 @@ group by m.name
 order by total_owned desc;
 
 
--- Viewing all user's collection
+-- viewing all user's collection
 select 
     c.collectionID,
     m.name as card_name
@@ -139,20 +141,14 @@ from mtg_collection c
 join mtg_card m 
     on c.mtgID = m.mtgID;
 
-
-
--- #9
-
--- 
--- Create View of Collection size
---
-CREATE VIEW collection_with_size AS
-SELECT c.collectionID,
+-- create View of Collection size
+create view collection_with_size AS
+select c.collectionID,
        c.collection_name,
-       COUNT(mc.mtgID) AS collection_size
-FROM collection c
-LEFT JOIN mtg_collection mc ON c.collectionID = mc.collectionID
-GROUP BY c.collectionID;
+       COUNT(mc.mtgID) as collection_size
+from collection c
+left join mtg_collection mc on c.collectionID = mc.collectionID
+group by c.collectionID;
 
-
-SELECT * FROM collection_with_size;
+-- show view --
+select * from collection_with_size;
