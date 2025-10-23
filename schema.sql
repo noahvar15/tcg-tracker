@@ -1,109 +1,33 @@
-CREATE SCHEMA IF NOT EXISTS tcg_tracker;
-USE tcg_tracker;
+create database if not exists tcg_tracker;
+
+use tcg_tracker;
+  
+GRANT ALL PRIVILEGES ON tcg_tracker.* TO 'test'@'localhost';
 
 
--- =========================================
--- USERS & COLLECTIONS
--- =========================================
-CREATE TABLE IF NOT EXISTS user (
+
+create table if not exists user
+(
     uID INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(30),
-    middle_initial CHAR(1),
-    last_name VARCHAR(30),
-    email VARCHAR(50) UNIQUE,
+    first_name varchar(30),
+    middle_initial char(1),
+    last_name varchar(30),
+    email varchar(50) UNIQUE,
     dob DATE,
     join_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS collection (
-    collectionID INT AUTO_INCREMENT PRIMARY KEY,
+create table if not exists collection
+(
     uID INT,
+    collectionID INT AUTO_INCREMENT PRIMARY KEY,
     collection_name VARCHAR(100),
     descriptor VARCHAR(250),
     size INT DEFAULT 0,
-    FOREIGN KEY (uID) REFERENCES user(uID) ON DELETE CASCADE
+    FOREIGN KEY(uID) REFERENCES user(uID) ON DELETE CASCADE
 );
 
--- =========================================
--- MAGIC: THE GATHERING
--- =========================================
--- =========================================
--- MAGIC: THE GATHERING
--- =========================================
-CREATE TABLE IF NOT EXISTS mtg_card (
-    mtgID VARCHAR(100) PRIMARY KEY,
-    name VARCHAR(100),
-    layout VARCHAR(100),
-    cmc INT,
-    rarity VARCHAR(100),
-    set_code VARCHAR(100),
-    set_name VARCHAR(100),
-    card_type VARCHAR(100),
-    card_text VARCHAR(1000),
-    flavor_text VARCHAR(500),
-    artist VARCHAR(50),
-    card_number VARCHAR(20),
-    power VARCHAR(4),
-    toughness VARCHAR(4),
-    loyalty VARCHAR(3),
-    mana_cost VARCHAR(100),
-    image VARCHAR(200)
-);
 
-CREATE TABLE IF NOT EXISTS mtg_collection (
-    mtgID VARCHAR(100),
-    collectionID INT,
-    PRIMARY KEY (mtgID, collectionID),
-    FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE,
-    FOREIGN KEY (collectionID) REFERENCES collection(collectionID) ON DELETE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS mtg_color (
-    mtgID VARCHAR(100),
-    color VARCHAR(20),
-    PRIMARY KEY (mtgID, color),
-    FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS mtg_color_identity (
-    mtgID VARCHAR(100),
-    color VARCHAR(20),
-    PRIMARY KEY (mtgID, color),
-    FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS mtg_supertype (
-    mtgID VARCHAR(100),
-    supertype VARCHAR(50),
-    PRIMARY KEY (mtgID, supertype),
-    FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS mtg_type (
-    mtgID VARCHAR(100),
-    card_type VARCHAR(50),
-    PRIMARY KEY (mtgID, card_type),
-    FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS mtg_subtype (
-    mtgID VARCHAR(100),
-    subtype VARCHAR(50),
-    PRIMARY KEY (mtgID, subtype),
-    FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS mtg_legality (
-    mtgID VARCHAR(100),
-    card_format VARCHAR(50),
-    legality VARCHAR(10),
-    PRIMARY KEY (mtgID, card_format),
-    FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
-);
-
--- =========================================
--- POKÉMON
--- =========================================
 create table if not exists pokemon_set (
     set_id varchar(20) primary key,
     name varchar(100),
@@ -239,3 +163,93 @@ create table if not exists pokemon_evolves_to(
     primary key(pokID, name),
 	foreign key(pokID) references pokemon_card(pokID)
     );
+    
+
+
+-- =========================================
+-- MAGIC: THE GATHERING
+-- =========================================
+-- =========================================
+-- MAGIC: THE GATHERING
+-- =========================================
+
+drop table mtg_card;
+drop table mtg_collection;
+drop table mtg_color;
+drop table mtg_color_identity;
+drop table mtg_supertype;
+drop table mtg_type;
+drop table mtg_subtype;
+drop table mtg_legality;
+
+CREATE TABLE IF NOT EXISTS mtg_card (
+    mtgID VARCHAR(100) PRIMARY KEY,
+    name VARCHAR(500),
+    layout VARCHAR(100),
+    cmc INT,
+    rarity VARCHAR(100),
+    set_code VARCHAR(100),
+    set_name VARCHAR(100),
+    card_type VARCHAR(100),
+    card_text VARCHAR(1000),
+    flavor_text VARCHAR(500),
+    artist VARCHAR(50),
+    card_number VARCHAR(20),
+    power VARCHAR(4),
+    toughness VARCHAR(4),
+    loyalty VARCHAR(10),
+    mana_cost VARCHAR(100),
+    image VARCHAR(200)
+);
+
+CREATE TABLE IF NOT EXISTS mtg_collection (
+    mtgID VARCHAR(100),
+    collectionID INT,
+    PRIMARY KEY (mtgID, collectionID),
+    FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE,
+    FOREIGN KEY (collectionID) REFERENCES collection(collectionID) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS mtg_color (
+    mtgID VARCHAR(100),
+    color VARCHAR(20),
+    PRIMARY KEY (mtgID, color),
+    FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS mtg_color_identity (
+    mtgID VARCHAR(100),
+    color VARCHAR(20),
+    PRIMARY KEY (mtgID, color),
+    FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS mtg_supertype (
+    mtgID VARCHAR(100),
+    supertype VARCHAR(50),
+    PRIMARY KEY (mtgID, supertype),
+    FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS mtg_type (
+    mtgID VARCHAR(100),
+    card_type VARCHAR(50),
+    PRIMARY KEY (mtgID, card_type),
+    FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS mtg_subtype (
+    mtgID VARCHAR(100),
+    subtype VARCHAR(50),
+    PRIMARY KEY (mtgID, subtype),
+    FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS mtg_legality (
+    mtgID VARCHAR(100),
+    card_format VARCHAR(50),
+    legality VARCHAR(10),
+    PRIMARY KEY (mtgID, card_format),
+    FOREIGN KEY (mtgID) REFERENCES mtg_card(mtgID) ON DELETE CASCADE
+);
+

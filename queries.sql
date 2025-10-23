@@ -1,16 +1,24 @@
-use tcg_tracker;
-drop view if exists collection_with_size;
+-- QUERIES --
 
--- show how many pokemon cards in db --
+
+-- show some tables--
 select * from pokemon_card;
-
--- show how many magic cards in db --
 select * from mtg_card;
+select * from pokemon_type;
+select * from pokemon_set;
+select * from mtg_legality;
 
 -- show many cards in db --
 select
 (select count(*) from pokemon_card) +
-(select count(*) from mtg_card);
+(select count(*) from mtg_card) as total_card_count;
+
+-- select charizard cards --
+
+select *
+from pokemon_card
+where card_name like "charizard%";
+
 
 -- INSERTS --
 insert into user (first_name, middle_initial, last_name, email, dob) values
@@ -106,10 +114,12 @@ delete from user
 where uID = 3;
 
 -- show that deletions cascaded --
+select * from user;
 select * from collection;
 select * from mtg_collection;
 
--- cards both user 1 and user 2 both have in collection
+
+-- magic cards both user 1 and user 2 both have in collection
 SELECT DISTINCT 
     a.mtgID,
     m.name AS card_name
@@ -122,7 +132,7 @@ WHERE a.collectionID = 1
   AND b.collectionID = 2;
 
 
--- counting most owned cards
+-- counting most owned magic cards
 select 
     m.name as card_name,
     count(mc.collectionID) as total_owned
@@ -142,7 +152,7 @@ join mtg_card m
     on c.mtgID = m.mtgID;
 
 -- create View of Collection size
-create view collection_with_size AS
+create definer='test'@'localhost' view collection_with_size as
 select c.collectionID,
        c.collection_name,
        COUNT(mc.mtgID) as collection_size
@@ -150,5 +160,32 @@ from collection c
 left join mtg_collection mc on c.collectionID = mc.collectionID
 group by c.collectionID;
 
+
+
 -- show view --
 select * from collection_with_size;
+
+-- drop view --
+
+drop view if exists collection_with_size;
+
+
+-- cleaning up --
+drop table mtg_collection;
+drop table pokemon_collection;
+drop table collection;
+drop table user;
+
+select *
+from pokemon_collection;
+
+select *
+from collection;
+
+select *
+from mtg_collection;
+
+select * from user;
+
+
+
