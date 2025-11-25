@@ -1,2 +1,3 @@
 #ignore venv
 db_project/
+website/backend/.venv
