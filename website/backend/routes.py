@@ -82,6 +82,182 @@ def get_most_owned_cards():
     return jsonify(result)
 
 
+@cards_bp.get("/mtg/search")
+def search_mtg_cards():
+    query = request.args.get("q", "")
+
+    if not query:
+        return jsonify({"error": "Missing search query"}), 400
+
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    sql = """
+        SELECT mtgID AS id, name, image, card_number
+        FROM mtg_card
+        WHERE name LIKE %s OR mtgID = %s OR card_number = %s
+    """
+
+    cursor.execute(sql, (f"%{query}%", query, query))
+    results = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return jsonify(results)
+
+
+@cards_bp.get("/pokemon/search")
+def search_pokemon_cards():
+    query = request.args.get("q", "")
+
+    if not query:
+        return jsonify({"error": "Missing search query"}), 400
+
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    sql = """
+        SELECT pokID AS id, card_name AS name, card_number, pokID,
+               (SELECT small_img FROM pokemon_image WHERE pokemon_image.pokID = pokemon_card.pokID) AS image
+        FROM pokemon_card
+        WHERE card_name LIKE %s OR pokID = %s OR card_number = %s
+    """
+
+    cursor.execute(sql, (f"%{query}%", query, query))
+    results = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return jsonify(results)
+
+@cards_bp.get("/mtg/<mtg_id>")
+def get_mtg_card(mtg_id):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("SELECT * FROM mtg_card WHERE mtgID = %s", (mtg_id,))
+    card = cursor.fetchone()
+
+    cursor.close()
+    conn.close()
+
+    if not card:
+        return jsonify({"error": "Card not found"}), 404
+
+    return jsonify(card)
+@cards_bp.get("/pokemon/<pok_id>")
+def get_pokemon_card(pok_id):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT pc.*, pi.small_img, pi.large_img
+        FROM pokemon_card pc
+        LEFT JOIN pokemon_image pi ON pc.pokID = pi.pokID
+        WHERE pc.pokID = %s
+    """, (pok_id,))
+    
+    card = cursor.fetchone()
+
+    cursor.close()
+    conn.close()
+
+    if not card:
+        return jsonify({"error": "Card not found"}), 404
+
+    return jsonify(card)
+@cards_bp.get("/mtg/random50")
+def random_mtg_50():
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""SELECT * FROM view_mtg_ui ORDER BY RAND() LIMIT 50;""")
+
+    results = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return jsonify(results)
+
+@cards_bp.get("/pokemon/random50")
+def random_pokemon_50():
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""SELECT * FROM view_pokemon_ui ORDER BY RAND() LIMIT 50;""")
+
+    results = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return jsonify(results)
+
+
+@cards_bp.get("/collections/user/<user_id>")
+def get_user_collections(user_id):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""SELECT * FROM view_user_collections WHERE uID = %s;""", (user_id,))
+
+    results = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return jsonify(results)
+@cards_bp.get("/collection/<collection_id>")
+def get_cards_in_collection(collection_id):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT card_type AS type, id, name, image, card_number
+        FROM unified_collection_cards
+        WHERE collectionID = %s
+    """, (collection_id,))
+
+    results = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return jsonify(results)
+
+@cards_bp.get("/collection_mtg/<collection_id>")
+def get_mtg_in_collection(collection_id):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""view_collection_mtg_cards """, (collection_id,))
+
+    results = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return jsonify(results)
+
+@cards_bp.get("/collection_pokemon/<collection_id>")
+def get_pokemon_in_collection(collection_id):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""view_collection_pokemon_cards """, (collection_id,))
+
+    results = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return jsonify(results)
+
+
+
 # -------------------------
 #   Auth Routes
 # -------------------------
@@ -165,4 +341,5 @@ def login():
 @auth.post("/verify")  
 @token_required
 def verify_user():
+    print("-> VERIFY HIT")
     return jsonify({"message": "Valid token", "user_id": request.user_id}), 200
