@@ -14,7 +14,9 @@ import os
 cards_bp = Blueprint("cards", __name__)
 auth = Blueprint('auth', __name__)
 
+load_dotenv() 
 
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 
 # -------------------------
