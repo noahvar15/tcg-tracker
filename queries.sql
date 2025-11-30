@@ -248,3 +248,95 @@ ALTER TABLE user
 ADD password_hash VARCHAR(255) NOT NULL;
 
 -- IF ^ DOESNT WANNA RUN, drop user table and add the column directly instead of altering
+
+
+CREATE OR REPLACE VIEW view_mtg_ui AS
+SELECT
+    mtgID AS id,
+    name,
+    image,
+    card_number
+FROM mtg_card;
+
+
+select *
+from view_mtg_ui;
+
+CREATE OR REPLACE VIEW view_pokemon_ui AS
+SELECT
+    pc.pokID AS id,
+    pc.card_name AS name,
+    pc.card_number,
+    pi.small_img AS image
+FROM pokemon_card pc
+    LEFT JOIN pokemon_image pi ON pc.pokID = pi.pokID;
+
+
+CREATE OR REPLACE VIEW view_pokemon_ui AS
+SELECT
+    pc.pokID AS id,
+    pc.card_name AS name,
+    pc.card_number,
+    pi.small_img AS image
+FROM pokemon_card pc
+    LEFT JOIN pokemon_image pi ON pc.pokID = pi.pokID;
+
+
+
+CREATE OR REPLACE VIEW view_user_collections AS
+SELECT
+    c.collectionID,
+    c.uID,
+    c.collection_name,
+    c.descriptor,
+    c.size
+FROM collection c;
+
+
+-- 
+CREATE OR REPLACE VIEW view_collection_pokemon_cards AS
+SELECT
+    c.collectionID,
+    'pokemon' AS type,
+    c.pokID AS id,
+    p.card_name AS name,
+    pi.small_img AS image,
+    p.card_number
+FROM pokemon_collection c
+    JOIN pokemon_card p ON c.pokID = p.pokID
+    LEFT JOIN pokemon_image pi ON p.pokID = pi.pokID;
+
+select *
+from view_collection_pokemon_cards;
+
+
+CREATE OR REPLACE VIEW view_collection_all_cards AS
+    SELECT
+        c.collectionID,
+        'mtg' AS type,
+        c.mtgID AS id,
+        m.name,
+        m.image AS image,
+        m.card_number
+    FROM mtg_collection c
+        JOIN mtg_card m ON c.mtgID = m.mtgID
+
+UNION ALL
+
+    SELECT
+        c.collectionID,
+        'pokemon' AS type,
+        c.pokID AS id,
+        p.card_name AS name,
+        pi.small_img AS image,
+        p.card_number
+    FROM pokemon_collection c
+        JOIN pokemon_card p ON c.pokID = p.pokID
+        LEFT JOIN pokemon_image pi ON p.pokID = pi.pokID;
+
+
+SELECT *
+FROM view_collection_all_cards
+WHERE collectionID = %s;
+
+
