@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import Logo from '../../public/vite.svg'
+import { useNavigate, Link } from "react-router-dom";
 
 const Navbar = () => {
    const [hoveredOption, setHoveredOption] = useState(null); // Track which option is hovered
+
+   const navigate = useNavigate();
+
 
    // Handlers for hover logic
    const handleMouseEnter = (option) => setHoveredOption(option);
@@ -39,13 +43,14 @@ const Navbar = () => {
                </div>
             </li>
             <li>
-               <div
-                  style={getOptionStyle('Pokemon')}
-                  onMouseEnter={() => handleMouseEnter('Pokemon')}
-                  onMouseLeave={handleMouseLeave}
-               >
-                  Pokemon
-               </div>
+            <div
+               style={getOptionStyle('Pokemon')}
+               onMouseEnter={() => handleMouseEnter('Pokemon')}
+               onMouseLeave={handleMouseLeave}
+               onClick={() => navigate('/pokemon-sets')} // <-- Navigate on click
+            >
+               Pokemon
+            </div>
             </li>
          </ul>
          <img src="https://cdn-icons-png.flaticon.com/512/3276/3276535.png" style={styles.account} alt="Account Button22" />
@@ -64,9 +69,10 @@ const styles = {
       gridTemplateColumns: 'auto auto auto auto',
       boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
       backgroundColor: 'rgba(53, 53, 53, 0.5)',
-      backdropFilter: 'blur(10px)',
+      backdropFilter: 'blur(1000px)',
       position: 'fixed',
       top: '0px',
+      zIndex: '9999',
    },
    Logo: {
       marginLeft: '2rem',

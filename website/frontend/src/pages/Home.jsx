@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar.jsx";
-//import { useEffect, useState } from "react";
-//import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import PokemonSet from "../components/PokemonSet.jsx";
 
 const Home = () => {
 
