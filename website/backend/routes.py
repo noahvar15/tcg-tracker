@@ -14,6 +14,7 @@ import os
 cards_bp = Blueprint("cards", __name__)
 auth = Blueprint('auth', __name__)
 
+
 load_dotenv() 
 
 SECRET_KEY = os.getenv("SECRET_KEY")
@@ -279,11 +280,14 @@ def signup():
 
     ###########
     first_name = data.get("first_name")
+    middle_init = data.get("middle_initial")
     last_name = data.get("last_name")
     email = data.get("email")
     password = data.get("password")
+    dob = data.get("dob")
 
-    if not all([first_name, last_name, email, password]):
+
+    if not all([first_name, middle_init, last_name, email, password]):
         return jsonify({"error": "Missing required fields"}), 400
 
     cursor.execute("SELECT * FROM user WHERE email = %s", (email,))
@@ -293,9 +297,9 @@ def signup():
     hashed_pw = generate_password_hash(password)
 
     cursor.execute("""
-        INSERT INTO user (first_name, last_name, email, password_hash)
-        VALUES (%s, %s, %s, %s)
-    """, (first_name, last_name, email, hashed_pw))
+        INSERT INTO user (first_name, middle_initial, last_name, email, DOB, password_hash)
+        VALUES (%s, %s, %s, %s, %s, %s)
+    """, (first_name, middle_init, last_name, email, dob, hashed_pw))
     conn.commit()
 
     cursor.close()
