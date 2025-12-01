@@ -32,13 +32,17 @@ export default function PokemonSet({ setId }) {
         alt={setData.name}
         style={styles.image}
         onError={(e) => {
-          e.target.onerror = null; // Prevent infinite loop
-          e.target.src = `/assets/base1.jpg`; // Fallback image
-  }}
+          e.target.onerror = null;
+          e.target.src = `/assets/base1.jpg`;
+        }}
       />
       <div style={styles.textContainer}>
-        <h2 style={styles.title}>{setData.name}</h2>
-        <p style={styles.series}>{setData.series}</p>
+        <h2 style={styles.title} title={setData.name}>
+          {setData.name}
+        </h2>
+        <p style={styles.series} title={setData.series}>
+          {setData.series}
+        </p>
       </div>
     </div>
   );
@@ -48,8 +52,8 @@ const styles = {
   card: {
     display: "flex",
     alignItems: "center",
-    maxWidth: "600px",
-    margin: "100px auto 20px auto",
+    maxWidth: "500px",
+    margin: "10px auto 10px auto",
     padding: "20px",
     borderRadius: "1rem",
     backgroundColor: "rgba(53, 53, 53, 0.6)",
@@ -58,11 +62,11 @@ const styles = {
     boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.3)",
     fontFamily: "Arial, sans-serif",
     transition: "transform 0.2s, box-shadow 0.2s",
-    width:"600px",
+    width:"27.5rem",
   },
   image: {
-    maxWidth: "400px",
-    height: "150px",
+    maxWidth: "250px",
+    maxHeight: "150px",
     borderRadius: "1rem",
     objectFit: "cover",
     marginRight: "20px",
@@ -72,17 +76,24 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    overflow: "hidden",       // prevents text from leaving container
   },
   title: {
     margin: 0,
     marginBottom: "8px",
     fontSize: "1.5rem",
     color: "#ffcc00",
+    whiteSpace: "wrap",     // single line
+    overflow: "hidden",
+    textOverflow: "ellipsis", // adds "..." if text is too long
   },
   series: {
     margin: 0,
     fontSize: "1rem",
     color: "#f0f0f0",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   },
   loading: {
     textAlign: "center",
