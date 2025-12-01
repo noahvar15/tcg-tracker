@@ -5,8 +5,8 @@ import time
 # Establish connection with db
 mydb = mysql.connector.connect(
     host="localhost",
-    user="test",
-    passwd="test",
+    user="root",
+    passwd="password",
     database="tcg_tracker"
 )
 # create cursor
