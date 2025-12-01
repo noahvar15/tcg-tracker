@@ -10,7 +10,6 @@ def create_app():
 
     CORS(app, supports_credentials=True)
 
-    # Secret key
     global SECRET_KEY
     SECRET_KEY = os.getenv("SECRET_KEY")
     app.config["SECRET_KEY"] = SECRET_KEY
