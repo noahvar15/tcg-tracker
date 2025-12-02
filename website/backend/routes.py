@@ -116,30 +116,6 @@ def search_mtg_cards():
 
 
 
-@cards_bp.get("/pokemon/search")
-def search_pokemon_cards():
-    query = request.args.get("q", "")
-
-    if not query:
-        return jsonify({"error": "Missing search query"}), 400
-
-    conn = get_db_connection()
-    cursor = conn.cursor(dictionary=True)
-
-    sql = """
-        SELECT pokID AS id, card_name AS name, card_number, pokID,
-               (SELECT small_img FROM pokemon_image WHERE pokemon_image.pokID = pokemon_card.pokID) AS image
-        FROM pokemon_card
-        WHERE card_name LIKE %s OR pokID = %s OR card_number = %s
-    """
-
-    cursor.execute(sql, (f"%{query}%", query, query))
-    results = cursor.fetchall()
-
-    cursor.close()
-    conn.close()
-
-    return jsonify(results)
 
 @cards_bp.get("/mtg/sets/<set_code>")
 def get_mtg_set(set_code):
@@ -252,19 +228,6 @@ def get_pokemon_card(pok_id):
 
     return jsonify(card)
 
-@cards_bp.get("/mtg/random50")
-def random_mtg_50():
-    conn = get_db_connection()
-    cursor = conn.cursor(dictionary=True)
-
-    cursor.execute("""SELECT * FROM view_mtg_ui ORDER BY RAND() LIMIT 50;""")
-
-    results = cursor.fetchall()
-
-    cursor.close()
-    conn.close()
-
-    return jsonify(results)
 
 @cards_bp.get("/total-cards")
 def total_cards():
@@ -276,20 +239,6 @@ def total_cards():
         from pokemon_card) +
         (select count(*)
         from mtg_card) as total_card_count;""")
-
-    results = cursor.fetchall()
-
-    cursor.close()
-    conn.close()
-
-    return jsonify(results)
-
-@cards_bp.get("/pokemon/random50")
-def random_pokemon_50():
-    conn = get_db_connection()
-    cursor = conn.cursor(dictionary=True)
-
-    cursor.execute("""SELECT * FROM view_pokemon_ui ORDER BY RAND() LIMIT 50;""")
 
     results = cursor.fetchall()
 
@@ -312,6 +261,7 @@ def get_user_collections(user_id):
     conn.close()
 
     return jsonify(results)
+
 @cards_bp.get("/collection/<collection_id>")
 def get_cards_in_collection(collection_id):
     conn = get_db_connection()
