@@ -8,18 +8,18 @@ const Home = () => {
   const navigate = useNavigate();
   const [bgIndex, setBgIndex] = useState(0);
   const images = [
-  "/assets/background/mtg1.jpg",
-  "/assets/background/pok1.png",
-  "/assets/background/mtg2.jpg",
-  "/assets/background/pok2.jpg",
-  "/assets/background/mtg3.jpg",
-  "/assets/background/pok3.png",
-  "/assets/background/mtg4.jpg",
-  "/assets/background/pok4.jpg",
-  "/assets/background/mtg5.jpg",
-  "/assets/background/pok5.jpg",
-  "/assets/background/mtg6.png",
-  "/assets/background/mtg7.jpeg",
+  "/public/background/mtg1.jpg",
+  "/public/background/pok1.png",
+  "/public/background/mtg2.jpg",
+  "/public/background/pok2.jpg",
+  "/public/background/mtg3.jpg",
+  "/public/background/pok3.png",
+  "/public/background/mtg4.jpg",
+  "/public/background/pok4.jpg",
+  "/public/background/mtg5.jpg",
+  "/public/background/pok5.jpg",
+  "/public/background/mtg6.png",
+  "/public/background/mtg7.jpeg",
 ];
 
   const hiddenImgRef = useRef(null);
