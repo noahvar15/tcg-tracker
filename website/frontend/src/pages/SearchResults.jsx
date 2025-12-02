@@ -18,7 +18,7 @@ const SearchResults = () => {
     const fetchCards = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/cards/mtg/search?q=${encodeURIComponent(query)}`
+          `http://localhost:5000/api/cards/search?q=${encodeURIComponent(query)}`
         );
         if (!response.ok) throw new Error("Failed to fetch cards.");
 
