@@ -560,3 +560,22 @@ def rename_collection(collection_id):
     except Exception as e:
         print("Rename error:", e)
         return jsonify({"error": "Rename failed"}), 500
+
+@cards_bp.route("/collections/<int:collection_id>", methods=["DELETE"])
+@token_required
+def delete_collection(collection_id):
+    current_user = request.user_id
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    print(collection_id, current_user)
+    # enforce ownership
+    cursor.execute(
+        "DELETE FROM collection WHERE collectionID = %s AND uID = %s",
+        (collection_id, current_user)
+    )
+    conn.commit()
+
+    if cursor.rowcount == 0:
+        return jsonify({"error": "Unauthorized or not found"}), 404
+
+    return jsonify({"message": "Collection deleted"}), 200

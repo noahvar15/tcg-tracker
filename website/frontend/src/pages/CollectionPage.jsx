@@ -145,10 +145,8 @@ const CollectionPage = () => {
 
          const data = await res.json();
 
-         // Update UI immediately
          setCurrentCollectionName(newName);
 
-         // Update userCollections too
          setUserCollections((prev) =>
             prev.map((c) =>
                c.collectionID == collectionID
@@ -192,6 +190,32 @@ const CollectionPage = () => {
          alert("Failed to add card to collection.");
       }
    };
+   const handleDeleteCollection = async () => {
+      if (!window.confirm("Are you sure you want to delete this collection?")) return;
+
+      try {
+         const res = await fetch(
+            `http://localhost:5000/api/cards/collections/${collectionID}`,
+            {
+               method: "DELETE",
+               headers: {
+                  Authorization: `Bearer ${token}`,
+               },
+            }
+         );
+
+         if (!res.ok) throw new Error();
+
+         alert("Collection deleted.");
+
+         navigate("/profile");
+
+      } catch (err) {
+         console.error(err);
+         alert("Failed to delete collection.");
+      }
+   };
+
 
    useEffect(() => {
       fetchUserAndCollections();
@@ -209,6 +233,9 @@ const CollectionPage = () => {
          <Navbar />
 
          <div style={styles.body}>
+            <div
+            ><p
+               style={styles.backBtn} onClick={() => { navigate('/profile') }}>Back</p></div>
             <div style={styles.headerRow}>
                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
                   {isEditingName ? (
@@ -246,6 +273,12 @@ const CollectionPage = () => {
                            }}
                         >
                            Edit
+                        </button>
+                        <button
+                           style={styles.deleteButton}
+                           onClick={handleDeleteCollection}
+                        >
+                           Delete
                         </button>
                      </>
                   )}
@@ -396,7 +429,10 @@ const styles = {
       color: "white",
       fontFamily: "Inter, sans-serif",
    },
+   backBtn: {
+      color: 'rgba(255, 255, 255, 0.55)',
 
+   },
    /* ----------- HEADER ----------- */
    headerRow: {
       display: "flex",
@@ -623,6 +659,56 @@ const styles = {
       background: "rgba(255,255,255,0.25)",
       color: "white",
    },
+   nameInput: {
+      padding: "0.4rem 0.6rem",
+      borderRadius: "6px",
+      border: "1px solid #ccc",
+      fontSize: "1rem",
+      minWidth: "200px",
+   },
+
+   editButton: {
+      padding: "0.3rem 0.7rem",
+      borderRadius: "6px",
+      border: "none",
+      cursor: "pointer",
+      fontSize: "0.8rem",
+      background: "#222",
+      color: "white",
+   },
+
+   saveButton: {
+      padding: "0.3rem 0.7rem",
+      borderRadius: "6px",
+      border: "none",
+      cursor: "pointer",
+      fontSize: "0.8rem",
+      background: "green",
+      color: "white",
+   },
+
+   cancelButton: {
+      padding: "0.3rem 0.7rem",
+      borderRadius: "6px",
+      border: "none",
+      cursor: "pointer",
+      fontSize: "0.8rem",
+      background: "#888",
+      color: "white",
+   },
+   deleteButton: {
+      padding: "0.35rem 0.75rem",
+      borderRadius: "8px",
+      border: "none",
+      cursor: "pointer",
+      background: "#ff4a4a",
+      color: "white",
+      fontSize: "0.85rem",
+      fontWeight: 600,
+      marginLeft: "0.5rem",
+      transition: "0.2s",
+   },
+
 };
 
 export default CollectionPage;
