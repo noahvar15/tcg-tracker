@@ -5,3 +5,4 @@ venv/
 website/backend/venv/
 website/backend/.venv/
 website/backend/.env
+website/backend/__pycache__/
