@@ -15,6 +15,7 @@ export default function PokemonCardsBySets() {
 
   return (
     <main>
+        
       <Navbar />
 
       <div style={styles.body}>
