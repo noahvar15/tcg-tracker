@@ -37,7 +37,6 @@ export default function PokemonCardsBySets() {
 
 const styles = {
     body: {
-      marginTop: "15vh",
       padding: "1rem",
       paddingLeft: "4.5rem",
     },
