@@ -1,117 +1,53 @@
-import { useState } from 'react';
-import Logo from '../../public/vite.svg'
-import { useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
 
-const Navbar = () => {
-   const [hoveredOption, setHoveredOption] = useState(null); // Track which option is hovered
+const Navbar = ({ onSearch }) => {
+  const [query, setQuery] = useState("");
 
-   const navigate = useNavigate();
+  const handleSearch = () => {
+    if (query.trim()) onSearch(query.trim());
+  };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") handleSearch();
+  };
 
-   // Handlers for hover logic
-   const handleMouseEnter = (option) => setHoveredOption(option);
-   const handleMouseLeave = () => setHoveredOption(null);
-
-   // Function to dynamically style options
-   const getOptionStyle = (option) => ({
-      ...styles.Options,
-      borderBottom: hoveredOption === option ? '2px solid transparent' : '2px solid black',
-      cursor: 'pointer',
-   });
-
-   return (
-      <div className="NavContainer" style={styles.NavContainer}>
-         <div className="Logo-Container">
-            <img src={Logo} alt="Logo" style={styles.Logo} />
-         </div>
-         <div className="Search-Container" style={styles.SearchContainer}>
-            <input
-               className="Search-Input"
-               placeholder="Search"
-               style={styles.Search}
-            />
-            <div className="Search-Button"></div>
-         </div>
-         <ul className="Options-Container" style={styles.OptionsContainer}>
-            <li>
-               <div
-                  style={getOptionStyle('Pokemon')}
-                  onMouseEnter={() => handleMouseEnter('Pokemon')}
-                  onMouseLeave={handleMouseLeave}
-               >
-                  MTG
-               </div>
-            </li>
-            <li>
-            <div
-               style={getOptionStyle('Pokemon')}
-               onMouseEnter={() => handleMouseEnter('Pokemon')}
-               onMouseLeave={handleMouseLeave}
-               onClick={() => navigate('/pokemon-sets')} // <-- Navigate on click
-            >
-               Pokemon
-            </div>
-            </li>
-         </ul>
-         <img src="https://cdn-icons-png.flaticon.com/512/3276/3276535.png" style={styles.account} alt="Account Button22" />
+  return (
+    <nav style={styles.nav}>
+      <div style={styles.logo}>TCG Tracker</div>
+      <div style={styles.searchContainer}>
+        <input
+          type="text"
+          placeholder="Search for a card..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyPress={handleKeyPress}
+          style={styles.searchInput}
+        />
+        <button onClick={handleSearch} style={styles.searchButton}>
+          Search
+        </button>
       </div>
-   );
+    </nav>
+  );
 };
 
-// Styles
 const styles = {
-   NavContainer: {
-      padding: '1rem',
-      width: '100%',
-      height: '10vh',
-      display: 'grid',
-      alignItems: 'center', // Centers all items vertically
-      gridTemplateColumns: 'auto auto auto auto',
-      boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
-      backgroundColor: 'rgba(53, 53, 53, 0.5)',
-      backdropFilter: 'blur(1000px)',
-      position: 'fixed',
-      top: '0px',
-      zIndex: '9999',
-   },
-   Logo: {
-      marginLeft: '2rem',
-   },
-   account: {
-      border: "2px Solid Black",
-      borderRadius: '100px',
-      backgroundColor: 'white',
-      cursor: 'pointer',
-      height: '3rem',
-      width: '3rem',
-      justifySelf: 'end',
-      marginRight: '2rem',
-   },
-   OptionsContainer: {
-      listStyleType: 'none',
-      display: 'flex',
-   },
-   Options: {
-      height: '2vh',
-      margin: '1rem',
-      padding: '0.5rem',
-      transition: 'border-bottom 0.2s ease',
-   },
-   // FIX THE GRIDBOX ; ITS NOT SHOWING FULL HEIGHTç
-   SearchContainer: {
-      display: 'flex',
-      height: '40%',
-   },
-   Search: {
-      border: '2px solid rgb(0,0,0,0.4)',
-      paddingLeft: '1rem',
-      borderRadius: '1rem',
-      height: '100%',
-      maxWidth: '50vw',
-      width: '20vw',
-   },
-
+  nav: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "1rem 2rem",
+    backgroundColor: "#222",
+    color: "white",
+    position: "sticky",
+    top: 0,
+    width: "95vw",
+    gap: "2rem",
+  },
+  logo: { fontWeight: "bold", fontSize: "1.5rem" },
+  searchContainer: { display: "flex", gap: "0.5rem" },
+  searchInput: { padding: "0.5rem", borderRadius: "0.25rem", width: "300px" },
+  searchButton: { padding: "0.5rem 1rem", borderRadius: "0.25rem", cursor: "pointer" },
 };
-
 
 export default Navbar;
