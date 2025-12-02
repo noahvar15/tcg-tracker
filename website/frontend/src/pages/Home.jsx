@@ -6,13 +6,10 @@ import PokemonSet from "../components/PokemonSet.jsx";
 const Home = () => {
   const navigate = useNavigate();
 
-  const handleSearch = (query) => {
-    navigate(`/search?q=${encodeURIComponent(query)}`);
-  };
 
   return (
     <div>
-      <Navbar onSearch={handleSearch} />
+      <Navbar />
       <h1 style={{ textAlign: "center", marginTop: "100px" }}>
         Stuff
       </h1>

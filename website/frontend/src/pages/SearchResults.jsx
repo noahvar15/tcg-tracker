@@ -8,9 +8,7 @@ const SearchResults = () => {
   const query = searchParams.get("q");
   const navigate = useNavigate();
 
-  const handleSearch = (newQuery) => {
-    navigate(`/search?q=${encodeURIComponent(newQuery)}`);
-  };
+
 
   useEffect(() => {
     if (!query) return;
@@ -35,7 +33,7 @@ const SearchResults = () => {
 
   return (
     <div>
-      <Navbar onSearch={handleSearch} />
+      <Navbar />
       <div style={styles.container}>
         {results.length === 0 ? (
           <p style={styles.noResults}>No cards found. Try searching above.</p>
