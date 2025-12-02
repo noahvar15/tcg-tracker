@@ -44,13 +44,13 @@ const styles = {
   },
 
   card: {
-    background: "rgba(247, 208, 49, 0.3)",
+    background: "rgba(0, 0, 0, 0.6)",
     borderRadius: "16px",
     padding: "1.8rem 2.4rem",
     textAlign: "center",
     color: "white",
-    boxShadow: "0 0 20px rgba(247, 208, 49, 0.3)",
-    border: "2px solid rgba(247, 208, 49, 0.4)",
+    boxShadow: "0 0 20px rgba(0, 0, 0, 0.3)",
+    border: "2px solid rgba(0, 0, 0, 0.4)",
     backdropFilter: "blur(6px)",
     transition: "0.3s ease",
     maxWidth: "350px",
