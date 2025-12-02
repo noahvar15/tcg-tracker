@@ -1,6 +1,7 @@
 import { useState } from "react";
 import viteLogo from '../../public/vite.svg';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
 
 export default function Navbar() {
   const [query, setQuery] = useState("");
@@ -28,10 +29,10 @@ export default function Navbar() {
 
   return (
     <nav style={styles.nav}>
-      <div style={styles.logo}>
+      <Link to = "/" style={styles.logo}>
         <img src={viteLogo} alt="Logo" style={styles.logoImage} />
         TCG Tracker
-      </div>
+      </Link>
       <div style={styles.searchContainer}>
         <input
           type="text"
@@ -93,7 +94,7 @@ const styles = {
     boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
     backdropFilter: 'blur(1000px)',
   },
-  logo: { fontWeight: "bold", fontSize: "1.5rem" },
+  logo: { fontWeight: "bold", fontSize: "1.5rem", color: "inherit"},
   logoImage: { width: "32px", height: "auto", paddingRight: "1rem" },
   searchContainer: { display: "flex", gap: "0.5rem", height: "40%" },
   searchInput: { padding: "0.5rem", border: '2px solid rgb(0,0,0,0.4)', borderRadius: "1rem", width: "300px" },
