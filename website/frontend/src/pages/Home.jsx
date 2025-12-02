@@ -1,26 +1,20 @@
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
-import Carousell from "../components/Carousell.jsx";
-//import { useEffect, useState } from "react";
-//import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import PokemonSet from "../components/PokemonSet.jsx";
 
 const Home = () => {
+  const navigate = useNavigate();
 
-   return (
-      <main>
-         <Navbar />
-         <div style={styles.body}>
-            <Carousell />
-            <h2>Stuff</h2>
-         </div>
 
-      </main>
-   )
+  return (
+    <div>
+      <Navbar />
+      <h1 style={{ textAlign: "center", marginTop: "100px" }}>
+        Stuff
+      </h1>
+    </div>
+  );
 };
-
-const styles = {
-   body: {
-      marginTop: '15vh',
-   }
-}
 
 export default Home;

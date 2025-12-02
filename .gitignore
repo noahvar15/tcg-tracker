@@ -4,3 +4,6 @@ db_project/
 venv/
 website/backend/venv/
 website/backend/.venv/
+website/backend/.env
+website/backend/__pycache__/
+*.pyc

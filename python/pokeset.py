@@ -5,8 +5,8 @@ import time
 # Establish connection with db
 mydb = mysql.connector.connect(
     host="localhost",
-    user="test",
-    passwd="test",
+    user="root",
+    passwd="password",
     database="tcg_tracker"
 )
 # create cursor
@@ -47,8 +47,14 @@ while page <= 1:
     page += 1
 
     if response.status_code != 200:
-            print(f"Failed on page {page}: {response.status_code}")
-            break
+            print(f"Failed on page {page-1}: {response.status_code}")
+            if (response.status_code in (404, 504)):
+                time.sleep(0.5)
+                page -= 1
+                print(f"Retrying page {page}...")
+                continue
+            else:
+                break
     
     data = response.json()
     sets = data.get('data', [])
