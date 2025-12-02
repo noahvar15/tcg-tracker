@@ -145,10 +145,8 @@ const CollectionPage = () => {
 
          const data = await res.json();
 
-         // Update UI immediately
          setCurrentCollectionName(newName);
 
-         // Update userCollections too
          setUserCollections((prev) =>
             prev.map((c) =>
                c.collectionID == collectionID
@@ -192,6 +190,32 @@ const CollectionPage = () => {
          alert("Failed to add card to collection.");
       }
    };
+   const handleDeleteCollection = async () => {
+      if (!window.confirm("Are you sure you want to delete this collection?")) return;
+
+      try {
+         const res = await fetch(
+            `http://localhost:5000/api/cards/collections/${collectionID}`,
+            {
+               method: "DELETE",
+               headers: {
+                  Authorization: `Bearer ${token}`,
+               },
+            }
+         );
+
+         if (!res.ok) throw new Error();
+
+         alert("Collection deleted.");
+
+         navigate("/profile");
+
+      } catch (err) {
+         console.error(err);
+         alert("Failed to delete collection.");
+      }
+   };
+
 
    useEffect(() => {
       fetchUserAndCollections();
@@ -249,6 +273,12 @@ const CollectionPage = () => {
                            }}
                         >
                            Edit
+                        </button>
+                        <button
+                           style={styles.deleteButton}
+                           onClick={handleDeleteCollection}
+                        >
+                           Delete
                         </button>
                      </>
                   )}
@@ -665,6 +695,18 @@ const styles = {
       fontSize: "0.8rem",
       background: "#888",
       color: "white",
+   },
+   deleteButton: {
+      padding: "0.35rem 0.75rem",
+      borderRadius: "8px",
+      border: "none",
+      cursor: "pointer",
+      background: "#ff4a4a",
+      color: "white",
+      fontSize: "0.85rem",
+      fontWeight: 600,
+      marginLeft: "0.5rem",
+      transition: "0.2s",
    },
 
 };
