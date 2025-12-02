@@ -183,7 +183,6 @@ const PokemonSets = () => {
 
 const styles = {
    gridContainer: {
-      marginTop: '15vh',
       display: 'grid',
       gridTemplateColumns: 'repeat(3, 1fr)',
       gap: '1rem', // spacing between items
