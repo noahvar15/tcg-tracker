@@ -200,6 +200,7 @@ def random_pokemon_50():
 
 @cards_bp.get("/collections/user/<user_id>")
 def get_user_collections(user_id):
+    print("FETCHING COLLECTIONS!!!!")
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
 
@@ -211,18 +212,20 @@ def get_user_collections(user_id):
     conn.close()
 
     return jsonify(results)
+
 @cards_bp.get("/collection/<collection_id>")
 def get_cards_in_collection(collection_id):
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
 
     cursor.execute("""
-        SELECT card_type AS type, id, name, image, card_number
-        FROM unified_collection_cards
+        SELECT type as card_type, id, name, image, card_number
+        FROM view_collection_all_cards
         WHERE collectionID = %s
     """, (collection_id,))
 
     results = cursor.fetchall()
+    print(f"cards in {collection_id}: {results}")
 
     cursor.close()
     conn.close()
@@ -347,3 +350,17 @@ def login():
 def verify_user():
     print("-> VERIFY HIT")
     return jsonify({"message": "Valid token", "user_id": request.user_id}), 200
+
+@auth.get('/get_user')
+@token_required
+def get_user():
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT  uID, first_name, last_name, email, DOB from user where uID = %s", (request.user_id,))
+    user = cursor.fetchone()
+
+    cursor.close()
+    conn.close()
+    if not user:
+        return jsonify({"error": "User Not Found"})
+    return jsonify(user), 200
