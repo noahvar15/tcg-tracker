@@ -1,0 +1,2738 @@
+[
+  {
+    "set_name": "15th Anniversary Cards",
+    "set_code": "P15A"
+  },
+  {
+    "set_name": "2016 Heroes of the Realm",
+    "set_code": "HTR16"
+  },
+  {
+    "set_name": "2016 Heroes of the Realm",
+    "set_code": "PHTR"
+  },
+  {
+    "set_name": "2017 Gift Pack",
+    "set_code": "G17"
+  },
+  {
+    "set_name": "2017 Heroes of the Realm",
+    "set_code": "HTR17"
+  },
+  {
+    "set_name": "2017 Heroes of the Realm",
+    "set_code": "PH17"
+  },
+  {
+    "set_name": "2018 Heroes of the Realm",
+    "set_code": "HTR18"
+  },
+  {
+    "set_name": "2018 Heroes of the Realm",
+    "set_code": "PH18"
+  },
+  {
+    "set_name": "2019 Heroes of the Realm",
+    "set_code": "HTR19"
+  },
+  {
+    "set_name": "2019 Heroes of the Realm",
+    "set_code": "PH19"
+  },
+  {
+    "set_name": "2020 Heroes of the Realm",
+    "set_code": "HTR20"
+  },
+  {
+    "set_name": "2020 Heroes of the Realm",
+    "set_code": "PH20"
+  },
+  {
+    "set_name": "2021 Heroes of the Realm",
+    "set_code": "PH21"
+  },
+  {
+    "set_name": "2022 Heroes of the Realm",
+    "set_code": "PH22"
+  },
+  {
+    "set_name": "30th Anniversary Celebration Tokyo",
+    "set_code": "P30T"
+  },
+  {
+    "set_name": "30th Anniversary Edition",
+    "set_code": "30A"
+  },
+  {
+    "set_name": "30th Anniversary History Promos",
+    "set_code": "P30H"
+  },
+  {
+    "set_name": "30th Anniversary Misc Promos",
+    "set_code": "P30M"
+  },
+  {
+    "set_name": "30th Anniversary Play Promos",
+    "set_code": "P30A"
+  },
+  {
+    "set_name": "Adventures in the Forgotten Realms",
+    "set_code": "AFR"
+  },
+  {
+    "set_name": "Adventures in the Forgotten Realms Promos",
+    "set_code": "PAFR"
+  },
+  {
+    "set_name": "Aether Revolt",
+    "set_code": "AER"
+  },
+  {
+    "set_name": "Aether Revolt Promos",
+    "set_code": "PAER"
+  },
+  {
+    "set_name": "Alara Reborn",
+    "set_code": "ARB"
+  },
+  {
+    "set_name": "Alara Reborn Promos",
+    "set_code": "PARB"
+  },
+  {
+    "set_name": "Alchemy Horizons: Baldur's Gate",
+    "set_code": "HBG"
+  },
+  {
+    "set_name": "Alchemy: Dominaria",
+    "set_code": "YDMU"
+  },
+  {
+    "set_name": "Alchemy: Innistrad",
+    "set_code": "YMID"
+  },
+  {
+    "set_name": "Alchemy: Ixalan",
+    "set_code": "YLCI"
+  },
+  {
+    "set_name": "Alchemy: Kamigawa",
+    "set_code": "YNEO"
+  },
+  {
+    "set_name": "Alchemy: Murders at Karlov Manor",
+    "set_code": "YMKM"
+  },
+  {
+    "set_name": "Alchemy: New Capenna",
+    "set_code": "YSNC"
+  },
+  {
+    "set_name": "Alchemy: Outlaws of Thunder Junction",
+    "set_code": "YOTJ"
+  },
+  {
+    "set_name": "Alchemy: Phyrexia",
+    "set_code": "YONE"
+  },
+  {
+    "set_name": "Alchemy: The Brothers' War",
+    "set_code": "YBRO"
+  },
+  {
+    "set_name": "Alchemy: Wilds of Eldraine",
+    "set_code": "YWOE"
+  },
+  {
+    "set_name": "Alliances",
+    "set_code": "ALL"
+  },
+  {
+    "set_name": "Amonkhet",
+    "set_code": "AKH"
+  },
+  {
+    "set_name": "Amonkhet Invocations",
+    "set_code": "MP2"
+  },
+  {
+    "set_name": "Amonkhet Promos",
+    "set_code": "PAKH"
+  },
+  {
+    "set_name": "Amonkhet Remastered",
+    "set_code": "AKR"
+  },
+  {
+    "set_name": "Anthologies",
+    "set_code": "ATH"
+  },
+  {
+    "set_name": "Antiquities",
+    "set_code": "ATQ"
+  },
+  {
+    "set_name": "Apocalypse",
+    "set_code": "APC"
+  },
+  {
+    "set_name": "Apocalypse Promos",
+    "set_code": "PAPC"
+  },
+  {
+    "set_name": "Arabian Nights",
+    "set_code": "ARN"
+  },
+  {
+    "set_name": "Archenemy",
+    "set_code": "ARC"
+  },
+  {
+    "set_name": "Archenemy Schemes",
+    "set_code": "OARC"
+  },
+  {
+    "set_name": "Archenemy: Nicol Bolas",
+    "set_code": "E01"
+  },
+  {
+    "set_name": "Archenemy: Nicol Bolas Schemes",
+    "set_code": "OE01"
+  },
+  {
+    "set_name": "Arena Beginner Set",
+    "set_code": "ANB"
+  },
+  {
+    "set_name": "Arena League 1996",
+    "set_code": "PARL"
+  },
+  {
+    "set_name": "Arena League 1999",
+    "set_code": "PAL99"
+  },
+  {
+    "set_name": "Arena League 2000",
+    "set_code": "PAL00"
+  },
+  {
+    "set_name": "Arena League 2001",
+    "set_code": "PAL01"
+  },
+  {
+    "set_name": "Arena League 2002",
+    "set_code": "PAL02"
+  },
+  {
+    "set_name": "Arena League 2003",
+    "set_code": "PAL03"
+  },
+  {
+    "set_name": "Arena League 2004",
+    "set_code": "PAL04"
+  },
+  {
+    "set_name": "Arena League 2005",
+    "set_code": "PAL05"
+  },
+  {
+    "set_name": "Arena League 2006",
+    "set_code": "PAL06"
+  },
+  {
+    "set_name": "Arena New Player Experience",
+    "set_code": "ANA"
+  },
+  {
+    "set_name": "Arena New Player Experience Cards",
+    "set_code": "OANA"
+  },
+  {
+    "set_name": "Arena New Player Experience Extras",
+    "set_code": "XANA"
+  },
+  {
+    "set_name": "Asia Pacific Land Program",
+    "set_code": "PALP"
+  },
+  {
+    "set_name": "Assassin's Creed",
+    "set_code": "ACR"
+  },
+  {
+    "set_name": "Astral Cards",
+    "set_code": "PAST"
+  },
+  {
+    "set_name": "Avacyn Restored",
+    "set_code": "AVR"
+  },
+  {
+    "set_name": "Avacyn Restored Promos",
+    "set_code": "PAVR"
+  },
+  {
+    "set_name": "Battle for Baldur's Gate Promos",
+    "set_code": "PCLB"
+  },
+  {
+    "set_name": "Battle for Zendikar",
+    "set_code": "BFZ"
+  },
+  {
+    "set_name": "Battle for Zendikar Promos",
+    "set_code": "PBFZ"
+  },
+  {
+    "set_name": "Battle Royale Box Set",
+    "set_code": "BRB"
+  },
+  {
+    "set_name": "Battle the Horde",
+    "set_code": "TBTH"
+  },
+  {
+    "set_name": "Battlebond",
+    "set_code": "BBD"
+  },
+  {
+    "set_name": "Battlebond Promos",
+    "set_code": "PBBD"
+  },
+  {
+    "set_name": "Beatdown Box Set",
+    "set_code": "BTD"
+  },
+  {
+    "set_name": "Betrayers of Kamigawa",
+    "set_code": "BOK"
+  },
+  {
+    "set_name": "Betrayers of Kamigawa Promos",
+    "set_code": "PBOK"
+  },
+  {
+    "set_name": "BFZ Standard Series",
+    "set_code": "PSS1"
+  },
+  {
+    "set_name": "Bloomburrow",
+    "set_code": "BLB"
+  },
+  {
+    "set_name": "Born of the Gods",
+    "set_code": "BNG"
+  },
+  {
+    "set_name": "Born of the Gods Hero's Path",
+    "set_code": "THP2"
+  },
+  {
+    "set_name": "Born of the Gods Promos",
+    "set_code": "PBNG"
+  },
+  {
+    "set_name": "Breaking News",
+    "set_code": "OTP"
+  },
+  {
+    "set_name": "Celebration Cards",
+    "set_code": "PCEL"
+  },
+  {
+    "set_name": "Champions of Kamigawa",
+    "set_code": "CHK"
+  },
+  {
+    "set_name": "Champions of Kamigawa Promos",
+    "set_code": "PCHK"
+  },
+  {
+    "set_name": "Champs and States",
+    "set_code": "PCMP"
+  },
+  {
+    "set_name": "Chronicles",
+    "set_code": "CHR"
+  },
+  {
+    "set_name": "Chronicles Foreign Black Border",
+    "set_code": "BCHR"
+  },
+  {
+    "set_name": "Classic Sixth Edition",
+    "set_code": "6ED"
+  },
+  {
+    "set_name": "Coldsnap",
+    "set_code": "CSP"
+  },
+  {
+    "set_name": "Coldsnap Promos",
+    "set_code": "PCSP"
+  },
+  {
+    "set_name": "Coldsnap Theme Decks",
+    "set_code": "CST"
+  },
+  {
+    "set_name": "Collectors' Edition",
+    "set_code": "CED"
+  },
+  {
+    "set_name": "Commander 2011",
+    "set_code": "CMD"
+  },
+  {
+    "set_name": "Commander 2011 Launch Party",
+    "set_code": "PCMD"
+  },
+  {
+    "set_name": "Commander 2011 Oversized",
+    "set_code": "OCMD"
+  },
+  {
+    "set_name": "Commander 2013",
+    "set_code": "C13"
+  },
+  {
+    "set_name": "Commander 2013 Oversized",
+    "set_code": "OC13"
+  },
+  {
+    "set_name": "Commander 2014",
+    "set_code": "C14"
+  },
+  {
+    "set_name": "Commander 2014 Oversized",
+    "set_code": "OC14"
+  },
+  {
+    "set_name": "Commander 2015",
+    "set_code": "C15"
+  },
+  {
+    "set_name": "Commander 2015 Oversized",
+    "set_code": "OC15"
+  },
+  {
+    "set_name": "Commander 2016",
+    "set_code": "C16"
+  },
+  {
+    "set_name": "Commander 2016 Oversized",
+    "set_code": "OC16"
+  },
+  {
+    "set_name": "Commander 2017",
+    "set_code": "C17"
+  },
+  {
+    "set_name": "Commander 2017 Oversized",
+    "set_code": "OC17"
+  },
+  {
+    "set_name": "Commander 2018",
+    "set_code": "C18"
+  },
+  {
+    "set_name": "Commander 2018 Oversized",
+    "set_code": "OC18"
+  },
+  {
+    "set_name": "Commander 2019",
+    "set_code": "C19"
+  },
+  {
+    "set_name": "Commander 2019 Oversized",
+    "set_code": "OC19"
+  },
+  {
+    "set_name": "Commander 2020",
+    "set_code": "C20"
+  },
+  {
+    "set_name": "Commander 2020 Oversized",
+    "set_code": "OC20"
+  },
+  {
+    "set_name": "Commander 2021",
+    "set_code": "C21"
+  },
+  {
+    "set_name": "Commander 2021 Display Commanders",
+    "set_code": "OC21"
+  },
+  {
+    "set_name": "Commander Anthology",
+    "set_code": "CMA"
+  },
+  {
+    "set_name": "Commander Anthology Volume II",
+    "set_code": "CM2"
+  },
+  {
+    "set_name": "Commander Collection: Black",
+    "set_code": "CC2"
+  },
+  {
+    "set_name": "Commander Collection: Green",
+    "set_code": "CC1"
+  },
+  {
+    "set_name": "Commander Legends",
+    "set_code": "CMR"
+  },
+  {
+    "set_name": "Commander Legends Promos",
+    "set_code": "PCMR"
+  },
+  {
+    "set_name": "Commander Legends: Battle for Baldur's Gate",
+    "set_code": "CLB"
+  },
+  {
+    "set_name": "Commander Masters",
+    "set_code": "CMM"
+  },
+  {
+    "set_name": "Commander's Arsenal",
+    "set_code": "CM1"
+  },
+  {
+    "set_name": "Commander's Arsenal Oversized",
+    "set_code": "OCM1"
+  },
+  {
+    "set_name": "Conflux",
+    "set_code": "CON"
+  },
+  {
+    "set_name": "Conflux Promos",
+    "set_code": "PCON"
+  },
+  {
+    "set_name": "Conspiracy",
+    "set_code": "CNS"
+  },
+  {
+    "set_name": "Conspiracy Promos",
+    "set_code": "PCNS"
+  },
+  {
+    "set_name": "Conspiracy: Take the Crown",
+    "set_code": "CN2"
+  },
+  {
+    "set_name": "Core Set 2019",
+    "set_code": "M19"
+  },
+  {
+    "set_name": "Core Set 2019 Promos",
+    "set_code": "PM19"
+  },
+  {
+    "set_name": "Core Set 2020",
+    "set_code": "M20"
+  },
+  {
+    "set_name": "Core Set 2020 Promos",
+    "set_code": "PM20"
+  },
+  {
+    "set_name": "Core Set 2021",
+    "set_code": "M21"
+  },
+  {
+    "set_name": "Core Set 2021 Promos",
+    "set_code": "PM21"
+  },
+  {
+    "set_name": "Cowboy Bebop",
+    "set_code": "PCBB"
+  },
+  {
+    "set_name": "Crimson Vow Commander",
+    "set_code": "VOC"
+  },
+  {
+    "set_name": "Crimson Vow Commander Display Commanders",
+    "set_code": "OVOC"
+  },
+  {
+    "set_name": "Dark Ascension",
+    "set_code": "DKA"
+  },
+  {
+    "set_name": "Dark Ascension Promos",
+    "set_code": "PDKA"
+  },
+  {
+    "set_name": "Darksteel",
+    "set_code": "DST"
+  },
+  {
+    "set_name": "Darksteel Promos",
+    "set_code": "PDST"
+  },
+  {
+    "set_name": "DCI Legend Membership",
+    "set_code": "PLGM"
+  },
+  {
+    "set_name": "DCI Promos",
+    "set_code": "PDCI"
+  },
+  {
+    "set_name": "Deckmasters",
+    "set_code": "DKM"
+  },
+  {
+    "set_name": "Defeat a God",
+    "set_code": "TDAG"
+  },
+  {
+    "set_name": "Dissension",
+    "set_code": "DIS"
+  },
+  {
+    "set_name": "Dissension Promos",
+    "set_code": "PDIS"
+  },
+  {
+    "set_name": "Doctor Who",
+    "set_code": "WHO"
+  },
+  {
+    "set_name": "Dominaria",
+    "set_code": "DOM"
+  },
+  {
+    "set_name": "Dominaria Promos",
+    "set_code": "PDOM"
+  },
+  {
+    "set_name": "Dominaria Remastered",
+    "set_code": "DMR"
+  },
+  {
+    "set_name": "Dominaria United",
+    "set_code": "DMU"
+  },
+  {
+    "set_name": "Dominaria United Commander",
+    "set_code": "DMC"
+  },
+  {
+    "set_name": "Dominaria United Promos",
+    "set_code": "PDMU"
+  },
+  {
+    "set_name": "Double Masters",
+    "set_code": "2XM"
+  },
+  {
+    "set_name": "Double Masters 2022",
+    "set_code": "2X2"
+  },
+  {
+    "set_name": "Dragon Con",
+    "set_code": "PDRC"
+  },
+  {
+    "set_name": "Dragon's Maze",
+    "set_code": "DGM"
+  },
+  {
+    "set_name": "Dragon's Maze Promos",
+    "set_code": "PDGM"
+  },
+  {
+    "set_name": "Dragons of Tarkir",
+    "set_code": "DTK"
+  },
+  {
+    "set_name": "Dragons of Tarkir Promos",
+    "set_code": "PDTK"
+  },
+  {
+    "set_name": "Duel Decks Anthology: Divine vs. Demonic",
+    "set_code": "DVD"
+  },
+  {
+    "set_name": "Duel Decks Anthology: Elves vs. Goblins",
+    "set_code": "EVG"
+  },
+  {
+    "set_name": "Duel Decks Anthology: Garruk vs. Liliana",
+    "set_code": "GVL"
+  },
+  {
+    "set_name": "Duel Decks Anthology: Jace vs. Chandra",
+    "set_code": "JVC"
+  },
+  {
+    "set_name": "Duel Decks: Ajani vs. Nicol Bolas",
+    "set_code": "DDH"
+  },
+  {
+    "set_name": "Duel Decks: Blessed vs. Cursed",
+    "set_code": "DDQ"
+  },
+  {
+    "set_name": "Duel Decks: Divine vs. Demonic",
+    "set_code": "DDC"
+  },
+  {
+    "set_name": "Duel Decks: Elspeth vs. Kiora",
+    "set_code": "DDO"
+  },
+  {
+    "set_name": "Duel Decks: Elspeth vs. Tezzeret",
+    "set_code": "DDF"
+  },
+  {
+    "set_name": "Duel Decks: Elves vs. Goblins",
+    "set_code": "DD1"
+  },
+  {
+    "set_name": "Duel Decks: Elves vs. Inventors",
+    "set_code": "DDU"
+  },
+  {
+    "set_name": "Duel Decks: Garruk vs. Liliana",
+    "set_code": "DDD"
+  },
+  {
+    "set_name": "Duel Decks: Heroes vs. Monsters",
+    "set_code": "DDL"
+  },
+  {
+    "set_name": "Duel Decks: Izzet vs. Golgari",
+    "set_code": "DDJ"
+  },
+  {
+    "set_name": "Duel Decks: Jace vs. Chandra",
+    "set_code": "DD2"
+  },
+  {
+    "set_name": "Duel Decks: Jace vs. Vraska",
+    "set_code": "DDM"
+  },
+  {
+    "set_name": "Duel Decks: Knights vs. Dragons",
+    "set_code": "DDG"
+  },
+  {
+    "set_name": "Duel Decks: Merfolk vs. Goblins",
+    "set_code": "DDT"
+  },
+  {
+    "set_name": "Duel Decks: Mind vs. Might",
+    "set_code": "DDS"
+  },
+  {
+    "set_name": "Duel Decks: Mirrodin Pure vs. New Phyrexia",
+    "set_code": "TD2"
+  },
+  {
+    "set_name": "Duel Decks: Nissa vs. Ob Nixilis",
+    "set_code": "DDR"
+  },
+  {
+    "set_name": "Duel Decks: Phyrexia vs. the Coalition",
+    "set_code": "DDE"
+  },
+  {
+    "set_name": "Duel Decks: Sorin vs. Tibalt",
+    "set_code": "DDK"
+  },
+  {
+    "set_name": "Duel Decks: Speed vs. Cunning",
+    "set_code": "DDN"
+  },
+  {
+    "set_name": "Duel Decks: Venser vs. Koth",
+    "set_code": "DDI"
+  },
+  {
+    "set_name": "Duel Decks: Zendikar vs. Eldrazi",
+    "set_code": "DDP"
+  },
+  {
+    "set_name": "Duels of the Planeswalkers",
+    "set_code": "DPA"
+  },
+  {
+    "set_name": "Duels of the Planeswalkers 2009 Promos",
+    "set_code": "PDTP"
+  },
+  {
+    "set_name": "Duels of the Planeswalkers 2010 Promos",
+    "set_code": "PDP10"
+  },
+  {
+    "set_name": "Duels of the Planeswalkers 2012 Promos",
+    "set_code": "PDP12"
+  },
+  {
+    "set_name": "Duels of the Planeswalkers 2013 Promos",
+    "set_code": "PDP13"
+  },
+  {
+    "set_name": "Duels of the Planeswalkers 2014 Promos",
+    "set_code": "PDP14"
+  },
+  {
+    "set_name": "Duels of the Planeswalkers 2015 Promos",
+    "set_code": "PDP15"
+  },
+  {
+    "set_name": "Eighth Edition",
+    "set_code": "8ED"
+  },
+  {
+    "set_name": "Eighth Edition Promos",
+    "set_code": "P8ED"
+  },
+  {
+    "set_name": "Eldritch Moon",
+    "set_code": "EMN"
+  },
+  {
+    "set_name": "Eldritch Moon Promos",
+    "set_code": "PEMN"
+  },
+  {
+    "set_name": "Eternal Masters",
+    "set_code": "EMA"
+  },
+  {
+    "set_name": "Eternal Weekend",
+    "set_code": "PEWK"
+  },
+  {
+    "set_name": "European Land Program",
+    "set_code": "PELP"
+  },
+  {
+    "set_name": "Eventide",
+    "set_code": "EVE"
+  },
+  {
+    "set_name": "Eventide Promos",
+    "set_code": "PEVE"
+  },
+  {
+    "set_name": "Exodus",
+    "set_code": "EXO"
+  },
+  {
+    "set_name": "Exodus Promos",
+    "set_code": "PEXO"
+  },
+  {
+    "set_name": "Explorer Anthology 1",
+    "set_code": "EA1"
+  },
+  {
+    "set_name": "Explorer Anthology 2",
+    "set_code": "EA2"
+  },
+  {
+    "set_name": "Explorer Anthology 3",
+    "set_code": "EA3"
+  },
+  {
+    "set_name": "Explorers of Ixalan",
+    "set_code": "E02"
+  },
+  {
+    "set_name": "Face the Hydra",
+    "set_code": "TFTH"
+  },
+  {
+    "set_name": "Fallen Empires",
+    "set_code": "FEM"
+  },
+  {
+    "set_name": "Fallout",
+    "set_code": "PIP"
+  },
+  {
+    "set_name": "Fate Reforged",
+    "set_code": "FRF"
+  },
+  {
+    "set_name": "Fate Reforged Clash Pack",
+    "set_code": "CP2"
+  },
+  {
+    "set_name": "Fate Reforged Promos",
+    "set_code": "PFRF"
+  },
+  {
+    "set_name": "Fifth Dawn",
+    "set_code": "5DN"
+  },
+  {
+    "set_name": "Fifth Dawn Promos",
+    "set_code": "P5DN"
+  },
+  {
+    "set_name": "Fifth Edition",
+    "set_code": "5ED"
+  },
+  {
+    "set_name": "Foreign Black Border",
+    "set_code": "FBB"
+  },
+  {
+    "set_name": "Forgotten Realms Commander",
+    "set_code": "AFC"
+  },
+  {
+    "set_name": "Forgotten Realms Commander Display Commanders",
+    "set_code": "OAFC"
+  },
+  {
+    "set_name": "Fourth Edition",
+    "set_code": "4ED"
+  },
+  {
+    "set_name": "Fourth Edition Foreign Black Border",
+    "set_code": "4BB"
+  },
+  {
+    "set_name": "Friday Night Magic 2000",
+    "set_code": "FNM"
+  },
+  {
+    "set_name": "Friday Night Magic 2001",
+    "set_code": "F01"
+  },
+  {
+    "set_name": "Friday Night Magic 2002",
+    "set_code": "F02"
+  },
+  {
+    "set_name": "Friday Night Magic 2003",
+    "set_code": "F03"
+  },
+  {
+    "set_name": "Friday Night Magic 2004",
+    "set_code": "F04"
+  },
+  {
+    "set_name": "Friday Night Magic 2005",
+    "set_code": "F05"
+  },
+  {
+    "set_name": "Friday Night Magic 2006",
+    "set_code": "F06"
+  },
+  {
+    "set_name": "Friday Night Magic 2007",
+    "set_code": "F07"
+  },
+  {
+    "set_name": "Friday Night Magic 2008",
+    "set_code": "F08"
+  },
+  {
+    "set_name": "Friday Night Magic 2009",
+    "set_code": "F09"
+  },
+  {
+    "set_name": "Friday Night Magic 2010",
+    "set_code": "F10"
+  },
+  {
+    "set_name": "Friday Night Magic 2011",
+    "set_code": "F11"
+  },
+  {
+    "set_name": "Friday Night Magic 2012",
+    "set_code": "F12"
+  },
+  {
+    "set_name": "Friday Night Magic 2013",
+    "set_code": "F13"
+  },
+  {
+    "set_name": "Friday Night Magic 2014",
+    "set_code": "F14"
+  },
+  {
+    "set_name": "Friday Night Magic 2015",
+    "set_code": "F15"
+  },
+  {
+    "set_name": "Friday Night Magic 2016",
+    "set_code": "F16"
+  },
+  {
+    "set_name": "Friday Night Magic 2017",
+    "set_code": "F17"
+  },
+  {
+    "set_name": "From Cute to Brute",
+    "set_code": "PCTB"
+  },
+  {
+    "set_name": "From the Vault: Angels",
+    "set_code": "V15"
+  },
+  {
+    "set_name": "From the Vault: Annihilation",
+    "set_code": "V14"
+  },
+  {
+    "set_name": "From the Vault: Dragons",
+    "set_code": "DRB"
+  },
+  {
+    "set_name": "From the Vault: Exiled",
+    "set_code": "V09"
+  },
+  {
+    "set_name": "From the Vault: Legends",
+    "set_code": "V11"
+  },
+  {
+    "set_name": "From the Vault: Lore",
+    "set_code": "V16"
+  },
+  {
+    "set_name": "From the Vault: Realms",
+    "set_code": "V12"
+  },
+  {
+    "set_name": "From the Vault: Relics",
+    "set_code": "V10"
+  },
+  {
+    "set_name": "From the Vault: Transform",
+    "set_code": "V17"
+  },
+  {
+    "set_name": "From the Vault: Twenty",
+    "set_code": "V13"
+  },
+  {
+    "set_name": "Future Sight",
+    "set_code": "FUT"
+  },
+  {
+    "set_name": "Future Sight Promos",
+    "set_code": "PFUT"
+  },
+  {
+    "set_name": "Game Day Promos",
+    "set_code": "GDY"
+  },
+  {
+    "set_name": "Game Night",
+    "set_code": "GNT"
+  },
+  {
+    "set_name": "Game Night 2019",
+    "set_code": "GN2"
+  },
+  {
+    "set_name": "Game Night: Free-for-All",
+    "set_code": "GN3"
+  },
+  {
+    "set_name": "Gatecrash",
+    "set_code": "GTC"
+  },
+  {
+    "set_name": "Gatecrash Promos",
+    "set_code": "PGTC"
+  },
+  {
+    "set_name": "Global Series Jiang Yanggu & Mu Yanling",
+    "set_code": "GS1"
+  },
+  {
+    "set_name": "Grand Prix Promos",
+    "set_code": "PGPX"
+  },
+  {
+    "set_name": "GRN Guild Kit",
+    "set_code": "GK1"
+  },
+  {
+    "set_name": "GRN Ravnica Weekend",
+    "set_code": "PRWK"
+  },
+  {
+    "set_name": "Guildpact",
+    "set_code": "GPT"
+  },
+  {
+    "set_name": "Guildpact Promos",
+    "set_code": "PGPT"
+  },
+  {
+    "set_name": "Guilds of Ravnica",
+    "set_code": "GRN"
+  },
+  {
+    "set_name": "Guilds of Ravnica Promos",
+    "set_code": "PGRN"
+  },
+  {
+    "set_name": "Guru",
+    "set_code": "PGRU"
+  },
+  {
+    "set_name": "Hachette UK",
+    "set_code": "PHUK"
+  },
+  {
+    "set_name": "Happy Holidays",
+    "set_code": "HHO"
+  },
+  {
+    "set_name": "HarperPrism Book Promos",
+    "set_code": "PHPR"
+  },
+  {
+    "set_name": "HasCon 2017",
+    "set_code": "H17"
+  },
+  {
+    "set_name": "Heads I Win, Tails You Lose",
+    "set_code": "PHED"
+  },
+  {
+    "set_name": "Historic Anthology 1",
+    "set_code": "HA1"
+  },
+  {
+    "set_name": "Historic Anthology 2",
+    "set_code": "HA2"
+  },
+  {
+    "set_name": "Historic Anthology 3",
+    "set_code": "HA3"
+  },
+  {
+    "set_name": "Historic Anthology 4",
+    "set_code": "HA4"
+  },
+  {
+    "set_name": "Historic Anthology 5",
+    "set_code": "HA5"
+  },
+  {
+    "set_name": "Historic Anthology 6",
+    "set_code": "HA6"
+  },
+  {
+    "set_name": "Historic Anthology 7",
+    "set_code": "HA7"
+  },
+  {
+    "set_name": "Hobby Japan Promos",
+    "set_code": "PHJ"
+  },
+  {
+    "set_name": "Homelands",
+    "set_code": "HML"
+  },
+  {
+    "set_name": "Hour of Devastation",
+    "set_code": "HOU"
+  },
+  {
+    "set_name": "Hour of Devastation Promos",
+    "set_code": "PHOU"
+  },
+  {
+    "set_name": "Ice Age",
+    "set_code": "ICE"
+  },
+  {
+    "set_name": "Iconic Masters",
+    "set_code": "IMA"
+  },
+  {
+    "set_name": "IDW Comics Inserts",
+    "set_code": "PIDW"
+  },
+  {
+    "set_name": "Ikoria: Lair of Behemoths",
+    "set_code": "IKO"
+  },
+  {
+    "set_name": "Ikoria: Lair of Behemoths Promos",
+    "set_code": "PIKO"
+  },
+  {
+    "set_name": "Innistrad",
+    "set_code": "ISD"
+  },
+  {
+    "set_name": "Innistrad Promos",
+    "set_code": "PISD"
+  },
+  {
+    "set_name": "Innistrad: Crimson Vow",
+    "set_code": "VOW"
+  },
+  {
+    "set_name": "Innistrad: Crimson Vow Promos",
+    "set_code": "PVOW"
+  },
+  {
+    "set_name": "Innistrad: Double Feature",
+    "set_code": "DBL"
+  },
+  {
+    "set_name": "Innistrad: Midnight Hunt",
+    "set_code": "MID"
+  },
+  {
+    "set_name": "Innistrad: Midnight Hunt Promos",
+    "set_code": "PMID"
+  },
+  {
+    "set_name": "Intl. Collectors' Edition",
+    "set_code": "CEI"
+  },
+  {
+    "set_name": "Introductory Two-Player Set",
+    "set_code": "ITP"
+  },
+  {
+    "set_name": "Invasion",
+    "set_code": "INV"
+  },
+  {
+    "set_name": "Invasion Promos",
+    "set_code": "PINV"
+  },
+  {
+    "set_name": "Ixalan",
+    "set_code": "XLN"
+  },
+  {
+    "set_name": "Ixalan Promos",
+    "set_code": "PXLN"
+  },
+  {
+    "set_name": "Japan Junior Tournament",
+    "set_code": "PJJT"
+  },
+  {
+    "set_name": "Journey into Nyx",
+    "set_code": "JOU"
+  },
+  {
+    "set_name": "Journey into Nyx Hero's Path",
+    "set_code": "THP3"
+  },
+  {
+    "set_name": "Journey into Nyx Promos",
+    "set_code": "PJOU"
+  },
+  {
+    "set_name": "Judge Gift Cards 1998",
+    "set_code": "JGP"
+  },
+  {
+    "set_name": "Judge Gift Cards 1999",
+    "set_code": "G99"
+  },
+  {
+    "set_name": "Judge Gift Cards 2000",
+    "set_code": "G00"
+  },
+  {
+    "set_name": "Judge Gift Cards 2001",
+    "set_code": "G01"
+  },
+  {
+    "set_name": "Judge Gift Cards 2002",
+    "set_code": "G02"
+  },
+  {
+    "set_name": "Judge Gift Cards 2003",
+    "set_code": "G03"
+  },
+  {
+    "set_name": "Judge Gift Cards 2004",
+    "set_code": "G04"
+  },
+  {
+    "set_name": "Judge Gift Cards 2005",
+    "set_code": "G05"
+  },
+  {
+    "set_name": "Judge Gift Cards 2006",
+    "set_code": "G06"
+  },
+  {
+    "set_name": "Judge Gift Cards 2007",
+    "set_code": "G07"
+  },
+  {
+    "set_name": "Judge Gift Cards 2008",
+    "set_code": "G08"
+  },
+  {
+    "set_name": "Judge Gift Cards 2009",
+    "set_code": "G09"
+  },
+  {
+    "set_name": "Judge Gift Cards 2010",
+    "set_code": "G10"
+  },
+  {
+    "set_name": "Judge Gift Cards 2011",
+    "set_code": "G11"
+  },
+  {
+    "set_name": "Judge Gift Cards 2012",
+    "set_code": "J12"
+  },
+  {
+    "set_name": "Judge Gift Cards 2013",
+    "set_code": "J13"
+  },
+  {
+    "set_name": "Judge Gift Cards 2014",
+    "set_code": "J14"
+  },
+  {
+    "set_name": "Judge Gift Cards 2015",
+    "set_code": "J15"
+  },
+  {
+    "set_name": "Judge Gift Cards 2016",
+    "set_code": "J16"
+  },
+  {
+    "set_name": "Judge Gift Cards 2017",
+    "set_code": "J17"
+  },
+  {
+    "set_name": "Judge Gift Cards 2018",
+    "set_code": "J18"
+  },
+  {
+    "set_name": "Judge Gift Cards 2019",
+    "set_code": "J19"
+  },
+  {
+    "set_name": "Judge Gift Cards 2020",
+    "set_code": "J20"
+  },
+  {
+    "set_name": "Judge Gift Cards 2021",
+    "set_code": "PJ21"
+  },
+  {
+    "set_name": "Judge Gift Cards 2022",
+    "set_code": "P22"
+  },
+  {
+    "set_name": "Judge Gift Cards 2023",
+    "set_code": "P23"
+  },
+  {
+    "set_name": "Judgment",
+    "set_code": "JUD"
+  },
+  {
+    "set_name": "Judgment Promos",
+    "set_code": "PJUD"
+  },
+  {
+    "set_name": "Jumpstart",
+    "set_code": "JMP"
+  },
+  {
+    "set_name": "Jumpstart 2022",
+    "set_code": "J22"
+  },
+  {
+    "set_name": "Jumpstart Arena Exclusives",
+    "set_code": "AJMP"
+  },
+  {
+    "set_name": "Jumpstart: Historic Horizons",
+    "set_code": "J21"
+  },
+  {
+    "set_name": "Junior APAC Series",
+    "set_code": "PJAS"
+  },
+  {
+    "set_name": "Junior Series Europe",
+    "set_code": "PJSE"
+  },
+  {
+    "set_name": "Junior Super Series",
+    "set_code": "PSUS"
+  },
+  {
+    "set_name": "Jurassic World Collection",
+    "set_code": "REX"
+  },
+  {
+    "set_name": "Kaladesh",
+    "set_code": "KLD"
+  },
+  {
+    "set_name": "Kaladesh Inventions",
+    "set_code": "MPS"
+  },
+  {
+    "set_name": "Kaladesh Promos",
+    "set_code": "PKLD"
+  },
+  {
+    "set_name": "Kaladesh Remastered",
+    "set_code": "KLR"
+  },
+  {
+    "set_name": "Kaldheim",
+    "set_code": "KHM"
+  },
+  {
+    "set_name": "Kaldheim Commander",
+    "set_code": "KHC"
+  },
+  {
+    "set_name": "Kaldheim Promos",
+    "set_code": "PKHM"
+  },
+  {
+    "set_name": "Kamigawa: Neon Dynasty",
+    "set_code": "NEO"
+  },
+  {
+    "set_name": "Kamigawa: Neon Dynasty Promos",
+    "set_code": "PNEO"
+  },
+  {
+    "set_name": "Khans of Tarkir",
+    "set_code": "KTK"
+  },
+  {
+    "set_name": "Khans of Tarkir Promos",
+    "set_code": "PKTK"
+  },
+  {
+    "set_name": "Legacy Championship",
+    "set_code": "OLGC"
+  },
+  {
+    "set_name": "Legendary Cube Prize Pack",
+    "set_code": "PZ1"
+  },
+  {
+    "set_name": "Legends",
+    "set_code": "LEG"
+  },
+  {
+    "set_name": "Legions",
+    "set_code": "LGN"
+  },
+  {
+    "set_name": "Legions Promos",
+    "set_code": "PLGN"
+  },
+  {
+    "set_name": "Limited Edition Alpha",
+    "set_code": "LEA"
+  },
+  {
+    "set_name": "Limited Edition Beta",
+    "set_code": "LEB"
+  },
+  {
+    "set_name": "Lorwyn",
+    "set_code": "LRW"
+  },
+  {
+    "set_name": "Lorwyn Promos",
+    "set_code": "PLRW"
+  },
+  {
+    "set_name": "Love Your LGS 2020",
+    "set_code": "PLG20"
+  },
+  {
+    "set_name": "Love Your LGS 2021",
+    "set_code": "PLG21"
+  },
+  {
+    "set_name": "Love Your LGS 2022",
+    "set_code": "PLG22"
+  },
+  {
+    "set_name": "M15 Prerelease Challenge",
+    "set_code": "PPC1"
+  },
+  {
+    "set_name": "M19 Gift Pack",
+    "set_code": "G18"
+  },
+  {
+    "set_name": "M19 Standard Showdown",
+    "set_code": "PSS3"
+  },
+  {
+    "set_name": "M20 Promo Packs",
+    "set_code": "PPP1"
+  },
+  {
+    "set_name": "Magic × Duel Masters Promos",
+    "set_code": "PMDA"
+  },
+  {
+    "set_name": "Magic 2010",
+    "set_code": "M10"
+  },
+  {
+    "set_name": "Magic 2010 Promos",
+    "set_code": "PM10"
+  },
+  {
+    "set_name": "Magic 2011",
+    "set_code": "M11"
+  },
+  {
+    "set_name": "Magic 2011 Promos",
+    "set_code": "PM11"
+  },
+  {
+    "set_name": "Magic 2012",
+    "set_code": "M12"
+  },
+  {
+    "set_name": "Magic 2012 Promos",
+    "set_code": "PM12"
+  },
+  {
+    "set_name": "Magic 2013",
+    "set_code": "M13"
+  },
+  {
+    "set_name": "Magic 2013 Promos",
+    "set_code": "PM13"
+  },
+  {
+    "set_name": "Magic 2014",
+    "set_code": "M14"
+  },
+  {
+    "set_name": "Magic 2014 Promos",
+    "set_code": "PM14"
+  },
+  {
+    "set_name": "Magic 2015",
+    "set_code": "M15"
+  },
+  {
+    "set_name": "Magic 2015 Clash Pack",
+    "set_code": "CP1"
+  },
+  {
+    "set_name": "Magic 2015 Promos",
+    "set_code": "PM15"
+  },
+  {
+    "set_name": "Magic Online Avatars",
+    "set_code": "PMOA"
+  },
+  {
+    "set_name": "Magic Online Promos",
+    "set_code": "PRM"
+  },
+  {
+    "set_name": "Magic Online Theme Decks",
+    "set_code": "TD0"
+  },
+  {
+    "set_name": "Magic Origins",
+    "set_code": "ORI"
+  },
+  {
+    "set_name": "Magic Origins Clash Pack",
+    "set_code": "CP3"
+  },
+  {
+    "set_name": "Magic Origins Promos",
+    "set_code": "PORI"
+  },
+  {
+    "set_name": "Magic Player Rewards 2001",
+    "set_code": "MPR"
+  },
+  {
+    "set_name": "Magic Player Rewards 2003",
+    "set_code": "P03"
+  },
+  {
+    "set_name": "Magic Player Rewards 2004",
+    "set_code": "P04"
+  },
+  {
+    "set_name": "Magic Player Rewards 2005",
+    "set_code": "P05"
+  },
+  {
+    "set_name": "Magic Player Rewards 2006",
+    "set_code": "P06"
+  },
+  {
+    "set_name": "Magic Player Rewards 2007",
+    "set_code": "P07"
+  },
+  {
+    "set_name": "Magic Player Rewards 2008",
+    "set_code": "P08"
+  },
+  {
+    "set_name": "Magic Player Rewards 2009",
+    "set_code": "P09"
+  },
+  {
+    "set_name": "Magic Player Rewards 2010",
+    "set_code": "P10"
+  },
+  {
+    "set_name": "Magic Player Rewards 2011",
+    "set_code": "P11"
+  },
+  {
+    "set_name": "Magic Premiere Shop 2005",
+    "set_code": "PMPS"
+  },
+  {
+    "set_name": "Magic Premiere Shop 2006",
+    "set_code": "PMPS06"
+  },
+  {
+    "set_name": "Magic Premiere Shop 2007",
+    "set_code": "PMPS07"
+  },
+  {
+    "set_name": "Magic Premiere Shop 2008",
+    "set_code": "PMPS08"
+  },
+  {
+    "set_name": "Magic Premiere Shop 2009",
+    "set_code": "PMPS09"
+  },
+  {
+    "set_name": "Magic Premiere Shop 2010",
+    "set_code": "PMPS10"
+  },
+  {
+    "set_name": "Magic Premiere Shop 2011",
+    "set_code": "PMPS11"
+  },
+  {
+    "set_name": "MagicFest 2019",
+    "set_code": "PF19"
+  },
+  {
+    "set_name": "MagicFest 2020",
+    "set_code": "PF20"
+  },
+  {
+    "set_name": "MagicFest 2023",
+    "set_code": "PF23"
+  },
+  {
+    "set_name": "MagicFest 2024",
+    "set_code": "PF24"
+  },
+  {
+    "set_name": "March of the Machine",
+    "set_code": "MOM"
+  },
+  {
+    "set_name": "March of the Machine Commander",
+    "set_code": "MOC"
+  },
+  {
+    "set_name": "March of the Machine Promos",
+    "set_code": "PMOM"
+  },
+  {
+    "set_name": "March of the Machine: The Aftermath",
+    "set_code": "MAT"
+  },
+  {
+    "set_name": "March of the Machine: The Aftermath Promos",
+    "set_code": "PMAT"
+  },
+  {
+    "set_name": "Masters 25",
+    "set_code": "A25"
+  },
+  {
+    "set_name": "Masters Edition",
+    "set_code": "ME1"
+  },
+  {
+    "set_name": "Masters Edition II",
+    "set_code": "ME2"
+  },
+  {
+    "set_name": "Masters Edition III",
+    "set_code": "ME3"
+  },
+  {
+    "set_name": "Masters Edition IV",
+    "set_code": "ME4"
+  },
+  {
+    "set_name": "Media Inserts",
+    "set_code": "PMEI"
+  },
+  {
+    "set_name": "Mercadian Masques",
+    "set_code": "MMQ"
+  },
+  {
+    "set_name": "Mercadian Masques Promos",
+    "set_code": "PMMQ"
+  },
+  {
+    "set_name": "MicroProse Promos",
+    "set_code": "PMIC"
+  },
+  {
+    "set_name": "Midnight Hunt Commander",
+    "set_code": "MIC"
+  },
+  {
+    "set_name": "Midnight Hunt Commander Display Commanders",
+    "set_code": "OMIC"
+  },
+  {
+    "set_name": "Mirage",
+    "set_code": "MIR"
+  },
+  {
+    "set_name": "Mirrodin",
+    "set_code": "MRD"
+  },
+  {
+    "set_name": "Mirrodin Besieged",
+    "set_code": "MBS"
+  },
+  {
+    "set_name": "Mirrodin Besieged Promos",
+    "set_code": "PMBS"
+  },
+  {
+    "set_name": "Mirrodin Promos",
+    "set_code": "PMRD"
+  },
+  {
+    "set_name": "Miscellaneous Book Promos",
+    "set_code": "PBOOK"
+  },
+  {
+    "set_name": "MKM Standard Showdown",
+    "set_code": "PSS4"
+  },
+  {
+    "set_name": "Modern Event Deck 2014",
+    "set_code": "MD1"
+  },
+  {
+    "set_name": "Modern Horizons",
+    "set_code": "MH1"
+  },
+  {
+    "set_name": "Modern Horizons 1 Timeshifts",
+    "set_code": "H1R"
+  },
+  {
+    "set_name": "Modern Horizons 2",
+    "set_code": "MH2"
+  },
+  {
+    "set_name": "Modern Horizons 2 Promos",
+    "set_code": "PMH2"
+  },
+  {
+    "set_name": "Modern Horizons 3",
+    "set_code": "MH3"
+  },
+  {
+    "set_name": "Modern Horizons 3 Commander",
+    "set_code": "M3C"
+  },
+  {
+    "set_name": "Modern Horizons Promos",
+    "set_code": "PMH1"
+  },
+  {
+    "set_name": "Modern Masters",
+    "set_code": "MMA"
+  },
+  {
+    "set_name": "Modern Masters 2015",
+    "set_code": "MM2"
+  },
+  {
+    "set_name": "Modern Masters 2017",
+    "set_code": "MM3"
+  },
+  {
+    "set_name": "Morningtide",
+    "set_code": "MOR"
+  },
+  {
+    "set_name": "Morningtide Promos",
+    "set_code": "PMOR"
+  },
+  {
+    "set_name": "MTG Arena Promos",
+    "set_code": "PANA"
+  },
+  {
+    "set_name": "Multiverse Gift Box",
+    "set_code": "MGB"
+  },
+  {
+    "set_name": "Multiverse Legends",
+    "set_code": "MUL"
+  },
+  {
+    "set_name": "Murders at Karlov Manor",
+    "set_code": "MKM"
+  },
+  {
+    "set_name": "Murders at Karlov Manor Commander",
+    "set_code": "MKC"
+  },
+  {
+    "set_name": "Murders at Karlov Manor Promos",
+    "set_code": "PMKM"
+  },
+  {
+    "set_name": "Mystery Booster Playtest Cards 2019",
+    "set_code": "CMB1"
+  },
+  {
+    "set_name": "Mystery Booster Playtest Cards 2021",
+    "set_code": "CMB2"
+  },
+  {
+    "set_name": "Mystery Booster Retail Edition Foils",
+    "set_code": "FMB1"
+  },
+  {
+    "set_name": "Mythic Edition",
+    "set_code": "MED"
+  },
+  {
+    "set_name": "Nationals Promos",
+    "set_code": "PNAT"
+  },
+  {
+    "set_name": "Nemesis",
+    "set_code": "NEM"
+  },
+  {
+    "set_name": "Nemesis Promos",
+    "set_code": "PNEM"
+  },
+  {
+    "set_name": "Neon Dynasty Commander",
+    "set_code": "NEC"
+  },
+  {
+    "set_name": "New Capenna Commander",
+    "set_code": "NCC"
+  },
+  {
+    "set_name": "New Capenna Commander Promos",
+    "set_code": "PNCC"
+  },
+  {
+    "set_name": "New Phyrexia",
+    "set_code": "NPH"
+  },
+  {
+    "set_name": "New Phyrexia Promos",
+    "set_code": "PNPH"
+  },
+  {
+    "set_name": "Ninth Edition",
+    "set_code": "9ED"
+  },
+  {
+    "set_name": "Ninth Edition Promos",
+    "set_code": "P9ED"
+  },
+  {
+    "set_name": "Oath of the Gatewatch",
+    "set_code": "OGW"
+  },
+  {
+    "set_name": "Oath of the Gatewatch Promos",
+    "set_code": "POGW"
+  },
+  {
+    "set_name": "Odyssey",
+    "set_code": "ODY"
+  },
+  {
+    "set_name": "Odyssey Promos",
+    "set_code": "PODY"
+  },
+  {
+    "set_name": "Onslaught",
+    "set_code": "ONS"
+  },
+  {
+    "set_name": "Onslaught Promos",
+    "set_code": "PONS"
+  },
+  {
+    "set_name": "Open the Helvault",
+    "set_code": "PHEL"
+  },
+  {
+    "set_name": "Outlaws of Thunder Junction",
+    "set_code": "OTJ"
+  },
+  {
+    "set_name": "Outlaws of Thunder Junction Commander",
+    "set_code": "OTC"
+  },
+  {
+    "set_name": "Outlaws of Thunder Junction Promos",
+    "set_code": "POTJ"
+  },
+  {
+    "set_name": "Oversized 90's Promos",
+    "set_code": "O90P"
+  },
+  {
+    "set_name": "Oversized League Prizes",
+    "set_code": "OLEP"
+  },
+  {
+    "set_name": "Phyrexia: All Will Be One",
+    "set_code": "ONE"
+  },
+  {
+    "set_name": "Phyrexia: All Will Be One Commander",
+    "set_code": "ONC"
+  },
+  {
+    "set_name": "Phyrexia: All Will Be One Promos",
+    "set_code": "PONE"
+  },
+  {
+    "set_name": "Pioneer Challenger Decks 2021",
+    "set_code": "Q06"
+  },
+  {
+    "set_name": "Planar Chaos",
+    "set_code": "PLC"
+  },
+  {
+    "set_name": "Planar Chaos Promos",
+    "set_code": "PPLC"
+  },
+  {
+    "set_name": "Planechase",
+    "set_code": "HOP"
+  },
+  {
+    "set_name": "Planechase 2012",
+    "set_code": "PC2"
+  },
+  {
+    "set_name": "Planechase 2012 Planes",
+    "set_code": "OPC2"
+  },
+  {
+    "set_name": "Planechase Anthology",
+    "set_code": "PCA"
+  },
+  {
+    "set_name": "Planechase Anthology Planes",
+    "set_code": "OPCA"
+  },
+  {
+    "set_name": "Planechase Planes",
+    "set_code": "OHOP"
+  },
+  {
+    "set_name": "Planechase Promos",
+    "set_code": "PHOP"
+  },
+  {
+    "set_name": "Planeshift",
+    "set_code": "PLS"
+  },
+  {
+    "set_name": "Planeshift Promos",
+    "set_code": "PPLS"
+  },
+  {
+    "set_name": "Planeswalker Championship Promos",
+    "set_code": "PWCS"
+  },
+  {
+    "set_name": "Ponies: The Galloping",
+    "set_code": "PTG"
+  },
+  {
+    "set_name": "Portal",
+    "set_code": "POR"
+  },
+  {
+    "set_name": "Portal Second Age",
+    "set_code": "P02"
+  },
+  {
+    "set_name": "Portal Three Kingdoms",
+    "set_code": "PTK"
+  },
+  {
+    "set_name": "Portal: Three Kingdoms Promos",
+    "set_code": "PPTK"
+  },
+  {
+    "set_name": "Premium Deck Series: Fire and Lightning",
+    "set_code": "PD2"
+  },
+  {
+    "set_name": "Premium Deck Series: Graveborn",
+    "set_code": "PD3"
+  },
+  {
+    "set_name": "Premium Deck Series: Slivers",
+    "set_code": "H09"
+  },
+  {
+    "set_name": "Pro Tour Collector Set",
+    "set_code": "PTC"
+  },
+  {
+    "set_name": "Pro Tour Promos",
+    "set_code": "PPRO"
+  },
+  {
+    "set_name": "Prophecy",
+    "set_code": "PCY"
+  },
+  {
+    "set_name": "Prophecy Promos",
+    "set_code": "PPCY"
+  },
+  {
+    "set_name": "Ravnica Allegiance",
+    "set_code": "RNA"
+  },
+  {
+    "set_name": "Ravnica Allegiance Promos",
+    "set_code": "PRNA"
+  },
+  {
+    "set_name": "Ravnica Remastered",
+    "set_code": "RVR"
+  },
+  {
+    "set_name": "Ravnica: City of Guilds",
+    "set_code": "RAV"
+  },
+  {
+    "set_name": "Ravnica: City of Guilds Promos",
+    "set_code": "PRAV"
+  },
+  {
+    "set_name": "Ravnica: Clue Edition",
+    "set_code": "CLU"
+  },
+  {
+    "set_name": "Redemption Program",
+    "set_code": "PRED"
+  },
+  {
+    "set_name": "Regional Championship Qualifiers 2022",
+    "set_code": "PRCQ"
+  },
+  {
+    "set_name": "Regional Championship Qualifiers 2023",
+    "set_code": "PR23"
+  },
+  {
+    "set_name": "Renaissance",
+    "set_code": "REN"
+  },
+  {
+    "set_name": "Resale Promos",
+    "set_code": "PRES"
+  },
+  {
+    "set_name": "Return to Ravnica",
+    "set_code": "RTR"
+  },
+  {
+    "set_name": "Return to Ravnica Promos",
+    "set_code": "PRTR"
+  },
+  {
+    "set_name": "Revised Edition",
+    "set_code": "3ED"
+  },
+  {
+    "set_name": "Rinascimento",
+    "set_code": "RIN"
+  },
+  {
+    "set_name": "Rise of the Eldrazi",
+    "set_code": "ROE"
+  },
+  {
+    "set_name": "Rise of the Eldrazi Promos",
+    "set_code": "PROE"
+  },
+  {
+    "set_name": "Rivals of Ixalan",
+    "set_code": "RIX"
+  },
+  {
+    "set_name": "Rivals of Ixalan Promos",
+    "set_code": "PRIX"
+  },
+  {
+    "set_name": "Rivals Quick Start Set",
+    "set_code": "RQS"
+  },
+  {
+    "set_name": "RNA Guild Kit",
+    "set_code": "GK2"
+  },
+  {
+    "set_name": "RNA Ravnica Weekend",
+    "set_code": "PRW2"
+  },
+  {
+    "set_name": "Salvat 2005",
+    "set_code": "PSAL"
+  },
+  {
+    "set_name": "Salvat 2011",
+    "set_code": "PS11"
+  },
+  {
+    "set_name": "San Diego Comic-Con 2013",
+    "set_code": "PSDC"
+  },
+  {
+    "set_name": "San Diego Comic-Con 2014",
+    "set_code": "PS14"
+  },
+  {
+    "set_name": "San Diego Comic-Con 2015",
+    "set_code": "PS15"
+  },
+  {
+    "set_name": "San Diego Comic-Con 2016",
+    "set_code": "PS16"
+  },
+  {
+    "set_name": "San Diego Comic-Con 2017",
+    "set_code": "PS17"
+  },
+  {
+    "set_name": "San Diego Comic-Con 2018",
+    "set_code": "PS18"
+  },
+  {
+    "set_name": "San Diego Comic-Con 2019",
+    "set_code": "PS19"
+  },
+  {
+    "set_name": "Saviors of Kamigawa",
+    "set_code": "SOK"
+  },
+  {
+    "set_name": "Saviors of Kamigawa Promos",
+    "set_code": "PSOK"
+  },
+  {
+    "set_name": "Scars of Mirrodin",
+    "set_code": "SOM"
+  },
+  {
+    "set_name": "Scars of Mirrodin Promos",
+    "set_code": "PSOM"
+  },
+  {
+    "set_name": "Scourge",
+    "set_code": "SCG"
+  },
+  {
+    "set_name": "Scourge Promos",
+    "set_code": "PSCG"
+  },
+  {
+    "set_name": "Secret Lair 30th Anniversary Countdown Kit",
+    "set_code": "SLC"
+  },
+  {
+    "set_name": "Secret Lair Drop",
+    "set_code": "SLD"
+  },
+  {
+    "set_name": "Secret Lair Showdown",
+    "set_code": "SLP"
+  },
+  {
+    "set_name": "Secret Lair: Ultimate Edition",
+    "set_code": "SLU"
+  },
+  {
+    "set_name": "Sega Dreamcast Cards",
+    "set_code": "PSDG"
+  },
+  {
+    "set_name": "Seventh Edition",
+    "set_code": "7ED"
+  },
+  {
+    "set_name": "Shadowmoor",
+    "set_code": "SHM"
+  },
+  {
+    "set_name": "Shadowmoor Promos",
+    "set_code": "PSHM"
+  },
+  {
+    "set_name": "Shadows of the Past",
+    "set_code": "SIS"
+  },
+  {
+    "set_name": "Shadows over Innistrad",
+    "set_code": "SOI"
+  },
+  {
+    "set_name": "Shadows over Innistrad Promos",
+    "set_code": "PSOI"
+  },
+  {
+    "set_name": "Shadows over Innistrad Remastered",
+    "set_code": "SIR"
+  },
+  {
+    "set_name": "Shards of Alara",
+    "set_code": "ALA"
+  },
+  {
+    "set_name": "Shards of Alara Promos",
+    "set_code": "PALA"
+  },
+  {
+    "set_name": "Signature Spellbook: Chandra",
+    "set_code": "SS3"
+  },
+  {
+    "set_name": "Signature Spellbook: Gideon",
+    "set_code": "SS2"
+  },
+  {
+    "set_name": "Signature Spellbook: Jace",
+    "set_code": "SS1"
+  },
+  {
+    "set_name": "Special Guests",
+    "set_code": "SPG"
+  },
+  {
+    "set_name": "Starter 1999",
+    "set_code": "S99"
+  },
+  {
+    "set_name": "Starter 2000",
+    "set_code": "S00"
+  },
+  {
+    "set_name": "Starter Commander Decks",
+    "set_code": "SCD"
+  },
+  {
+    "set_name": "Store Championships",
+    "set_code": "SCH"
+  },
+  {
+    "set_name": "Streets of New Capenna",
+    "set_code": "SNC"
+  },
+  {
+    "set_name": "Streets of New Capenna Promos",
+    "set_code": "PSNC"
+  },
+  {
+    "set_name": "Strixhaven Mystical Archive",
+    "set_code": "STA"
+  },
+  {
+    "set_name": "Strixhaven: School of Mages",
+    "set_code": "STX"
+  },
+  {
+    "set_name": "Strixhaven: School of Mages Promos",
+    "set_code": "PSTX"
+  },
+  {
+    "set_name": "Stronghold",
+    "set_code": "STH"
+  },
+  {
+    "set_name": "Stronghold Promos",
+    "set_code": "PSTH"
+  },
+  {
+    "set_name": "Summer Magic / Edgar",
+    "set_code": "SUM"
+  },
+  {
+    "set_name": "Summer Vacation Promos 2022",
+    "set_code": "PSVC"
+  },
+  {
+    "set_name": "Tales of Middle-earth Commander",
+    "set_code": "LTC"
+  },
+  {
+    "set_name": "Tales of Middle-earth Promos",
+    "set_code": "PLTR"
+  },
+  {
+    "set_name": "Tarkir Dragonfury",
+    "set_code": "PTKDF"
+  },
+  {
+    "set_name": "Tempest",
+    "set_code": "TMP"
+  },
+  {
+    "set_name": "Tempest Promos",
+    "set_code": "PTMP"
+  },
+  {
+    "set_name": "Tempest Remastered",
+    "set_code": "TPR"
+  },
+  {
+    "set_name": "Tenth Edition",
+    "set_code": "10E"
+  },
+  {
+    "set_name": "Tenth Edition Promos",
+    "set_code": "P10E"
+  },
+  {
+    "set_name": "The Big Score",
+    "set_code": "BIG"
+  },
+  {
+    "set_name": "The Brothers' War",
+    "set_code": "BRO"
+  },
+  {
+    "set_name": "The Brothers' War Commander",
+    "set_code": "BRC"
+  },
+  {
+    "set_name": "The Brothers' War Promos",
+    "set_code": "PBRO"
+  },
+  {
+    "set_name": "The Brothers' War Retro Artifacts",
+    "set_code": "BRR"
+  },
+  {
+    "set_name": "The Dark",
+    "set_code": "DRK"
+  },
+  {
+    "set_name": "The List",
+    "set_code": "PLIST"
+  },
+  {
+    "set_name": "The List",
+    "set_code": "PLST"
+  },
+  {
+    "set_name": "The List (Unfinity Foil Edition)",
+    "set_code": "ULST"
+  },
+  {
+    "set_name": "The List (Unfinity Foil Edition)",
+    "set_code": "UPLIST"
+  },
+  {
+    "set_name": "The Lord of the Rings: Tales of Middle-earth",
+    "set_code": "LTR"
+  },
+  {
+    "set_name": "The Lost Caverns of Ixalan",
+    "set_code": "LCI"
+  },
+  {
+    "set_name": "The Lost Caverns of Ixalan Commander",
+    "set_code": "LCC"
+  },
+  {
+    "set_name": "The Lost Caverns of Ixalan Promos",
+    "set_code": "PLCI"
+  },
+  {
+    "set_name": "Theros",
+    "set_code": "THS"
+  },
+  {
+    "set_name": "Theros Beyond Death",
+    "set_code": "THB"
+  },
+  {
+    "set_name": "Theros Beyond Death Promos",
+    "set_code": "PTHB"
+  },
+  {
+    "set_name": "Theros Hero's Path",
+    "set_code": "THP1"
+  },
+  {
+    "set_name": "Theros Promos",
+    "set_code": "PTHS"
+  },
+  {
+    "set_name": "Throne of Eldraine",
+    "set_code": "ELD"
+  },
+  {
+    "set_name": "Throne of Eldraine Promos",
+    "set_code": "PELD"
+  },
+  {
+    "set_name": "Time Spiral",
+    "set_code": "TSP"
+  },
+  {
+    "set_name": "Time Spiral Promos",
+    "set_code": "PTSP"
+  },
+  {
+    "set_name": "Time Spiral Remastered",
+    "set_code": "TSR"
+  },
+  {
+    "set_name": "Time Spiral Remastered Promos",
+    "set_code": "PTSR"
+  },
+  {
+    "set_name": "Time Spiral Timeshifted",
+    "set_code": "TSB"
+  },
+  {
+    "set_name": "Torment",
+    "set_code": "TOR"
+  },
+  {
+    "set_name": "Torment Promos",
+    "set_code": "PTOR"
+  },
+  {
+    "set_name": "Transformers",
+    "set_code": "BOT"
+  },
+  {
+    "set_name": "Treasure Chest",
+    "set_code": "PZ2"
+  },
+  {
+    "set_name": "Two-Headed Giant Tournament",
+    "set_code": "P2HG"
+  },
+  {
+    "set_name": "Ugin's Fate",
+    "set_code": "UGIN"
+  },
+  {
+    "set_name": "Ultimate Box Topper",
+    "set_code": "PUMA"
+  },
+  {
+    "set_name": "Ultimate Masters",
+    "set_code": "UMA"
+  },
+  {
+    "set_name": "Unfinity",
+    "set_code": "UNF"
+  },
+  {
+    "set_name": "Unfinity Sticker Sheets",
+    "set_code": "SUNF"
+  },
+  {
+    "set_name": "Unglued",
+    "set_code": "UGL"
+  },
+  {
+    "set_name": "Unhinged",
+    "set_code": "UNH"
+  },
+  {
+    "set_name": "Unhinged Promos",
+    "set_code": "PUNH"
+  },
+  {
+    "set_name": "Universes Within",
+    "set_code": "SLX"
+  },
+  {
+    "set_name": "Unlimited Edition",
+    "set_code": "2ED"
+  },
+  {
+    "set_name": "Unsanctioned",
+    "set_code": "UND"
+  },
+  {
+    "set_name": "Unstable",
+    "set_code": "UST"
+  },
+  {
+    "set_name": "Unstable Promos",
+    "set_code": "PUST"
+  },
+  {
+    "set_name": "URL/Convention Promos",
+    "set_code": "PURL"
+  },
+  {
+    "set_name": "Urza's Destiny",
+    "set_code": "UDS"
+  },
+  {
+    "set_name": "Urza's Destiny Promos",
+    "set_code": "PUDS"
+  },
+  {
+    "set_name": "Urza's Legacy",
+    "set_code": "ULG"
+  },
+  {
+    "set_name": "Urza's Legacy Promos",
+    "set_code": "PULG"
+  },
+  {
+    "set_name": "Urza's Saga",
+    "set_code": "USG"
+  },
+  {
+    "set_name": "Urza's Saga Promos",
+    "set_code": "PUSG"
+  },
+  {
+    "set_name": "Vanguard Series",
+    "set_code": "PVAN"
+  },
+  {
+    "set_name": "Vintage Championship",
+    "set_code": "OVNT"
+  },
+  {
+    "set_name": "Vintage Masters",
+    "set_code": "VMA"
+  },
+  {
+    "set_name": "Visions",
+    "set_code": "VIS"
+  },
+  {
+    "set_name": "War of the Spark",
+    "set_code": "WAR"
+  },
+  {
+    "set_name": "War of the Spark Promos",
+    "set_code": "PWAR"
+  },
+  {
+    "set_name": "Warhammer 40,000 Commander",
+    "set_code": "40K"
+  },
+  {
+    "set_name": "Weatherlight",
+    "set_code": "WTH"
+  },
+  {
+    "set_name": "Welcome Deck 2016",
+    "set_code": "W16"
+  },
+  {
+    "set_name": "Welcome Deck 2017",
+    "set_code": "W17"
+  },
+  {
+    "set_name": "Wilds of Eldraine",
+    "set_code": "WOE"
+  },
+  {
+    "set_name": "Wilds of Eldraine Commander",
+    "set_code": "WOC"
+  },
+  {
+    "set_name": "Wilds of Eldraine Promos",
+    "set_code": "PWOE"
+  },
+  {
+    "set_name": "Wilds of Eldraine: Enchanting Tales",
+    "set_code": "WOT"
+  },
+  {
+    "set_name": "Wizards of the Coast Online Store",
+    "set_code": "PWOS"
+  },
+  {
+    "set_name": "Wizards Play Network 2011",
+    "set_code": "PW11"
+  },
+  {
+    "set_name": "Wizards Play Network 2012",
+    "set_code": "PW12"
+  },
+  {
+    "set_name": "Wizards Play Network 2021",
+    "set_code": "PW21"
+  },
+  {
+    "set_name": "Wizards Play Network 2022",
+    "set_code": "PW22"
+  },
+  {
+    "set_name": "Wizards Play Network 2023",
+    "set_code": "PW23"
+  },
+  {
+    "set_name": "Wizards Play Network 2024",
+    "set_code": "PW24"
+  },
+  {
+    "set_name": "World Championship Decks 1997",
+    "set_code": "WC97"
+  },
+  {
+    "set_name": "World Championship Decks 1998",
+    "set_code": "WC98"
+  },
+  {
+    "set_name": "World Championship Decks 1999",
+    "set_code": "WC99"
+  },
+  {
+    "set_name": "World Championship Decks 2000",
+    "set_code": "WC00"
+  },
+  {
+    "set_name": "World Championship Decks 2001",
+    "set_code": "WC01"
+  },
+  {
+    "set_name": "World Championship Decks 2002",
+    "set_code": "WC02"
+  },
+  {
+    "set_name": "World Championship Decks 2003",
+    "set_code": "WC03"
+  },
+  {
+    "set_name": "World Championship Decks 2004",
+    "set_code": "WC04"
+  },
+  {
+    "set_name": "World Championship Promos",
+    "set_code": "PWOR"
+  },
+  {
+    "set_name": "World Magic Cup Qualifiers",
+    "set_code": "PWCQ"
+  },
+  {
+    "set_name": "World Magic Cup Qualifiers",
+    "set_code": "WMC"
+  },
+  {
+    "set_name": "Worldwake",
+    "set_code": "WWK"
+  },
+  {
+    "set_name": "Worldwake Promos",
+    "set_code": "PWWK"
+  },
+  {
+    "set_name": "XLN Standard Showdown",
+    "set_code": "PSS2"
+  },
+  {
+    "set_name": "XLN Treasure Chest",
+    "set_code": "PXTC"
+  },
+  {
+    "set_name": "Year of the Dragon 2024",
+    "set_code": "PL24"
+  },
+  {
+    "set_name": "Year of the Ox 2021",
+    "set_code": "PL21"
+  },
+  {
+    "set_name": "Year of the Rabbit 2023",
+    "set_code": "PL23"
+  },
+  {
+    "set_name": "Year of the Tiger 2022",
+    "set_code": "PL22"
+  },
+  {
+    "set_name": "Zendikar",
+    "set_code": "ZEN"
+  },
+  {
+    "set_name": "Zendikar Expeditions",
+    "set_code": "EXP"
+  },
+  {
+    "set_name": "Zendikar Promos",
+    "set_code": "PZEN"
+  },
+  {
+    "set_name": "Zendikar Rising",
+    "set_code": "ZNR"
+  },
+  {
+    "set_name": "Zendikar Rising Commander",
+    "set_code": "ZNC"
+  },
+  {
+    "set_name": "Zendikar Rising Expeditions",
+    "set_code": "ZNE"
+  },
+  {
+    "set_name": "Zendikar Rising Promos",
+    "set_code": "PZNR"
+  }
+]

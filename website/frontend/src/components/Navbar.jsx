@@ -52,6 +52,7 @@ export default function Navbar() {
             style={getOptionStyle('MTG')}
             onMouseEnter={() => handleMouseEnter('MTG')}
             onMouseLeave={handleMouseLeave}
+            onClick={() => navigate('/mtg-sets')}
           >
             MTG
           </div>
