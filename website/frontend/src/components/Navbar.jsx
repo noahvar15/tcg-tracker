@@ -71,6 +71,7 @@ export default function Navbar() {
         src="https://cdn-icons-png.flaticon.com/512/3276/3276535.png"
         style={styles.account}
         alt="Account Button"
+        onClick={() => navigate("/Signup")
       />
     </nav>
   );
