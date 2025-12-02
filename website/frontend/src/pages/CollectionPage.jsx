@@ -124,6 +124,7 @@ const CollectionPage = () => {
 
    const handleAddToAnotherCollection = async () => {
       if (!selectedCard || !targetCollection) return;
+      console.log(selectedCard);
 
       try {
          const res = await fetch(

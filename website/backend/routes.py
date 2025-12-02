@@ -206,7 +206,7 @@ def get_pkmn_cards_by_set(set_id):
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
 
-    cursor.execute("SELECT c.pokID, c.card_name, i.small_img, i.large_img FROM pokemon_card c LEFT JOIN pokemon_image i ON c.pokID = i.pokID WHERE c.set_id = %s;", (set_id,))
+    cursor.execute("SELECT c.pokID as id, 'pokemon' as type, c.card_name, i.small_img, i.large_img FROM pokemon_card c LEFT JOIN pokemon_image i ON c.pokID = i.pokID WHERE c.set_id = %s;", (set_id,))
     cards = cursor.fetchall()
 
     cursor.close()

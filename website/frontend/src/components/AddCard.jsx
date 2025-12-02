@@ -1,23 +1,10 @@
-{/*
-   --Just under function start
-   const [selectedCard, setSelectedCard] = useState(null);
-
-
-Add grant to user when making user
-let user rename first , m, last name.
-
-
-   
-*/}
-
-
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AddCard = ({ card, onClose }) => {
    const navigate = useNavigate();
    const token = localStorage.getItem("TCG_token");
+   const [uID, setUid] = useState(null);
 
    const [collections, setCollections] = useState([]);
    const [selectedCollection, setSelectedCollection] = useState("");
@@ -34,9 +21,21 @@ const AddCard = ({ card, onClose }) => {
 
       const fetchCollections = async () => {
          try {
-            const res = await fetch("http://localhost:5000/api/collections", {
+            const userRes = await fetch("http://localhost:5000/api/get_user", {
                headers: { Authorization: `Bearer ${token}` },
             });
+
+            if (!userRes.ok) throw new Error("Failed to get user");
+
+            const userData = await userRes.json();
+            const userId = userData.uID;
+
+            const res = await fetch(
+               `http://localhost:5000/api/cards/collections/user/${userId}`,
+               {
+                  headers: { Authorization: `Bearer ${token}` },
+               }
+            );
 
             if (!res.ok) throw new Error("Failed to fetch collections");
 
@@ -53,23 +52,28 @@ const AddCard = ({ card, onClose }) => {
       fetchCollections();
    }, [token]);
 
+
    const handleAdd = async () => {
       if (!selectedCollection) return;
 
       setAdding(true);
       setError("");
       setSuccessMsg("");
+      console.log(card);
 
       try {
          const res = await fetch(
-            `http://localhost:5000/api/collections/${selectedCollection}/cards`,
+            `http://localhost:5000/api/cards/collection/${selectedCollection}/add_card`,
             {
                method: "POST",
                headers: {
                   "Content-Type": "application/json",
                   Authorization: `Bearer ${token}`,
                },
-               body: JSON.stringify({ card_id: card.id }),
+               body: JSON.stringify({
+                  card_type: card.type,
+                  id: card.id,
+               }),
             }
          );
 
@@ -95,7 +99,7 @@ const AddCard = ({ card, onClose }) => {
                ✕
             </button>
 
-            <img src={card.image} alt={card.name} style={styles.image} />
+            <img src={card.large_img} alt={card.name} style={styles.image} />
 
             <h3 style={styles.title}>{card.name}</h3>
 
@@ -114,19 +118,18 @@ const AddCard = ({ card, onClose }) => {
                      <p>Loading...</p>
                   ) : (
                      <>
-                        <select
-                           style={styles.select}
-                           value={selectedCollection}
-                           onChange={(e) => setSelectedCollection(e.target.value)}
+                      <select
+                        style={styles.select}
+                        value={selectedCollection}
+                        onChange={(e) => setSelectedCollection(e.target.value)}
                         >
-                           <option value="">Select Collection</option>
-                           {collections.map((col) => (
-                              <option key={col.id} value={col.id}>
-                                 {col.name}
-                              </option>
-                           ))}
-                        </select>
-
+                        <option value="">Select Collection</option>
+                        {collections.map((col) => (
+                           <option key={col.collectionID} value={col.collectionID}>
+                              {col.collection_name}
+                           </option>
+                        ))}
+                     </select>
                         <button
                            style={styles.addBtn}
                            disabled={!selectedCollection || adding}

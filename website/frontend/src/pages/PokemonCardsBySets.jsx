@@ -1,8 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
+import AddCard from "../components/AddCard";
 
 export default function PokemonCardsBySets() {
+  const [selectedCard, setSelectedCard] = useState(null);
   const { setId } = useParams();
   const [cards, setCards] = useState([]);
 
@@ -26,10 +28,18 @@ export default function PokemonCardsBySets() {
                 src={card.small_img}
                 alt={card.card_name}
                 style={styles.image}
+                onClick={() => setSelectedCard(card)}
               />
+              
             </div>
           ))}
         </div>
+        {selectedCard && (
+          <AddCard
+            card={selectedCard}
+            onClose={() => setSelectedCard(null)}
+          />
+        )}
       </div>
     </main>
   );
