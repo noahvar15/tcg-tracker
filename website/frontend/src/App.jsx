@@ -3,6 +3,7 @@ import Home from './pages/Home.jsx'
 import SignUp from './pages/Signup.jsx'
 import Login from './pages/Login.jsx'
 import Profile from "./pages/Profile.jsx"
+import CollectionPage from "./pages/CollectionPage.jsx"
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Route path='/Signup' element={<SignUp />} />
         <Route path='/Login' element={<Login />} />
         <Route path='/Profile' element={<Profile />} />
+        <Route path="/collections/:collectionID" element={<CollectionPage />} />
       </Routes>
     </Router>
   )

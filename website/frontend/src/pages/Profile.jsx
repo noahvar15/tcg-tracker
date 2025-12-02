@@ -40,7 +40,9 @@ const Profile = () => {
          if (!response.ok) throw new Error();
          const data = await response.json();
          setCollections(data);
-      } catch { }
+      } catch {
+         console.log("Failed")
+      }
    };
 
    const fetch_Collection_Cards = async (cID) => {
@@ -86,6 +88,9 @@ const Profile = () => {
             <div style={styles.collectionList}>
                {collections.map((c) => (
                   <div
+                     onClick={() => {
+                        navigate(`/collections/${c.collectionID}`)
+                     }}
                      key={c.collectionID}
                      style={styles.collectionCard}
                   >
