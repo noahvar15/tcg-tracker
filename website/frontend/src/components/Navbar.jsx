@@ -80,16 +80,14 @@ export default function Navbar() {
 
 const styles = {
   nav: {
-    padding: "1rem",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    padding: "1rem 2rem",
     backgroundColor: 'rgba(53, 53, 53, 0.5)',
     color: "white",
     position: "sticky",
     top: 0,
-    width: "95vw",
+    width: "100vw",
     height: "10vh",
     gap: "2rem",
     zIndex: '9999',

@@ -63,12 +63,12 @@ const styles = {
   container: {
     marginTop: "80px",
     margin: "1rem",
-    width: "100%",
   },
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(178.5px, 178.5px))",
+    gridTemplateColumns: "repeat(auto-fill, minmax(178.5px, 178.5px))",
     gap: "0.4rem",
+    justifyContent: "center",
   },
   image: {
     width: "178.5px",
