@@ -145,6 +145,46 @@ def search_pokemon_cards():
 
     return jsonify(results)
 
+@cards_bp.get("/mtg/sets/<set_code>")
+def get_mtg_set(set_code):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    # Fetch ONE set row
+    cursor.execute("SELECT * FROM mtg_card WHERE set_code = %s LIMIT 1", (set_code,))
+    result = cursor.fetchone()
+
+    cursor.close()
+    conn.close()
+
+    if not result:
+        return jsonify({"error": "Set not found"}), 404
+
+    return jsonify(result)
+
+
+@cards_bp.get("/mtg/cards/<set_code>")
+def get_mtg_cards_by_set(set_code):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    # Fetch all MTG cards from the set
+    cursor.execute("""
+        SELECT mtgID, name, image 
+        FROM mtg_card
+        WHERE set_code = %s
+    """, (set_code,))
+
+    cards = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    if not cards:
+        return jsonify({"error": "Cards not found"}), 404
+
+    return jsonify(cards)
+
 @cards_bp.get("/pokemon/sets/<set_id>")
 def get_pkmn_set(set_id):
     conn = get_db_connection()

@@ -5,6 +5,8 @@ import PokemonSets from './pages/PokemonSets.jsx'
 import SignUp from './pages/Signup.jsx'
 import Login from './pages/Login.jsx'
 import PokemonCardsBySets from "./pages/PokemonCardsBySets.jsx";
+import MTGSets from './pages/MTGSets.jsx'
+import MTGCardsBySets from "./pages/MTGCardsBySets.jsx";
 
 function App() {
 
@@ -15,6 +17,8 @@ function App() {
         <Route path='/search' element={<SearchResults />} />
         <Route path='/pokemon-sets' element={<PokemonSets />} />
         <Route path="/pokemon-sets/:setId" element={<PokemonCardsBySets />} />
+        <Route path='/mtg-sets' element={<MTGSets />} />
+        <Route path="/mtg-sets/:setCode" element={<MTGCardsBySets />} />
         <Route path='/Signup' element={<SignUp />} />
         <Route path='/Login' element={<Login />} />
       </Routes>
