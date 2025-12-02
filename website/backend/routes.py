@@ -270,6 +270,24 @@ def random_mtg_50():
 
     return jsonify(results)
 
+@cards_bp.get("/total-cards")
+def total_cards():
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""select
+        (select count(*)
+        from pokemon_card) +
+        (select count(*)
+        from mtg_card) as total_card_count;""")
+
+    results = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return jsonify(results)
+
 @cards_bp.get("/pokemon/random50")
 def random_pokemon_50():
     conn = get_db_connection()
