@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar.jsx";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CreateCollection from "../components/CreateCollection.jsx";
 
 const Profile = () => {
    const navigate = useNavigate();
@@ -79,7 +80,7 @@ const Profile = () => {
    return (
       <main>
          <Navbar />
-
+         <CreateCollection uID={UID}/>
          <div style={styles.body}>
             <h2 style={styles.nameCollection}>
                <span>{FName}</span>'s Collections
