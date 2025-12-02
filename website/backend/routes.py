@@ -83,7 +83,7 @@ def get_most_owned_cards():
     return jsonify(result)
 
 
-@cards_bp.get("/mtg/search")
+@cards_bp.get("/search")
 def search_mtg_cards():
     query = request.args.get("q", "")
 
@@ -98,18 +98,26 @@ def search_mtg_cards():
     cursor = conn.cursor(dictionary=True)
 
     sql = """
-        SELECT mtgID AS name, image
+        SELECT card_name AS name, small_img AS image, 'pokemon' AS game, pokID AS id
+        FROM pokemon_card
+        JOIN pokemon_image USING (pokID)
+        WHERE small_img IS NOT NULL AND card_name LIKE %s
+
+        UNION ALL
+
+        SELECT name, image, 'mtg' AS game, mtgID AS id
         FROM mtg_card
-        WHERE image IS NOT NULL and name LIKE %s
+        WHERE image IS NOT NULL AND name LIKE %s;
     """
 
-    cursor.execute(sql, (f"%{query}%",))
+    cursor.execute(sql, (f"%{query}%", f"%{query}%"))
     results = cursor.fetchall()
 
     cursor.close()
     conn.close()
 
     return jsonify(results)
+
 
 
 @cards_bp.get("/pokemon/search")
