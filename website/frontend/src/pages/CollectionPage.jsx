@@ -14,6 +14,8 @@ const CollectionPage = () => {
    const [userCollections, setUserCollections] = useState([]);
    const [currentCollectionName, setCurrentCollectionName] = useState("");
    const [uID, setUid] = useState(null);
+   const [isEditingName, setIsEditingName] = useState(false);
+   const [newName, setNewName] = useState("");
 
    const [selectedCard, setSelectedCard] = useState(null);
    const [targetCollection, setTargetCollection] = useState("");
@@ -56,6 +58,7 @@ const CollectionPage = () => {
          );
 
          if (current) {
+
             setCurrentCollectionName(current.collection_name);
          }
       } catch {
@@ -122,6 +125,46 @@ const CollectionPage = () => {
       }
    };
 
+   const handleSaveName = async () => {
+      if (!newName.trim()) return alert("Name cannot be empty");
+
+      try {
+         const res = await fetch(
+            `http://localhost:5000/api/cards/collections/${collectionID}/rename`,
+            {
+               method: "PUT",
+               headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${token}`,
+               },
+               body: JSON.stringify({ new_name: newName }),
+            }
+         );
+
+         if (!res.ok) throw new Error();
+
+         const data = await res.json();
+
+         // Update UI immediately
+         setCurrentCollectionName(newName);
+
+         // Update userCollections too
+         setUserCollections((prev) =>
+            prev.map((c) =>
+               c.collectionID == collectionID
+                  ? { ...c, collection_name: data.new_name }
+                  : c
+            )
+         );
+
+         setIsEditingName(false);
+         setNewName("");
+
+      } catch (err) {
+         alert("Failed to rename collection", err);
+      }
+   };
+
    const handleAddToAnotherCollection = async () => {
       if (!selectedCard || !targetCollection) return;
       console.log(selectedCard);
@@ -167,14 +210,51 @@ const CollectionPage = () => {
 
          <div style={styles.body}>
             <div style={styles.headerRow}>
-               <div>
-                  <h2 style={styles.title}>
-                     {currentCollectionName || "Collection"} #{collectionID}
-                  </h2>
+               <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                  {isEditingName ? (
+                     <>
+                        <input
+                           style={styles.nameInput}
+                           value={newName}
+                           onChange={(e) => setNewName(e.target.value)}
+                           placeholder="Collection name"
+                        />
+                        <button
+                           style={styles.saveButton}
+                           onClick={handleSaveName}
+                        >
+                           Save
+                        </button>
+                        <button
+                           style={styles.cancelButton}
+                           onClick={() => {
+                              setIsEditingName(false);
+                              setNewName("");
+                           }}
+                        >
+                           Cancel
+                        </button>
+                     </>
+                  ) : (
+                     <>
+                        <h2 style={styles.title}>{currentCollectionName}</h2>
+                        <button
+                           style={styles.editButton}
+                           onClick={() => {
+                              setIsEditingName(true);
+                              setNewName(currentCollectionName);
+                           }}
+                        >
+                           Edit
+                        </button>
+                     </>
+                  )}
                   <p style={styles.subTitle}>
                      {cardCount} card{cardCount !== 1 ? "s" : ""}
                   </p>
                </div>
+
+
 
                <div style={styles.filterGroup}>
                   <button
@@ -452,6 +532,44 @@ const styles = {
       cursor: "pointer",
       fontSize: "0.9rem",
    },
+   nameInput: {
+      padding: "0.4rem 0.6rem",
+      borderRadius: "6px",
+      border: "1px solid #ccc",
+      fontSize: "1rem",
+      minWidth: "200px",
+   },
+
+   editButton: {
+      padding: "0.3rem 0.7rem",
+      borderRadius: "6px",
+      border: "none",
+      cursor: "pointer",
+      fontSize: "0.8rem",
+      background: "#222",
+      color: "white",
+   },
+
+   saveButton: {
+      padding: "0.3rem 0.7rem",
+      borderRadius: "6px",
+      border: "none",
+      cursor: "pointer",
+      fontSize: "0.8rem",
+      background: "green",
+      color: "white",
+   },
+
+   cancelButton: {
+      padding: "0.3rem 0.7rem",
+      borderRadius: "6px",
+      border: "none",
+      cursor: "pointer",
+      fontSize: "0.8rem",
+      background: "#888",
+      color: "white",
+   },
+
 };
 
 export default CollectionPage;
