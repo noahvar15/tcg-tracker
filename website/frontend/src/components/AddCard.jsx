@@ -99,7 +99,7 @@ const AddCard = ({ card, onClose }) => {
                ✕
             </button>
 
-            <img src={card.large_img} alt={card.name} style={styles.image} />
+            <img src={card.image} alt={card.name} style={styles.image} />
 
             <h3 style={styles.title}>{card.name}</h3>
 

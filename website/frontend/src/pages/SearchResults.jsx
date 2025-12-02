@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
+import AddCard from "../components/AddCard.jsx";
 
 const SearchResults = () => {
   const [results, setResults] = useState([]);
   const [searchParams] = useSearchParams();
+  const [selectedCard, setSelectedCard] = useState(null);
   const query = searchParams.get("q");
   const navigate = useNavigate();
 
@@ -41,12 +43,18 @@ const SearchResults = () => {
           <div style={styles.grid}>
             {results.map((card) => (
               <div key={card.id} style={styles.card}>
-                <img src={card.image} alt={card.name} style={styles.image} />
+                <img src={card.image} alt={card.name} style={styles.image} onClick={() => setSelectedCard(card)}/>
               </div>
             ))}
           </div>
         )}
       </div>
+      {selectedCard && (
+          <AddCard
+            card={selectedCard}
+            onClose={() => setSelectedCard(null)}
+          />
+        )}
     </div>
   );
 };
