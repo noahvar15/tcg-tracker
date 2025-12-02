@@ -215,6 +215,7 @@ def get_pokemon_card(pok_id):
         return jsonify({"error": "Card not found"}), 404
 
     return jsonify(card)
+
 @cards_bp.get("/mtg/random50")
 def random_mtg_50():
     conn = get_db_connection()
@@ -305,6 +306,41 @@ def get_pokemon_in_collection(collection_id):
     conn.close()
 
     return jsonify(results)
+
+
+@cards_bp.post("/collection/create")
+def create_collection():
+    data = request.get_json()
+
+    uID = data.get("uID")
+    collection_name = data.get("collection_name")
+    descriptor = data.get("descriptor", "")
+
+    if not uID or not collection_name:
+        return jsonify({"error": "uID and collection_name are required"}), 400
+
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""
+        INSERT INTO collection (uID, collection_name, descriptor)
+        VALUES (%s, %s, %s)
+    """, (uID, collection_name, descriptor))
+
+    conn.commit()
+
+    new_id = cursor.lastrowid
+
+    cursor.close()
+    conn.close()
+
+    return jsonify({
+        "message": "Collection created",
+        "collectionID": new_id,
+        "collection_name": collection_name,
+        "descriptor": descriptor,
+        "size": 0
+    }), 201
 
 
 
