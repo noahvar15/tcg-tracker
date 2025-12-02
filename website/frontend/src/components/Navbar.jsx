@@ -1,31 +1,30 @@
 import { useState } from "react";
-import viteLogo from '../../public/vite.svg'
-import { useNavigate, Link } from "react-router-dom";
+import viteLogo from '../../public/vite.svg';
+import { useNavigate } from "react-router-dom";
 
-
-const Navbar = ({ onSearch }) => {
+export default function Navbar() {
   const [query, setQuery] = useState("");
   const [hoveredOption, setHoveredOption] = useState(null);
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSearch = () => {
-    if (query.trim()) onSearch(query.trim());
+    if (query.trim()) {
+      navigate(`/search?q=${encodeURIComponent(query.trim())}`);
+    }
   };
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") handleSearch();
   };
 
-    // Handlers for hover logic
-   const handleMouseEnter = (option) => setHoveredOption(option);
-   const handleMouseLeave = () => setHoveredOption(null);
+  const handleMouseEnter = (option) => setHoveredOption(option);
+  const handleMouseLeave = () => setHoveredOption(null);
 
-   // Function to dynamically style options
-   const getOptionStyle = (option) => ({
-      ...styles.Options,
-      borderBottom: hoveredOption === option ? '2px solid transparent' : '2px solid black',
-      cursor: 'pointer',
-   });
+  const getOptionStyle = (option) => ({
+    ...styles.Options,
+    borderBottom: hoveredOption === option ? '2px solid transparent' : '2px solid black',
+    cursor: 'pointer',
+  });
 
   return (
     <nav style={styles.nav}>
@@ -47,30 +46,34 @@ const Navbar = ({ onSearch }) => {
         </button>
       </div>
       <ul className="Options-Container" style={styles.OptionsContainer}>
-            <li>
-               <div
-                  style={getOptionStyle('MTG')}
-                  onMouseEnter={() => handleMouseEnter('MTG')}
-                  onMouseLeave={handleMouseLeave}
-               >
-                  MTG
-               </div>
-            </li>
-            <li>
-            <div
-               style={getOptionStyle('Pokemon')}
-               onMouseEnter={() => handleMouseEnter('Pokemon')}
-               onMouseLeave={handleMouseLeave}
-               onClick={() => navigate('/pokemon-sets')} // <-- Navigate on click
-            >
-               Pokemon
-            </div>
-            </li>
-         </ul>
-          <img src="https://cdn-icons-png.flaticon.com/512/3276/3276535.png" style={styles.account} alt="Account Button22" />
+        <li>
+          <div
+            style={getOptionStyle('MTG')}
+            onMouseEnter={() => handleMouseEnter('MTG')}
+            onMouseLeave={handleMouseLeave}
+          >
+            MTG
+          </div>
+        </li>
+        <li>
+          <div
+            style={getOptionStyle('Pokemon')}
+            onMouseEnter={() => handleMouseEnter('Pokemon')}
+            onMouseLeave={handleMouseLeave}
+            onClick={() => navigate('/pokemon-sets')}
+          >
+            Pokemon
+          </div>
+        </li>
+      </ul>
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/3276/3276535.png"
+        style={styles.account}
+        alt="Account Button"
+      />
     </nav>
   );
-};
+}
 
 const styles = {
   nav: {
@@ -91,31 +94,29 @@ const styles = {
     backdropFilter: 'blur(1000px)',
   },
   logo: { fontWeight: "bold", fontSize: "1.5rem" },
-  logoImage : { width: "32px", height: "auto", paddingRight: "1rem" },
+  logoImage: { width: "32px", height: "auto", paddingRight: "1rem" },
   searchContainer: { display: "flex", gap: "0.5rem", height: "40%" },
   searchInput: { padding: "0.5rem", border: '2px solid rgb(0,0,0,0.4)', borderRadius: "1rem", width: "300px" },
   searchButton: { padding: "0.5rem 1rem", border: '2px solid rgb(0,0,0,0.4)', borderRadius: "1rem", cursor: "pointer" },
   OptionsContainer: {
-      listStyleType: 'none',
-      display: 'flex',
-      gap: "1rem"
-   },
-   Options: {
-      height: '2vh',
-      margin: '1rem',
-      paddingBottom: '1rem',
-      transition: 'border-bottom 0.2s ease',
-   },
+    listStyleType: 'none',
+    display: 'flex',
+    gap: "1rem"
+  },
+  Options: {
+    height: '2vh',
+    margin: '1rem',
+    paddingBottom: '1rem',
+    transition: 'border-bottom 0.2s ease',
+  },
   account: {
-      border: "2px Solid Black",
-      borderRadius: '100px',
-      backgroundColor: 'white',
-      cursor: 'pointer',
-      height: '3rem',
-      width: '3rem',
-      justifySelf: 'end',
-      marginRight: '2rem',
-   },
+    border: "2px Solid Black",
+    borderRadius: '100px',
+    backgroundColor: 'white',
+    cursor: 'pointer',
+    height: '3rem',
+    width: '3rem',
+    justifySelf: 'end',
+    marginRight: '2rem',
+  },
 };
-
-export default Navbar;
