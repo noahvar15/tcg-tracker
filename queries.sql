@@ -340,3 +340,5 @@ FROM view_collection_all_cards
 WHERE collectionID = %s;
 
 
+create index idx_card_name_pkmn on pokemon_card(card_name);
+create index idx_card_name_mtg on mtg_card(name);
