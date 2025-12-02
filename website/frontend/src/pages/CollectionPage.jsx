@@ -391,185 +391,238 @@ const CollectionPage = () => {
 
 const styles = {
    body: {
-      marginTop: "15vh",
-      padding: "0 2vw 4rem",
+      marginTop: "16vh",
+      padding: "0 3vw 5rem",
+      color: "white",
+      fontFamily: "Inter, sans-serif",
    },
+
+   /* ----------- HEADER ----------- */
    headerRow: {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      marginBottom: "1.5rem",
+      marginBottom: "2rem",
       flexWrap: "wrap",
       gap: "1rem",
    },
+
    title: {
-      fontSize: "1.8rem",
+      fontSize: "2.2rem",
+      fontWeight: 700,
       margin: 0,
    },
+
    subTitle: {
-      margin: 0,
-      opacity: 0.8,
+      margin: "0 0 0 0.4rem",
+      opacity: 0.75,
+      fontSize: "1rem",
    },
+
+   /* ----------- FILTER BUTTONS ----------- */
    filterGroup: {
       display: "flex",
-      gap: "0.5rem",
+      gap: "0.6rem",
    },
+
    filterButton: {
-      padding: "0.4rem 0.8rem",
-      borderRadius: "999px",
-      border: "1px solid #ccc",
-      background: "#767676ff",
+      padding: "0.5rem 1rem",
+      borderRadius: "1000px",
+      background: "rgba(255,255,255,0.08)",
+      border: "1px solid rgba(255,255,255,0.12)",
+      color: "#ddd",
       cursor: "pointer",
       fontSize: "0.9rem",
+      transition: "0.2s",
    },
+
    filterButtonActive: {
-      background: "#222",
-      color: "white",
-      borderColor: "#222",
+      background: "rgb(255, 204, 0)",
+      borderColor: "rgb(255, 204, 0)",
+      color: "black",
+      fontWeight: 600,
    },
+
+   /* ----------- CARD GRID ----------- */
    cardGrid: {
       display: "grid",
-      gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
-      gap: "1rem",
+      gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
+      gap: "1.3rem",
+      marginTop: "1rem",
    },
+
+   /* ----------- CARD ----------- */
    card: {
-      background: "rgba(49, 49, 49, 1)",
-      borderRadius: "10px",
-      padding: "0.5rem",
-      boxShadow: "0 3px 10px rgba(0,0,0,0.15)",
+      background: "rgba(255,255,255,0.08)",
+      borderRadius: "12px",
+      padding: "0.75rem",
+      boxShadow: "0 4px 15px rgba(0,0,0,0.25)",
       cursor: "pointer",
-      transition: "transform 0.15s ease, box-shadow 0.15s ease",
+      transition: "transform 0.15s ease, box-shadow 0.2s ease",
    },
+
    cardImage: {
       width: "100%",
-      height: "auto",
-      borderRadius: "6px",
-      marginBottom: "0.3rem",
+      borderRadius: "10px",
+      marginBottom: "0.5rem",
    },
+
    cardName: {
-      fontSize: "0.9rem",
+      fontSize: "1rem",
       fontWeight: 600,
-      margin: 0,
+      margin: "0.2rem 0",
+      color: "#fff",
    },
+
    cardMeta: {
-      fontSize: "0.75rem",
-      opacity: 0.7,
+      fontSize: "0.8rem",
+      opacity: 0.75,
       margin: 0,
    },
+
+   /* ----------- MODAL ----------- */
    modalOverlay: {
       position: "fixed",
       inset: 0,
-      background: "rgba(0,0,0,0.6)",
+      background: "rgba(0,0,0,0.75)",
       display: "flex",
-      alignItems: "center",
       justifyContent: "center",
-      zIndex: 1000,
+      alignItems: "center",
+      zIndex: 2000,
+      backdropFilter: "blur(4px)",
    },
+
    modal: {
       position: "relative",
-      width: "min(420px, 90vw)",
-      background: "rgba(49, 49, 49, 1)",
-      borderRadius: "16px",
-      padding: "1.5rem",
-      boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
-   },
-   closeButton: {
-      position: "absolute",
-      top: "0.6rem",
-      right: "0.6rem",
-      border: "none",
-      background: "transparent",
-      fontSize: "1.1rem",
-      cursor: "pointer",
-   },
-   modalImage: {
-      width: "100%",
-      borderRadius: "10px",
-      marginBottom: "0.8rem",
-   },
-   modalTitle: {
-      margin: 0,
-      marginBottom: "0.4rem",
-   },
-   modalText: {
-      margin: 0,
-      fontSize: "0.9rem",
-      marginBottom: "0.2rem",
-   },
-   modalActions: {
-      marginTop: "1rem",
+      width: "min(450px, 92vw)",
+      background: "rgba(30, 30, 30, 0.95)",
+      borderRadius: "18px",
+      padding: "2rem",
+      boxShadow: "0 8px 25px rgba(0,0,0,0.55)",
+      animation: "fadeIn 0.25s ease",
+      justifyContent: "center",
       display: "flex",
       flexDirection: "column",
-      gap: "0.75rem",
+      alignItems: "center",
+      width: "30vw"
    },
-   dangerButton: {
-      padding: "0.5rem 0.8rem",
-      borderRadius: "8px",
+
+   closeButton: {
+      position: "absolute",
+      top: "0.9rem",
+      right: "0.9rem",
       border: "none",
-      background: "#e53935",
+      background: "transparent",
+      color: "#aaa",
+      fontSize: "1.2rem",
+      cursor: "pointer",
+      transition: "0.2s",
+   },
+
+   modalImage: {
+      width: "70%",
+      borderRadius: "12px",
+      marginBottom: "1rem",
+   },
+
+   modalTitle: {
+      fontSize: "1.4rem",
+      margin: "0 0 0.5rem",
+      fontWeight: 700,
+   },
+
+   modalText: {
+      fontSize: "0.95rem",
+      opacity: 0.85,
+      margin: "0.3rem 0",
+   },
+
+   modalActions: {
+      marginTop: "1.5rem",
+      display: "flex",
+      flexDirection: "column",
+      gap: "1rem",
+   },
+
+   dangerButton: {
+      padding: "0.65rem 1rem",
+      borderRadius: "10px",
+      border: "none",
+      background: "#ff4a4a",
       color: "white",
       cursor: "pointer",
-      fontSize: "0.9rem",
+      fontWeight: 600,
+      fontSize: "0.95rem",
+      transition: "0.2s",
    },
+
    addToWrapper: {
       display: "flex",
-      gap: "0.5rem",
+      gap: "0.6rem",
       alignItems: "center",
    },
+
    select: {
       flex: 1,
-      padding: "0.4rem 0.5rem",
-      borderRadius: "8px",
-      border: "1px solid #ccc",
-      fontSize: "0.9rem",
-   },
-   primaryButton: {
-      padding: "0.45rem 0.9rem",
-      borderRadius: "8px",
-      border: "none",
-      background: "#222",
+      padding: "0.55rem 0.65rem",
+      borderRadius: "10px",
+      border: "1px solid rgba(255,255,255,0.2)",
+      background: "rgba(255,255,255,0.08)",
       color: "white",
-      cursor: "pointer",
       fontSize: "0.9rem",
    },
+
+   primaryButton: {
+      padding: "0.55rem 1rem",
+      borderRadius: "10px",
+      border: "none",
+      background: "rgb(255, 204, 0)",
+      color: "black",
+      fontWeight: 600,
+      cursor: "pointer",
+      fontSize: "0.95rem",
+   },
+
+   /* ----------- EDIT NAME SECTION ----------- */
    nameInput: {
-      padding: "0.4rem 0.6rem",
-      borderRadius: "6px",
-      border: "1px solid #ccc",
+      padding: "0.45rem 0.7rem",
+      borderRadius: "8px",
+      border: "1px solid rgba(255,255,255,0.2)",
+      background: "rgba(255,255,255,0.08)",
+      color: "white",
       fontSize: "1rem",
       minWidth: "200px",
    },
 
    editButton: {
-      padding: "0.3rem 0.7rem",
-      borderRadius: "6px",
+      padding: "0.35rem 0.75rem",
+      borderRadius: "8px",
       border: "none",
       cursor: "pointer",
-      fontSize: "0.8rem",
-      background: "#222",
+      background: "rgba(255,255,255,0.15)",
       color: "white",
+      fontSize: "0.85rem",
+      fontWeight: 500,
    },
 
    saveButton: {
-      padding: "0.3rem 0.7rem",
-      borderRadius: "6px",
+      padding: "0.35rem 0.75rem",
+      borderRadius: "8px",
       border: "none",
       cursor: "pointer",
-      fontSize: "0.8rem",
-      background: "green",
+      background: "rgb(0, 200, 90)",
       color: "white",
+      fontWeight: 600,
    },
 
    cancelButton: {
-      padding: "0.3rem 0.7rem",
-      borderRadius: "6px",
+      padding: "0.35rem 0.75rem",
+      borderRadius: "8px",
       border: "none",
       cursor: "pointer",
-      fontSize: "0.8rem",
-      background: "#888",
+      background: "rgba(255,255,255,0.25)",
       color: "white",
    },
-
 };
 
 export default CollectionPage;
