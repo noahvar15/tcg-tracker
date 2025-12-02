@@ -93,12 +93,12 @@ def search_mtg_cards():
     cursor = conn.cursor(dictionary=True)
 
     sql = """
-        SELECT mtgID AS id, name, image, card_number
+        SELECT mtgID AS name, image
         FROM mtg_card
-        WHERE name LIKE %s OR mtgID = %s OR card_number = %s
+        WHERE image IS NOT NULL and name LIKE %s
     """
 
-    cursor.execute(sql, (f"%{query}%", query, query))
+    cursor.execute(sql, (f"%{query}%",))
     results = cursor.fetchall()
 
     cursor.close()

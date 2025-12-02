@@ -1,24 +1,21 @@
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
-//import { useEffect, useState } from "react";
-//import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
 
-   return (
-      <main>
-         <Navbar />
-         <div style={styles.body}>
-            <h2>Stuff</h2>
-         </div>
+  const handleSearch = (query) => {
+    navigate(`/search?q=${encodeURIComponent(query)}`);
+  };
 
-      </main>
-   )
+  return (
+    <div>
+      <Navbar onSearch={handleSearch} />
+      <h1 style={{ textAlign: "center", marginTop: "100px" }}>
+        Stuff
+      </h1>
+    </div>
+  );
 };
-
-const styles = {
-   body: {
-      marginTop: '15vh',
-   }
-}
 
 export default Home;
