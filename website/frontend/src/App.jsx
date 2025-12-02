@@ -3,6 +3,7 @@ import Home from './pages/Home.jsx'
 import PokemonSets from './pages/PokemonSets.jsx'
 import SignUp from './pages/Signup.jsx'
 import Login from './pages/Login.jsx'
+import PokemonCardsBySets from "./pages/PokemonCardsBySets.jsx";
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/pokemon-sets' element={<PokemonSets />} />
+        <Route path="/pokemon-sets/:setId" element={<PokemonCardsBySets />} />
         <Route path='/Signup' element={<SignUp />} />
         <Route path='/Login' element={<Login />} />
       </Routes>
