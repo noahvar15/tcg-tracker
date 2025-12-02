@@ -98,14 +98,14 @@ def search_mtg_cards():
     cursor = conn.cursor(dictionary=True)
 
     sql = """
-        SELECT card_name AS name, small_img AS image, 'pokemon' AS game, pokID AS id
+        SELECT card_name AS name, small_img AS image, 'pokemon' AS type, pokID AS id
         FROM pokemon_card
         JOIN pokemon_image USING (pokID)
         WHERE small_img IS NOT NULL AND card_name LIKE %s
 
         UNION ALL
 
-        SELECT name, image, 'mtg' AS game, mtgID AS id
+        SELECT name, image, 'mtg' AS type, mtgID AS id
         FROM mtg_card
         WHERE image IS NOT NULL AND name LIKE %s;
     """
