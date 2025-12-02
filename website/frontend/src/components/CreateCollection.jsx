@@ -7,7 +7,6 @@ export default function CreateCollection({ uID }) {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -45,34 +44,123 @@ export default function CreateCollection({ uID }) {
   };
 
   return (
-    <div style={{ padding: "20px", maxWidth: "400px" }}>
-      <h2>Create New Collection</h2>
+    <div style={styles.page}>
+      <div style={styles.card}>
+        <h2 style={styles.title}>Create Collection</h2>
 
-      <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          
+          <div style={styles.field}>
+            <label style={styles.label}>Collection Name</label>
+            <input
+              type="text"
+              value={collectionName}
+              onChange={(e) => setCollectionName(e.target.value)}
+              style={styles.input}
+              required
+            />
+          </div>
 
-        <label>Collection Name</label>
-        <input
-          type="text"
-          value={collectionName}
-          onChange={(e) => setCollectionName(e.target.value)}
-          required
-          style={{ width: "100%", marginBottom: "10px" }}
-        />
+          <div style={styles.field}>
+            <label style={styles.label}>Description (optional)</label>
+            <textarea
+              value={descriptor}
+              onChange={(e) => setDescriptor(e.target.value)}
+              style={{ ...styles.input, height: "80px", resize: "none" }}
+            />
+          </div>
 
-        <label>Description (optional)</label>
-        <textarea
-          value={descriptor}
-          onChange={(e) => setDescriptor(e.target.value)}
-          style={{ width: "100%", marginBottom: "10px" }}
-        />
+          <button type="submit" disabled={loading} style={styles.button}>
+            {loading ? "Creating..." : "Create Collection"}
+          </button>
+        </form>
 
-        <button type="submit" disabled={loading}>
-          {loading ? "Creating..." : "Create Collection"}
-        </button>
-      </form>
-
-      {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
-      {success && <p style={{ color: "green", marginTop: "10px" }}>{success}</p>}
+        {error && <p style={styles.error}>{error}</p>}
+        {success && <p style={styles.success}>{success}</p>}
+      </div>
     </div>
   );
 }
+
+const styles = {
+  page: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    width: "100vw",
+    background: "linear-gradient(180deg, #0d0d0d, #1a1a1a)",
+    color: "white",
+  },
+
+  card: {
+    width: "380px",
+    padding: "2.3rem",
+    borderRadius: "12px",
+    backgroundColor: "rgba(255, 255, 255, 0.05)",
+    boxShadow: "0 0 18px rgba(0, 0, 0, 0.45)",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+
+  title: {
+    marginBottom: "1.5rem",
+    fontSize: "1.9rem",
+    fontWeight: "700",
+    color: "white",
+  },
+
+  form: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    gap: "1rem",
+  },
+
+  field: {
+    display: "flex",
+    flexDirection: "column",
+  },
+
+  label: {
+    marginBottom: "0.35rem",
+    fontSize: "0.95rem",
+    color: "#ddd",
+  },
+
+  input: {
+    padding: "0.75rem",
+    borderRadius: "6px",
+    border: "1px solid rgba(255,255,255,0.2)",
+    background: "rgba(0,0,0,0.3)",
+    color: "white",
+    fontSize: "1rem",
+  },
+
+  button: {
+    marginTop: "0.5rem",
+    padding: "0.8rem",
+    backgroundColor: "rgb(22,22,22)", // your requested color
+    border: "none",
+    borderRadius: "8px",
+    fontSize: "1.05rem",
+    fontWeight: "600",
+    cursor: "pointer",
+    transition: "0.2s",
+  },
+
+  error: {
+    marginTop: "1rem",
+    color: "red",
+    fontWeight: "600",
+    textAlign: "center",
+  },
+
+  success: {
+    marginTop: "1rem",
+    color: "rgb(0, 200, 90)",
+    fontWeight: "600",
+    textAlign: "center",
+  },
+};

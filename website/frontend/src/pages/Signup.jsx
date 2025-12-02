@@ -32,9 +32,7 @@ const SignUp = () => {
       try {
          const response = await fetch("http://localhost:5000/api/signup", {
             method: "POST",
-            headers: {
-               "Content-Type": "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                first_name: form.fName,
                middle_initial: form.mInit,
@@ -46,17 +44,14 @@ const SignUp = () => {
          });
 
          if (!response.ok) {
-            // Handle specific backend error codes
             if (response.status === 409) {
                setValidationError("Email already exists.");
                return;
             }
-
             if (response.status === 400) {
                setValidationError("Missing or invalid fields.");
                return;
             }
-
             if (response.status === 401) {
                setValidationError("Invalid signup credentials.");
                return;
@@ -67,12 +62,10 @@ const SignUp = () => {
             return;
          }
 
-         // If success:
          const data = await response.json();
          localStorage.setItem("JWT_token", data.token);
 
          navigate("/");
-
       } catch (error) {
          console.error("Sign up error:", error);
          setValidationError("Unexpected server error.");
@@ -80,15 +73,15 @@ const SignUp = () => {
    };
 
    return (
-      <main>
-         <div className="loginPage">
-            <h1 style={{ marginTop: "8rem" }}>Sign Up</h1>
+      <main style={styles.page}>
+         <div style={styles.card}>
+            <h1 style={styles.title}>Sign Up</h1>
 
-            <form className="loginForm" onSubmit={handleSignUp}>
-               {validationError && <p style={{ color: "red" }}>{validationError}</p>}
+            <form style={styles.form} onSubmit={handleSignUp}>
+               {validationError && <p style={styles.error}>{validationError}</p>}
 
-               <div>
-                  <label htmlFor="fName">First Name:</label>
+               <div style={styles.field}>
+                  <label htmlFor="fName" style={styles.label}>First Name:</label>
                   <input
                      type="text"
                      id="fName"
@@ -96,11 +89,12 @@ const SignUp = () => {
                      value={form.fName}
                      onChange={handleChange}
                      required
+                     style={styles.input}
                   />
                </div>
 
-               <div>
-                  <label htmlFor="mInit">Middle Initial:</label>
+               <div style={styles.field}>
+                  <label htmlFor="mInit" style={styles.label}>Middle Initial:</label>
                   <input
                      type="text"
                      id="mInit"
@@ -108,11 +102,12 @@ const SignUp = () => {
                      maxLength={1}
                      value={form.mInit}
                      onChange={handleChange}
+                     style={styles.input}
                   />
                </div>
 
-               <div>
-                  <label htmlFor="lName">Last Name:</label>
+               <div style={styles.field}>
+                  <label htmlFor="lName" style={styles.label}>Last Name:</label>
                   <input
                      type="text"
                      id="lName"
@@ -120,11 +115,12 @@ const SignUp = () => {
                      value={form.lName}
                      onChange={handleChange}
                      required
+                     style={styles.input}
                   />
                </div>
 
-               <div>
-                  <label htmlFor="email">Email:</label>
+               <div style={styles.field}>
+                  <label htmlFor="email" style={styles.label}>Email:</label>
                   <input
                      type="email"
                      id="email"
@@ -132,11 +128,12 @@ const SignUp = () => {
                      value={form.email}
                      onChange={handleChange}
                      required
+                     style={styles.input}
                   />
                </div>
 
-               <div>
-                  <label htmlFor="dob">Date of Birth:</label>
+               <div style={styles.field}>
+                  <label htmlFor="dob" style={styles.label}>Date of Birth:</label>
                   <input
                      type="date"
                      id="dob"
@@ -144,11 +141,12 @@ const SignUp = () => {
                      value={form.dob}
                      onChange={handleChange}
                      required
+                     style={styles.input}
                   />
                </div>
 
-               <div>
-                  <label htmlFor="password">Password:</label>
+               <div style={styles.field}>
+                  <label htmlFor="password" style={styles.label}>Password:</label>
                   <input
                      type="password"
                      id="password"
@@ -156,11 +154,12 @@ const SignUp = () => {
                      value={form.password}
                      onChange={handleChange}
                      required
+                     style={styles.input}
                   />
                </div>
 
-               <div>
-                  <label htmlFor="password2">Password Again:</label>
+               <div style={styles.field}>
+                  <label htmlFor="password2" style={styles.label}>Password Again:</label>
                   <input
                      type="password"
                      id="password2"
@@ -168,29 +167,112 @@ const SignUp = () => {
                      value={form.password2}
                      onChange={handleChange}
                      required
+                     style={styles.input}
                   />
                </div>
 
-               <button className="signUpButton" type="submit">Sign Up</button>
+               <button style={styles.button} type="submit">
+                  Sign Up
+               </button>
             </form>
 
-            <div>
-               <p>
-                  Have an account?{" "}
-                  <span
-                     style={{
-                        color: "rgba(127, 239, 245, 1)",
-                        cursor: "pointer",
-                     }}
-                     onClick={() => navigate("/Login")}
-                  >
-                     <strong>Login</strong>
-                  </span>
-               </p>
-            </div>
+            <p style={styles.signupText}>
+               Have an account?{" "}
+               <span style={styles.signupLink} onClick={() => navigate("/Login")}>
+                  <strong>Login</strong>
+               </span>
+            </p>
          </div>
       </main>
    );
 };
+
+const styles = {
+   page: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "100vh",
+      width: "100vw",
+      background: "linear-gradient(180deg, #0d0d0d, #1a1a1a)",
+      color: "white",
+   },
+
+   card: {
+      width: "430px",
+      padding: "2.5rem",
+      borderRadius: "12px",
+      backgroundColor: "rgba(255, 255, 255, 0.05)",
+      boxShadow: "0 0 20px rgba(0, 0, 0, 0.4)",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+   },
+
+   title: {
+      marginBottom: "1.5rem",
+      fontSize: "2rem",
+      fontWeight: "700",
+      color: "white",
+   },
+
+   form: {
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      gap: "1rem",
+   },
+
+   field: {
+      display: "flex",
+      flexDirection: "column",
+   },
+
+   label: {
+      marginBottom: "0.35rem",
+      fontSize: "0.95rem",
+      color: "#ddd",
+   },
+
+   input: {
+      padding: "0.75rem",
+      borderRadius: "6px",
+      border: "1px solid rgba(255,255,255,0.2)",
+      background: "rgba(0,0,0,0.3)",
+      color: "white",
+      fontSize: "1rem",
+   },
+
+   button: {
+      marginTop: "0.75rem",
+      padding: "0.8rem",
+      backgroundColor: "rgba(0,0,0,0.3)",
+      border: "none",
+      borderRadius: "8px",
+      fontSize: "1.1rem",
+      fontWeight: "600",
+      cursor: "pointer",
+      transition: "0.2s",
+   },
+
+   error: {
+      color: "red",
+      fontWeight: "600",
+      textAlign: "center",
+   },
+
+   signupText: {
+      marginTop: "1rem",
+      fontSize: "0.95rem",
+      textAlign: "center",
+      color: "#ccc",
+   },
+
+   signupLink: {
+      color: "white",
+      cursor: "pointer",
+   },
+};
+
 
 export default SignUp;
