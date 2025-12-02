@@ -91,6 +91,10 @@ def search_mtg_cards():
         return jsonify({"error": "Missing search query"}), 400
 
     conn = get_db_connection()
+
+    if conn is None:
+        return jsonify({"error": "Database connection failed"}), 500
+
     cursor = conn.cursor(dictionary=True)
 
     sql = """
