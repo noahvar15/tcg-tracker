@@ -7,9 +7,6 @@ import datetime
 from functools import wraps
 import os
 
-# -------------------------
-#   Yes, I used GPT to help speed run this shi - Manny
-# -------------------------
 
 cards_bp = Blueprint("cards", __name__)
 auth = Blueprint('auth', __name__)
@@ -492,3 +489,31 @@ def get_user():
 
 
 #
+
+@cards_bp.route("/collections/<int:collection_id>/rename", methods=["PUT"])
+@token_required 
+def rename_collection(collection_id):
+    current_user = request.user_id
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    data = request.get_json()
+    new_name = data.get("new_name")
+
+    if not new_name:
+        return jsonify({"error": "Collection name required"}), 400
+
+    try:
+        query = """
+            UPDATE collection
+            SET collection_name = %s
+            WHERE collectionID = %s AND uID = %s
+        """
+        cursor.execute(query, (new_name, collection_id, current_user))
+        conn.commit()
+
+        return jsonify({"message": "Collection renamed"}), 200
+
+    except Exception as e:
+        print("Rename error:", e)
+        return jsonify({"error": "Rename failed"}), 500
