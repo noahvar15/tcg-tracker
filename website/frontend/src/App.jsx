@@ -1,10 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './pages/Home.jsx';
 import SearchResults from "./pages/SearchResults.jsx";
-import Home from './pages/Home.jsx'
-import PokemonSets from './pages/PokemonSets.jsx'
-import SignUp from './pages/Signup.jsx'
-import Login from './pages/Login.jsx'
+import PokemonSets from './pages/PokemonSets.jsx';
+import SignUp from './pages/Signup.jsx';
+import Login from './pages/Login.jsx';
 
 function App() {
 
