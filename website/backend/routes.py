@@ -247,7 +247,6 @@ def random_pokemon_50():
 
 @cards_bp.get("/collections/user/<user_id>")
 def get_user_collections(user_id):
-    print("FETCHING COLLECTIONS!!!!")
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
 
@@ -259,25 +258,33 @@ def get_user_collections(user_id):
     conn.close()
 
     return jsonify(results)
-
 @cards_bp.get("/collection/<collection_id>")
 def get_cards_in_collection(collection_id):
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
 
-    cursor.execute("""
+    card_type = request.args.get("type")  # 'mtg', 'pokemon', or None
+
+    base_sql = """
         SELECT type as card_type, id, name, image, card_number
         FROM view_collection_all_cards
         WHERE collectionID = %s
-    """, (collection_id,))
+    """
 
+    params = [collection_id]
+
+    if card_type in ("mtg", "pokemon"):
+        base_sql += " AND type = %s"
+        params.append(card_type)
+
+    cursor.execute(base_sql, tuple(params))
     results = cursor.fetchall()
-    print(f"cards in {collection_id}: {results}")
 
     cursor.close()
     conn.close()
 
     return jsonify(results)
+
 
 @cards_bp.get("/collection_mtg/<collection_id>")
 def get_mtg_in_collection(collection_id):
@@ -306,7 +313,79 @@ def get_pokemon_in_collection(collection_id):
     conn.close()
 
     return jsonify(results)
+@cards_bp.post("/collection/<collection_id>/remove_card")
+@token_required
+def remove_card_from_collection(collection_id):
+    data = request.json or {}
+    card_type = data.get("card_type")  # 'mtg' or 'pokemon'
+    card_id = data.get("id")
 
+    if card_type not in ("mtg", "pokemon") or not card_id:
+        return jsonify({"error": "card_type and id required"}), 400
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    try:
+        if card_type == "mtg":
+            cursor.execute(
+                "DELETE FROM mtg_collection WHERE mtgID = %s AND collectionID = %s",
+                (card_id, collection_id),
+            )
+        else:
+            cursor.execute(
+                "DELETE FROM pokemon_collection WHERE pokID = %s AND collectionID = %s",
+                (card_id, collection_id),
+            )
+
+        cursor.execute(
+            "UPDATE collection SET size = GREATEST(size - 1, 0) WHERE collectionID = %s",
+            (collection_id,),
+        )
+
+        conn.commit()
+    finally:
+        cursor.close()
+        conn.close()
+
+    return jsonify({"message": "Card removed from collection"}), 200
+
+@cards_bp.post("/collection/<collection_id>/add_card")
+@token_required
+def add_card_to_collection(collection_id):
+    data = request.json or {}
+    card_type = data.get("card_type")  # 'mtg' or 'pokemon'
+    card_id = data.get("id")
+
+    if card_type not in ("mtg", "pokemon") or not card_id:
+        return jsonify({"error": "card_type and id required"}), 400
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    try:
+        if card_type == "mtg":
+            cursor.execute(
+                "INSERT IGNORE INTO mtg_collection (mtgID, collectionID) VALUES (%s, %s)",
+                (card_id, collection_id),
+            )
+        else:
+            cursor.execute(
+                "INSERT IGNORE INTO pokemon_collection (pokID, collectionID) VALUES (%s, %s)",
+                (card_id, collection_id),
+            )
+
+        cursor.execute(
+            "UPDATE collection SET size = size + 1 WHERE collectionID = %s",
+            (collection_id,),
+        )
+
+        conn.commit()
+    finally:
+        cursor.close()
+        conn.close()
+
+    return jsonify({"message": "Card added to collection"}), 200
 
 @cards_bp.post("/collection/create")
 def create_collection():
@@ -446,3 +525,6 @@ def get_user():
     if not user:
         return jsonify({"error": "User Not Found"})
     return jsonify(user), 200
+
+
+#
