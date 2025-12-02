@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function PokemonSet({ setId }) {
   const [setData, setSetData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!setId) return;
@@ -26,7 +28,7 @@ export default function PokemonSet({ setId }) {
   if (!setData) return <p style={styles.loading}>No data found.</p>;
 
   return (
-    <div style={styles.card}>
+    <div style={styles.card} onClick={() => navigate('/pokemon-sets/' + setId)} >
       <img
         src={`/assets/${setId}.jpg`}
         alt={setData.name}
