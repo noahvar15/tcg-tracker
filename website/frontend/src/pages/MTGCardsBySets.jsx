@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
+import AddCard from "../components/AddCard";
 
 export default function MTGCardsBySets() {
   const { setCode } = useParams();
   const [cards, setCards] = useState([]);
+  const [selectedCard, setSelectedCard] = useState(null);
 
   useEffect(() => {
     fetch(`http://127.0.0.1:5000/api/cards/mtg/cards/${setCode}`)
@@ -26,10 +28,17 @@ export default function MTGCardsBySets() {
                 src={card.image}
                 alt={card.name}
                 style={styles.image}
+                onClick={() => setSelectedCard(card)}
               />
             </div>
           ))}
         </div>
+        {selectedCard && (
+          <AddCard
+            card={selectedCard}
+            onClose={() => setSelectedCard(null)}
+          />
+        )}
       </div>
     </main>
   );

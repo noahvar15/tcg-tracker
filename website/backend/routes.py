@@ -170,7 +170,7 @@ def get_mtg_cards_by_set(set_code):
 
     # Fetch all MTG cards from the set
     cursor.execute("""
-        SELECT mtgID, name, image 
+        SELECT mtgID as id, name, image, 'mtg' as type 
         FROM mtg_card
         WHERE set_code = %s
     """, (set_code,))
