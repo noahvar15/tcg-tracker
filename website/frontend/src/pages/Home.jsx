@@ -13,7 +13,6 @@ const Home = () => {
       "./public/background/mtg2.jpg",
       "./public/background/pok2.jpg",
       "./public/background/mtg3.jpg",
-      "./public/background/pok3.png",
       "./public/background/mtg4.jpg",
       "./public/background/pok4.jpg",
       "./public/background/mtg5.jpg",
