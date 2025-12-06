@@ -65,7 +65,7 @@ const SignUp = () => {
          const data = await response.json();
          localStorage.setItem("JWT_token", data.token);
 
-         navigate("/");
+         navigate("/login");
       } catch (error) {
          console.error("Sign up error:", error);
          setValidationError("Unexpected server error.");
