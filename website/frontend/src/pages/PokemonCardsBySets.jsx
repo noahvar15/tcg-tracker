@@ -28,7 +28,13 @@ export default function PokemonCardsBySets() {
                 src={card.small_img}
                 alt={card.card_name}
                 style={styles.image}
-                onClick={() => setSelectedCard(card)}
+                onClick={() =>
+                          setSelectedCard({
+                            ...card,
+                            image: card.small_img,     // normalize to image
+                          })
+                        }
+
               />
               
             </div>
